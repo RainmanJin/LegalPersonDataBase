@@ -101,8 +101,8 @@
                     </div>
                 </div>
                 <div class="hx-searchForm-but center">
-                    <input type="button" value="查询" class="btn btn-primary btn-sm glyphicon glyphicon-plus " id="search">
-                    <input type="reset" value="重置" class="btn btn-primary btn-sm glyphicon glyphicon-plus "id="reset">
+                    <input type="button" value="查询" class="btn mr20" id="search">
+                    <input type="reset" value="重置" class="btn" id="reset">
                 </div>
             </div>
         </form>
