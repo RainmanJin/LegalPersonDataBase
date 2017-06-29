@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icinfo.frk.business.mapper.DtRwjdxxMapper" >
+  <resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.DtRwjdxx" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="dqrw" property="dqrw" jdbcType="VARCHAR" />
+    <result column="rw_dqjd" property="rwDqjd" jdbcType="VARCHAR" />
+    <result column="rw_ztjd" property="rwZtjd" jdbcType="VARCHAR" />
+    <result column="rw_yjsj" property="rwYjsj" jdbcType="INTEGER" />
+    <result column="rw_dqyxsj" property="rwDqyxsj" jdbcType="INTEGER" />
+    <result column="rw_xxrw" property="rwXxrw" jdbcType="VARCHAR" />
+    <result column="rw_yxrq" property="rwYxrq" jdbcType="TIMESTAMP" />
+    <result column="rw_xh" property="rwXh" jdbcType="INTEGER" />
+    <result column="rw_rwjhs" property="rwRwjhs" jdbcType="INTEGER" />
+  </resultMap>
+  
+  
+  <select id="doGetCurrentProcessTask" resultMap="BaseResultMap">
+  SELECT id,dqrw,rw_dqjd,rw_ztjd,rw_yjsj,rw_dqyxsj,rw_xxrw,rw_yxrq,rw_xh,rw_rwjhs FROM frk.dt_rwjdxx ORDER BY id DESC LIMIT 1
+  </select>
+  
+</mapper>

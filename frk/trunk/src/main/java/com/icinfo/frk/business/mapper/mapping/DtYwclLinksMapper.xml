@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icinfo.frk.business.mapper.DtYwclLinksMapper" >
+  <resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.DtYwclLinks" >
+    <!--
+      WARNING - @frameworkgenerated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="link_source" property="linkSource" jdbcType="INTEGER" />
+    <result column="link_source_name" property="linkSourceName" jdbcType="VARCHAR" />
+    <result column="link_target" property="linkTarget" jdbcType="INTEGER" />
+    <result column="link_target_name" property="linkTargetName" jdbcType="VARCHAR" />
+    <result column="link_value" property="linkValue" jdbcType="INTEGER" />
+    <result column="link_date" property="linkDate" jdbcType="TIMESTAMP" />
+    <result column="link_dim" property="linkDim" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>

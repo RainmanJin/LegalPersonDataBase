@@ -1,0 +1,120 @@
+/*
+ * Copyright© 2003-2016 浙江汇信科技有限公司, All Rights Reserved. 
+ */
+package com.icinfo.frk.business.controller;
+
+import java.util.List;
+
+import com.icinfo.frk.business.model.Jbxx;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.icinfo.framework.common.ajax.AjaxResult;
+import com.icinfo.framework.core.web.BaseController;
+import com.icinfo.frk.business.dto.DtYwclNodesDto;
+import com.icinfo.frk.business.service.IDtProcessLogService;
+import com.icinfo.frk.business.service.IDtYwclNodesService;
+import org.springframework.web.servlet.ModelAndView;
+
+/**
+ * 描述:    dt_ywcl_nodes 对应的Controller类.<br>
+ *
+ * @author framework generator
+ * @date 2017年05月09日
+ */
+@Controller
+@RequestMapping({"/data/ywclnode/"})
+public class DtYwclNodesController extends BaseController {
+	@Autowired
+	private IDtYwclNodesService dtYwclNodesService;
+	@Autowired
+	private IDtProcessLogService dtProcessLogService;
+	@Autowired
+	private IDtYwclNodesService iDtYwclNodesService;
+    /**
+    * 描述：
+    * @author gqf
+    * @param  
+    * @return 
+     *@date 2017/5/11 
+    */
+    @RequestMapping("viewdimunit")
+	public String  doGetViewDimUnit() throws Exception{
+		return "business/dataunit/viewdimdataunit";
+	}
+
+	@RequestMapping("doGetJbxxList.json")
+	@ResponseBody
+	public AjaxResult doGetJbxxList(String frmc) throws  Exception{
+		List<Jbxx> jbxxList = iDtYwclNodesService.doGetJbxxList(frmc);
+		return AjaxResult.success("jbxxJson",jbxxList);
+	}
+
+	  /**
+     * 获取页面json
+     * @author ylr
+     * @date 2017-5-9
+     *
+     */
+	@RequestMapping("doGetNodeAndLink.json")
+	@ResponseBody
+	public AjaxResult doGetNodeAndLink(String type) throws Exception{
+		JSONArray nodes = dtYwclNodesService.doGetAllNodesJsonArray(type);
+		JSONArray links = dtYwclNodesService.doGetAllLinksJsonArray(type);
+		JSONObject jsonresp= new JSONObject();
+	
+		jsonresp.put("nodes", nodes);
+		jsonresp.put("links", links);
+		
+		return AjaxResult.success("json",jsonresp);
+	}
+	
+	  /**
+     * 获取饼图josn
+     * @author ylr
+     * @date 2017-5-9
+     *
+     */
+	@RequestMapping("doGetPieChart.json")
+	@ResponseBody
+	public AjaxResult doGetPieChart(String id) throws Exception{
+		DtYwclNodesDto dto=  dtYwclNodesService.doGetPieChart(id);
+		JSONArray arrayresp = new JSONArray();
+		JSONObject pie1 = new JSONObject();
+		JSONObject pie2 = new JSONObject();
+		JSONObject name = new JSONObject();
+		JSONArray array = new JSONArray();
+		JSONObject arrayObj = new JSONObject();
+		if(StringUtils.isNotBlank(dto.getNodeReason())){
+			arrayObj.put("label", dto.getNodeReason());
+			arrayObj.put("value", 100);
+			array.add(arrayObj);}
+		
+		name.put("title",dto.getNodeName());
+		
+		
+		pie1.put("label", "失败");
+		pie1.put("value", dto.getNodeFailCount());
+		pie1.put("reason", array);
+		
+		pie2.put("label", "成功");
+		pie2.put("value", dto.getNodeSuccessCount());
+		
+		arrayresp.add(pie1);
+		arrayresp.add(pie2);
+		arrayresp.add(name);
+		return AjaxResult.success("json",arrayresp);
+	}
+
+	
+	
+	
+	
+	
+}

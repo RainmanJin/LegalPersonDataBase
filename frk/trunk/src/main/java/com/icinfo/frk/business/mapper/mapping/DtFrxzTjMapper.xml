@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icinfo.frk.business.mapper.DtFrxzTjMapper" >
+  <resultMap id="BaseResultMap" type="com.icinfo.frk.business.dto.DtFrxzTjDto" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="xztj_rq" property="xztjRq" jdbcType="DATE" />
+    <result column="xztj_sl" property="xztjSl" jdbcType="INTEGER" />
+    <result column="xztj_scrq" property="xztjScrq" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <select id="doGetDtFrxzTjDtoList" resultMap="BaseResultMap">
+  SELECT id,xztj_rq,xztj_sl,xztj_scrq FROM frk.dt_frxz_tj ORDER BY xztj_rq
+  </select>
+  
+  
+  
+</mapper>
