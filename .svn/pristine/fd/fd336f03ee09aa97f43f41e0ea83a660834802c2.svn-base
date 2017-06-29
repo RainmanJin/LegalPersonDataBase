@@ -1,0 +1,190 @@
+/*
+ * Copyright© 2003-2016 浙江汇信科技有限公司, All Rights Reserved. 
+ */
+package com.icinfo.frk.business.service.impl;
+
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.icinfo.framework.core.service.support.MyBatisServiceSupport;
+import com.icinfo.frk.business.dto.DtProcessLogDto;
+import com.icinfo.frk.business.mapper.DtProcessLogMapper;
+import com.icinfo.frk.business.model.DayLogCount;
+import com.icinfo.frk.business.service.IDtProcessLogService;
+import com.icinfo.frk.support.util.DateUtil;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * 描述:  dt_process_log 对应的Service接口实现类.<br>
+ *
+ * @author framework generator
+ * @date 2017年05月08日
+ */
+@Service
+public class DtProcessLogServiceImpl extends MyBatisServiceSupport implements IDtProcessLogService {
+    /**
+     * 日志记录器
+     */
+    private static final Logger logger = LoggerFactory.getLogger(DtProcessLogServiceImpl.class);
+
+    @Autowired
+    private DtProcessLogMapper dtProcessLogMapper;
+
+    @Override
+    public List<DayLogCount> doGetDayTaskLogCountList(Map<String, Object> paraMap) throws Exception {
+        return dtProcessLogMapper.selectTaskCountByDate(paraMap);
+    }
+    
+ 	/**
+     * 处理任务条数统计
+     *
+     * @throws Exception
+     * @auther ylr
+     * @date 2017年5月9日
+     */
+	public List<DtProcessLogDto> doGetTaskProcessList() throws Exception{
+		return dtProcessLogMapper.doGetTaskProcessList();
+	}
+	
+ 	/**
+     * 累计处理条数
+     *
+     * @throws Exception
+     * @auther ylr
+     * @date 2017年5月9日
+     */
+	public Integer doGetGrandDealNum() throws Exception{
+		return dtProcessLogMapper.doGetGrandDealNum();
+	}
+	/**
+     * 正确条数
+     *
+     * @throws Exception
+     * @auther ylr
+     * @date 2017年5月9日
+     */
+	public Integer doGetTrueNum() throws Exception{
+		return dtProcessLogMapper.doGetTrueNum();
+	}
+	/**
+     * 错误条数
+     *
+     * @throws Exception
+     * @auther ylr
+     * @date 2017年5月9日
+     */
+	public Integer doGetFalseNum() throws Exception{
+		return dtProcessLogMapper.doGetFalseNum();
+	}
+	/**
+     * 总流量
+     *
+     * @throws Exception
+     * @auther ylr
+     * @date 2017年5月9日
+     */
+	public Integer doGetAllSum() throws Exception{
+		return dtProcessLogMapper.doGetAllSum();
+	}
+	/**
+     * 平均总流量
+     *
+     * @throws Exception
+     * @auther ylr
+     * @date 2017年5月9日
+     */
+	public Integer doGetAvgAllSum() throws Exception{
+		return dtProcessLogMapper.doGetAvgAllSum();
+	}
+	/**
+     * 总处理时间
+     *
+     * @throws Exception
+     * @auther ylr
+     * @date 2017年5月9日
+     */
+	public Integer doGetAllDealTime() throws Exception{
+		return dtProcessLogMapper.doGetAllDealTime();
+	}
+ 	/**
+     * 任务耗时统计
+     *
+     * @throws Exception
+     * @auther ylr
+     * @date 2017年5月9日
+     */
+	public List<DtProcessLogDto> doGetTaskTimeList() throws Exception{
+		return dtProcessLogMapper.doGetTaskTimeList();
+	}
+	/**
+     * 获取柱状图json
+     *
+     * @throws Exception
+     * @auther ylr
+     * @date 2017年5月9日
+     */
+	public JSONObject dogetLineJson() throws Exception{
+		List<DtProcessLogDto> taskProcessList = doGetTaskProcessList();
+		 JSONObject obj = new JSONObject();
+	        JSONArray array1 = new JSONArray();
+	        JSONArray array2 = new JSONArray();
+	        for(DtProcessLogDto dto:taskProcessList){
+	        	//array1.add(DateUtil.dateToString(dto.getTaskMonth(), "yyyy-MM"));
+				array1.add(dto.getTaskMonth());
+	        	array2.add(dto.getTotal());
+	        }
+	        obj.put("categories", array1);
+	        obj.put("data", array2);
+	        return obj;
+	}
+ 	/**
+     * 获取当前任务列表
+     *
+     * @throws Exception
+     * @auther ylr
+     * @date 2017年5月9日
+     */
+	public List<DtProcessLogDto> doGetCurrentTaskList() throws Exception{
+		return dtProcessLogMapper.doGetCurrentTaskList();
+	}
+	
+	/**
+     * 获取当前任务成功失败数量
+     *
+     * @throws Exception
+     * @auther ylr
+     * @date 2017年5月9日
+     */
+	public DtProcessLogDto doGetCurrentTaskSum() throws Exception{
+		return dtProcessLogMapper.doGetCurrentTaskSum();
+	}
+	
+	/**
+     * 获取当前任务成功失败json
+     *
+     * @throws Exception
+     * @auther ylr
+     * @date 2017年5月9日
+     */
+	public JSONObject doGetCurrentTaskLine() throws Exception{
+		DtProcessLogDto currentTaskSum = doGetCurrentTaskSum();
+		JSONObject object = new JSONObject();
+    	JSONArray array1 = new JSONArray();
+    	JSONArray array2 = new JSONArray();
+    	
+    	array1.add("成功条数");
+    	array1.add("失败条数");
+    	array2.add(currentTaskSum.getSuccessSum());
+    	array2.add(currentTaskSum.getFalseSum());
+    	
+    	object.put("categories", array1);
+    	object.put("data", array2);
+		return object;
+	}
+}

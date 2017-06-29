@@ -1,0 +1,92 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: dxh
+  Date: 2017/6/29
+  Time: 13:58
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="iframe-wrap">
+    <div class="form-panel mb10">
+        <form class="form-box">
+            <div class="form-list">
+                <div class="form-item clearfix">
+                    <label for="" class="col-2"></label>
+                    <div class="col-7 mt6 ">
+                        <div class="col-6 ipt-box pdr5 border-box">
+                            <input type="text" id="pasidval" class="ipt-txt mr5" name="pasid" value=""
+                                   placeholder="请输入姓名、完整身份证号码或者姓名全称+完整身份证号码 ">
+                        </div>
+                        <div class="col-3 pdr5 border-box">
+                            <div class="ipt-box col-12">
+                                <select name="claimState">
+                                    <option value="">请选择</option>
+                                    <option value="0">未认领</option>
+                                    <option value="1">已认领</option>
+                                    <option value="2">超时未认领</option>
+                                    <option value="3">超时认领</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-3 pdr5 border-box">
+                            <div class="ipt-box col-12">
+                                <select name="claimState">
+                                    <option value="">请选择</option>
+                                    <option value="0">未认领</option>
+                                    <option value="1">已认领</option>
+                                    <option value="2">超时未认领</option>
+                                    <option value="3">超时认领</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fl ml5">
+                        <input type="button" id="search" value="搜索" class="btn mr20">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="form-panel pd15">
+        <div class="search-result">
+            查询结果：共<span class="light">2</span>人，只显示<span class="light">5</span>人以内的信息，请输入更精确的条件查询。
+        </div>
+        <hr>
+        <div class="clearfix sel-title-box mb5">
+            <i class="fl  num-icon">1</i>
+            <span class="fl line-h30">马云　男　身份证号：33011967021330****    </span>
+            <strong class="red-light">任职资格受限</strong>
+            <h6 class="add-title fl seled-title">当前任职企业记录（<span class="light">8</span>）</h6>
+            <h6 class="add-title fl">历史任职企业记录（<span class="light">8</span>）</h6>
+        </div>
+        <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+            <tr>
+                <th>序号</th>
+                <th>不良信息类别</th>
+                <th>信息来源</th>
+                <th>发生日期</th>
+                <th>详情</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

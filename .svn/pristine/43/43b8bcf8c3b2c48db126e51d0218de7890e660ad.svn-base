@@ -1,0 +1,194 @@
+/**
+ * Copyright© 2003-2016 浙江汇信科技有限公司, All Rights Reserved. <br/>
+ */
+package com.icinfo.frk.business.model;
+
+import com.icinfo.framework.mybatis.mapper.annotation.Before;
+import java.io.Serializable;
+import java.util.Date;
+import javax.persistence.*;
+
+/**
+ * 描述:    dt_ywcl_links 对应的实体类.<br>
+ * WARNING：不是表中字段的属性必须加@Transient注解
+ * @author framework generator
+ * @date 2017年05月09日
+ */
+@Table(name = "frk.dt_ywcl_links")
+public class DtYwclLinks implements Serializable {
+    @Id
+    @Column(name = "id")
+    @Before
+    @GeneratedValue(strategy = GenerationType.IDENTITY,generator="select replace(uuid(), '-', '')")
+    private Integer id;
+
+    /**
+     * 关系源表
+     */
+    @Column(name = "link_source")
+    private Integer linkSource;
+
+    @Column(name = "link_source_name")
+    private String linkSourceName;
+
+    /**
+     * 关系目标表
+     */
+    @Column(name = "link_target")
+    private Integer linkTarget;
+
+    @Column(name = "link_target_name")
+    private String linkTargetName;
+
+    /**
+     * 关系权重（表数量）
+     */
+    @Column(name = "link_value")
+    private Integer linkValue;
+
+    /**
+     * 处理日期
+     */
+    @Column(name = "link_date")
+    private Date linkDate;
+
+    /**
+     * 维度1:基本信息，2：资产，3:纳税，4：生成经营，5：许可，6：行政司法
+     */
+    @Column(name = "link_dim")
+    private String linkDim;
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * @return id
+     */
+    public Integer getId() {
+        return id;
+    }
+
+    /**
+     * @param id
+     */
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    /**
+     * 获取关系源表
+     *
+     * @return link_source - 关系源表
+     */
+    public Integer getLinkSource() {
+        return linkSource;
+    }
+
+    /**
+     * 设置关系源表
+     *
+     * @param linkSource 关系源表
+     */
+    public void setLinkSource(Integer linkSource) {
+        this.linkSource = linkSource;
+    }
+
+    /**
+     * @return link_source_name
+     */
+    public String getLinkSourceName() {
+        return linkSourceName;
+    }
+
+    /**
+     * @param linkSourceName
+     */
+    public void setLinkSourceName(String linkSourceName) {
+        this.linkSourceName = linkSourceName;
+    }
+
+    /**
+     * 获取关系目标表
+     *
+     * @return link_target - 关系目标表
+     */
+    public Integer getLinkTarget() {
+        return linkTarget;
+    }
+
+    /**
+     * 设置关系目标表
+     *
+     * @param linkTarget 关系目标表
+     */
+    public void setLinkTarget(Integer linkTarget) {
+        this.linkTarget = linkTarget;
+    }
+
+    /**
+     * @return link_target_name
+     */
+    public String getLinkTargetName() {
+        return linkTargetName;
+    }
+
+    /**
+     * @param linkTargetName
+     */
+    public void setLinkTargetName(String linkTargetName) {
+        this.linkTargetName = linkTargetName;
+    }
+
+    /**
+     * 获取关系权重（表数量）
+     *
+     * @return link_value - 关系权重（表数量）
+     */
+    public Integer getLinkValue() {
+        return linkValue;
+    }
+
+    /**
+     * 设置关系权重（表数量）
+     *
+     * @param linkValue 关系权重（表数量）
+     */
+    public void setLinkValue(Integer linkValue) {
+        this.linkValue = linkValue;
+    }
+
+    /**
+     * 获取处理日期
+     *
+     * @return link_date - 处理日期
+     */
+    public Date getLinkDate() {
+        return linkDate;
+    }
+
+    /**
+     * 设置处理日期
+     *
+     * @param linkDate 处理日期
+     */
+    public void setLinkDate(Date linkDate) {
+        this.linkDate = linkDate;
+    }
+
+    /**
+     * 获取维度1:基本信息，2：资产，3:纳税，4：生成经营，5：许可，6：行政司法
+     *
+     * @return link_dim - 维度1:基本信息，2：资产，3:纳税，4：生成经营，5：许可，6：行政司法
+     */
+    public String getLinkDim() {
+        return linkDim;
+    }
+
+    /**
+     * 设置维度1:基本信息，2：资产，3:纳税，4：生成经营，5：许可，6：行政司法
+     *
+     * @param linkDim 维度1:基本信息，2：资产，3:纳税，4：生成经营，5：许可，6：行政司法
+     */
+    public void setLinkDim(String linkDim) {
+        this.linkDim = linkDim;
+    }
+}
