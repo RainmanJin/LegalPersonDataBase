@@ -1882,27 +1882,25 @@ table {
 }
 
 .side-icon01 {
-    background: url(/img/side_icon_01.png) no-repeat;
+    background: url(/img/side_icon-01.png) no-repeat;
 }
 
 .side-icon02 {
-    background: url(/img/side_icon_02.png) no-repeat;
+    background: url(/img/side_icon-02.png) no-repeat;
 }
 
 .side-icon03 {
-    background: url(/img/side_icon_03.png) no-repeat;
+    background: url(/img/side_icon-03.png) no-repeat;
 }
 
 .side-icon04 {
-    background: url(/img/side_icon_04.png) no-repeat;
+    background: url(/img/side_icon-04.png) no-repeat;
 }
 
 .side-icon05 {
-    background: url(/img/side_icon_05.png) no-repeat;
+    background: url(/img/side_icon-05.png) no-repeat;
 }
-.side-icon06 {
-    background: url(/img/side_icon_06.png) no-repeat;
-}
+
 .nav-label {
     margin-left: 70px;
 }
@@ -1927,27 +1925,25 @@ table {
 }
 
 .active .side-icon-active01 {
-    background: url(/img/side_icon_active_01.png) no-repeat;
+    background: url(/img/side_icon_active01.png) no-repeat;
 }
 
 .active .side-icon02 {
-    background: url(/img/side_icon_active_02.png) no-repeat;
+    background: url(/img/side_icon_active02.png) no-repeat;
 }
 
 .active .side-icon03 {
-    background: url(/img/side_icon_active_03.png) no-repeat;
+    background: url(/img/side_icon_active03.png) no-repeat;
 }
 
 .active .side-icon04 {
-    background: url(/img/side_icon_active_04.png) no-repeat;
+    background: url(/img/side_icon_active04.png) no-repeat;
 }
 
 .active .side-icon05 {
-    background: url(/img/side_icon_active_05.png) no-repeat;
+    background: url(/img/side_icon_active05.png) no-repeat;
 }
-.active .side-icon06 {
-    background: url(/img/side_icon_active_06.png) no-repeat;
-}
+
 .sidebar-nav > ul > li > a {
     display: block;
     position: relative;

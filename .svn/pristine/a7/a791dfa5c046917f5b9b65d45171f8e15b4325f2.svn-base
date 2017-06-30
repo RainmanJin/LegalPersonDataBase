@@ -1,0 +1,237 @@
+require(['echarts'], function (echart) {
+
+    init();
+
+    /**
+     * 初始化函数集合
+     */
+    function init() {
+        pieAmount();
+        departData();
+    }
+
+    //法人类型数量分布
+    function pieAmount() {
+    	$.get("/data/datacount/TypeCounting.json", function(data){
+        var myChart = echart.init(document.getElementById('index-amount'));
+        myChart.showLoading();
+        var option = {
+            tooltip: {
+                trigger: 'item',
+                formatter: "{b}: {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: '56%',
+                top: '20px',
+                itemGap: 9,
+                icon: 'rect',
+                itemWidth: 8,
+                itemHeight: 8,
+                data: ['事业法人', '其他非法人团体/组织', '企业法人', '机关法人', '农民专业合作社', '民办非企业', '农村承包经营户', '社会团体', '个体工商户'],
+                textStyle: {
+                    color: '#666'
+                }
+            },
+            series: [
+                {
+                    name: '法人类型数量分布',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    center: ['28%', '50%'],
+                    avoidLabelOverlap: false,
+                    color: ['#5b9bd5', '#ed7d31', '#a6a6a6', '#ffc000', '#8a48c8', '#70ad47', '#2e75b6', '#ff5151', '#636363'],
+                    label: {
+                        normal: {
+                            position: 'inner',
+                            formatter: '{d}%'
+                        },
+                        emphasis: {
+                            show: true,
+                            textStyle: {
+                                fontSize: '30',
+                                fontWeight: 'bold'
+                            }
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        }
+                    },
+                    data: data.data.pie1.map(function (item) {
+                        return item
+                    })
+                }
+            ]
+        };
+        myChart.hideLoading();
+        myChart.setOption(option);
+    })
+}
+
+    //部门数据交换情况汇总
+    function departData() {
+    	$.get("/data/datacount/depdata.json", function(data){
+    	var myChart = echart.init(document.getElementById('index-depart-data'));
+        myChart.showLoading();
+        var option = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    label: {
+                        backgroundColor: '#283b56'
+                    }
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '3%',
+                bottom: '20',
+                top: '40',
+                containLabel: true,
+            },
+            legend: {
+                right: '3%',
+                top: '5%',
+                itemWidth: 14,
+                itemHeight: 8,
+                data: ['交换量(万条)', '交换数据匹配度'],
+                textStyle: {
+                    color: '#999'
+                }
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    axisLine: {
+                        lineStyle: {
+                            color: '#d7d7d7'
+                        }
+                    },
+                    axisLabel: {
+                        interval: 0,//横轴信息全部显示
+                        textStyle: {
+                            color: '#666'
+                        },
+                        formatter: function (value) {
+                            return value.split("").join("\n");
+                        }
+                    },
+                    splitLine: { //坐标轴在 grid 区域中的分隔线
+                        show: false,
+                        lineStyle: {
+                            color: ['#d7d7d7']
+                        }
+                    },
+                    nameRotate: 90,
+                    boundaryGap: true,
+                    data: data.data.List.map(function (item) {
+                        return item.DepName
+                    })},
+                {
+                    show: false,
+                    data: data.data.List.map(function (item) {
+                        return item.DepName
+                    })}
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    scale: false,
+                    max: 'dataMax',
+                    min: 0,
+                    boundaryGap: [0.2, 0.2],
+                    splitNumber: 10,
+                    axisLine: {
+                        lineStyle: {
+                            color: '#475072'
+                        }
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            color: '#87a5ff'
+                        },
+                        formatter: function (value) {
+                            return value*100 + '%';
+                        }
+                    },
+                    splitLine: { //坐标轴在 grid 区域中的分隔线
+                        show: true,
+                        lineStyle: {
+                            color: ['#d7d7d7']
+                        }
+                    }
+                },
+                
+                {
+                	type: 'value',
+                    scale: true,
+                    max: 5000,
+                    min: 0,
+                    splitNumber: 10,
+                    boundaryGap: [0.2, 0.2],
+                    axisLine: {
+                        lineStyle: {
+                            color: '#475072'
+                        }
+                    },
+                    axisLabel: {
+                        textStyle: {
+                            color: '#87a5ff'
+                        }
+                    },
+                    formatter: function (value) {
+                        return value*5000;
+                    },
+                    splitLine: { //坐标轴在 grid 区域中的分隔线
+                        show: true,
+                        lineStyle: {
+                            color: ['#16214d']
+                        }
+                    }
+                },
+            ],
+            series: [
+                {
+                    name: '交换量(万条)',
+                    barWidth: 20,
+                    type: 'bar',
+                    xAxisIndex: 1,
+                    yAxisIndex: 1,
+                    color: ['#6eade6'],
+                    data: data.data.List.map(function (item) {
+                        return item.ExchangeNum/10000
+                    })
+                },
+                {
+                    name: '交换数据匹配度',
+                    type: 'line',
+                    lineStyle: {
+                        normal: {
+                            color: '#ffd557'
+                        }
+                    },
+                    symbol: 'circle',
+                    symbolSize: 6,
+                    itemStyle: {
+                        normal: {
+//                            borderColor: '#00ff00',
+                            color: '#ffd557'
+                        }
+                    },
+                    data: data.data.List.map(function (item) {
+                        return item.MatchingNum
+                    })
+                }
+            ]
+        };
+
+        myChart.hideLoading();
+        myChart.setOption(option);
+    })
+    }
+     
+
+});
