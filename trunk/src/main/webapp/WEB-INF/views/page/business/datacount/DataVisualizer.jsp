@@ -8,7 +8,7 @@
     <title>浙江省法人库数据整体预览</title>
     <link rel="stylesheet" href="/css/frk.css">
 </head>
-<body>
+<body class="bg102a42">
 <div class="visual-panel">
     <div class="inner-top">
         <h2 class="h2-title">浙江省法人库数据整体预览</h2>

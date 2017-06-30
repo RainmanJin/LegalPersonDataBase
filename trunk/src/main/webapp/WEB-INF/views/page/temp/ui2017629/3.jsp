@@ -90,13 +90,33 @@
                         </tr>
                         </tbody>
                     </table>
+                    <div class="light-info mt10 center pos-rel">
+                        <i class="flex-icon on"></i>法人变更信息
+                    </div>
                 </div>
-                <div class="light-info mt10 center pos-rel">
-                    <i class="flex-icon on"></i>法人变更信息
+                <div class="tab-panel">
+                    资本与资产
+                </div>
+                <div class="tab-panel">
+                    许可、资质与荣誉
+                </div>
+                <div class="tab-panel">
+                    纳税、参保与缴费
+                </div>
+                <div class="tab-panel">
+                    生产经营
+                </div>
+                <div class="tab-panel">
+                    司法信息
+                </div>
+                <div class="tab-panel">
+                    评价信息
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script src="/js/lib/jquery/jquery-1.12.3.min.js"></script>
+<script src="/js/component/tab.js"></script>
 </body>
 </html>

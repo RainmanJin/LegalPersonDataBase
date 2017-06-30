@@ -103,7 +103,7 @@ import com.icinfo.frk.business.service.IDtFrflTjService;
 			List<DtFrflTjDto> List = dtFrflTjService.doGetDimTotal();
 			JSONArray array = new JSONArray();
 			for(DtFrflTjDto dto : List){
-				array.add(dto.getDimTotal());
+				array.add(dto==null?0:dto.getDimTotal());
 			}
 			DimTotal.put("List",array);
 	        return AjaxResult.success("DimTotal",DimTotal);

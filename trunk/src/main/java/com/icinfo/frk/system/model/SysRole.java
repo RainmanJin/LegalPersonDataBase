@@ -23,7 +23,7 @@ public class SysRole implements Serializable {
     @Id
     @Column(name = "ID")
     @Before
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "select nextval('seq_sys_role')")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "select nextval('frk.seq_sys_role')")
     private String id;
 
     /**

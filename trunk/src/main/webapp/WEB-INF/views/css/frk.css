@@ -359,6 +359,9 @@ i {
 .bg-blue {
     background: #111f54;
 }
+.bg102a42 {
+    background: #102a42;
+}
 
 .mr10 {
     margin-right: 10px;;
@@ -999,7 +1002,7 @@ ul {
 
 .fr-total-hd {
     border-top: 1px solid #293665;
-    position: absolute;
+    position: relative;
 }
 
 .fr-total-hd .fr-radius {
@@ -1009,7 +1012,7 @@ ul {
     height: 7px;
     background-color: #293665;
     top: -5px;
-    position: relative;
+    position: absolute;
 }
 
 .fr-total-hd .l-radius {
@@ -1030,7 +1033,7 @@ ul {
     color: #00ccff;
     font-size: 24px;
     vertical-align: top;
-    margin-bottom: 10px;
+    margin-top: 12px;
 }
 
 .fr-total-box .fr-total {

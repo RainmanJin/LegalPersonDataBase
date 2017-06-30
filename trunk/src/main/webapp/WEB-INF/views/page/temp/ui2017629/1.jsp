@@ -13,6 +13,7 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/js/lib/pagination/pagination.css">
 </head>
 <body>
 <div class="iframe-wrap bg-white">
@@ -24,6 +25,126 @@
             </div>
         </div>
     </div>
+    <div class="search-list-box clearfix">
+        <ul>
+            <li>
+                <h3><a href="#">浙江智达科技有限公司</a></h3>
+                <p>
+                    <span class="item-co1">统一社会信用代码/注册号：12345678901234567</span>
+                    <span class="item-co2">法定代表人：某某某</span>
+                    成立日期：2015-12-31
+                </p>
+            </li>
+            <li>
+                <h3><a href="#">浙江智达科技有限公司</a></h3>
+                <p>
+                    <span class="item-co1">统一社会信用代码/注册号：12345678901234567</span>
+                    <span class="item-co2">法定代表人：某某某</span>
+                    成立日期：2015-12-31
+                </p>
+            </li>
+            <li>
+                <h3><a href="#">浙江智达科技有限公司</a></h3>
+                <p>
+                    <span class="item-co1">统一社会信用代码/注册号：12345678901234567</span>
+                    <span class="item-co2">法定代表人：某某某</span>
+                    成立日期：2015-12-31
+                </p>
+            </li>
+            <li>
+                <h3><a href="#">浙江智达科技有限公司</a></h3>
+                <p>
+                    <span class="item-co1">统一社会信用代码/注册号：12345678901234567</span>
+                    <span class="item-co2">法定代表人：某某某</span>
+                    成立日期：2015-12-31
+                </p>
+            </li>
+            <li>
+                <h3><a href="#">浙江智达科技有限公司</a></h3>
+                <p>
+                    <span class="item-co1">统一社会信用代码/注册号：12345678901234567</span>
+                    <span class="item-co2">法定代表人：某某某</span>
+                    成立日期：2015-12-31
+                </p>
+            </li>
+            <li>
+                <h3><a href="#">浙江智达科技有限公司</a></h3>
+                <p>
+                    <span class="item-co1">统一社会信用代码/注册号：12345678901234567</span>
+                    <span class="item-co2">法定代表人：某某某</span>
+                    成立日期：2015-12-31
+                </p>
+            </li>
+            <li>
+                <h3><a href="#">浙江智达科技有限公司</a></h3>
+                <p>
+                    <span class="item-co1">统一社会信用代码/注册号：12345678901234567</span>
+                    <span class="item-co2">法定代表人：某某某</span>
+                    成立日期：2015-12-31
+                </p>
+            </li>
+            <li>
+                <h3><a href="#">浙江智达科技有限公司</a></h3>
+                <p>
+                    <span class="item-co1">统一社会信用代码/注册号：12345678901234567</span>
+                    <span class="item-co2">法定代表人：某某某</span>
+                    成立日期：2015-12-31
+                </p>
+            </li>
+            <li>
+                <h3><a href="#">浙江智达科技有限公司</a></h3>
+                <p>
+                    <span class="item-co1">统一社会信用代码/注册号：12345678901234567</span>
+                    <span class="item-co2">法定代表人：某某某</span>
+                    成立日期：2015-12-31
+                </p>
+            </li>
+            <li>
+                <h3><a href="#">浙江智达科技有限公司</a></h3>
+                <p>
+                    <span class="item-co1">统一社会信用代码/注册号：12345678901234567</span>
+                    <span class="item-co2">法定代表人：某某某</span>
+                    成立日期：2015-12-31
+                </p>
+            </li>
+            <li>
+                <h3><a href="#">浙江智达科技有限公司</a></h3>
+                <p>
+                    <span class="item-co1">统一社会信用代码/注册号：12345678901234567</span>
+                    <span class="item-co2">法定代表人：某某某</span>
+                    成立日期：2015-12-31
+                </p>
+            </li>
+            <li>
+                <h3><a href="#">浙江智达科技有限公司</a></h3>
+                <p>
+                    <span class="item-co1">统一社会信用代码/注册号：12345678901234567</span>
+                    <span class="item-co2">法定代表人：某某某</span>
+                    成立日期：2015-12-31
+                </p>
+            </li>
+        </ul>
+        <hr class="mt20">
+        <div class="pagination pagination-custom" id="pagination">
+
+        </div>
+    </div>
 </div>
+<script src="/js/lib/jquery/jquery-1.12.3.min.js"></script>
+<script src="/js/lib/pagination/jquery.pagination.js"></script>
+<script>
+    $('#pagination').pagination(10, {
+        prev_text: '上一页',
+        next_text: '下一页',
+        num_display_entries: 3,//主体页数
+        num_edge_entries: 2,//边缘页数
+        current_page: 1,
+        items_per_page: 5,
+        link_to: 'javascript:void(0)',
+        ellipse_text: '...',
+        first_text: '首页',
+        last_text: '末页'
+    });
+</script>
 </body>
 </html>

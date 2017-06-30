@@ -61,12 +61,15 @@
 
 
 
+
                                                  <c:choose>
                                                     <c:when test="${menu_2.parentId == '4a6c5e8c36c111e7bdaf00188b839ae8'}">
                                                       <li><a target="_blank" href="${menu_2.url}">${menu_2.name}</a></li>
                                                     </c:when>
                                                    <c:otherwise>
+                                                     <c:if test="${empty menus[menu_2.id]}">
                                                       <li><a class="J_menuItem" href="${menu_2.url}">${menu_2.name}</a></li>
+                                                      </c:if>
                                                    </c:otherwise>
                                                   </c:choose>
 

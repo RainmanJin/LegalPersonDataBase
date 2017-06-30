@@ -22,7 +22,7 @@ public class SysPermision implements Serializable{
     @Id
     @Column(name = "ID")
     @Before
-    @GeneratedValue(strategy = GenerationType.IDENTITY,generator="select nextval('seq_sys_permision')")
+    @GeneratedValue(strategy = GenerationType.IDENTITY,generator="select nextval('frk.seq_sys_permision')")
     private String id;
 
     /**

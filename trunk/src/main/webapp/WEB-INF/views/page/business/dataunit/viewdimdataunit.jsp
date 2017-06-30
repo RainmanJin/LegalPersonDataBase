@@ -11,7 +11,7 @@
     <script src="/js/lib/d3/d3pie.js"></script>
     <script src="/js/lib/d3/sankey.js"></script>
 </head>
-<body>
+<body class="bg102a42">
 
 <div class="wrap">
     <div class="border-tl"></div>

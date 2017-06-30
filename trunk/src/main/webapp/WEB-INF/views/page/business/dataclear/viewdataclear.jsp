@@ -8,7 +8,7 @@
     <title>法人库数据清洗监控中心</title>
     <link rel="stylesheet" href="/css/frk.css">
 </head>
-<body class="bg-white">
+<body class="bg102a42">
 <div class="wrap2 clearfix">
     <div class="inner-top">
         <h2 class="h2-title">法人库数据清洗监控中心</h2>

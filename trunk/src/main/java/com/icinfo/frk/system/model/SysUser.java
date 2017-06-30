@@ -24,7 +24,7 @@ public class SysUser implements Serializable {
     @Id
     @Column(name = "ID")
     @Before
-    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "select  nextval('seq_user')")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "select  nextval('frk.seq_user')")
     private String id;
 
     /**

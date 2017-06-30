@@ -1,4 +1,4 @@
-2.jsp<%--
+<%--
   Created by IntelliJ IDEA.
   User: dxh
   Date: 2017/6/29
@@ -14,7 +14,75 @@
     <title></title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
+<body style="background-color: #f4f4f4;">
+    <div class="iframe-wrap bg-white">
+        <div class="pd20">
+            <div class="title-time">
+                <h3 class="statistics-title">来源部门数据采集量统计</h3>
+                <h4 class="time">更新日期：2017-06-12</h4>
+            </div>
 
+            <table id="" class="table-row nowrap mb10" width="100%">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>来源部门</th>
+                    <th>表数量</th>
+                    <th>字段数</th>
+                    <th>记录数</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div class="title-time">
+                <h3 class="statistics-title">来源部门数据关联情况统计</h3>
+                <h4 class="time">更新日期：2017-06-12</h4>
+            </div>
+
+            <table id="" class="table-row nowrap" width="100%">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>来源部门</th>
+                    <th>表数量</th>
+                    <th>字段数</th>
+                    <th>记录数</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
