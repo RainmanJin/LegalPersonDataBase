@@ -1,0 +1,191 @@
+/*
+ * Copyright© 2003-2016 浙江汇信科技有限公司, All Rights Reserved. 
+ */
+package com.icinfo.frk.business.controller;
+
+import com.icinfo.framework.common.ajax.AjaxResult;
+import com.icinfo.framework.core.web.BaseController;
+import com.icinfo.frk.business.service.ICaDjJbxxService;
+import org.apache.commons.collections.map.HashedMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
+
+/**
+ * 描述:  ca_dj_jbxx 对应的Controller类.<br>
+ *
+ * @author framework generator
+ * @date 2017年06月27日
+ */
+@Controller
+@RequestMapping("/data/frdetail")
+public class CaDjJbxxController extends BaseController {
+    /**
+     * 日志记录器
+     */
+    private static final Logger logger = LoggerFactory.getLogger(CaDjJbxxController.class);
+
+    @Autowired
+    private ICaDjJbxxService caDjJbxxService;
+
+    /**
+     * 进入法人信息查询页面
+     *
+     * @return 法人数据
+     * @throws Exception 异常
+     */
+    @RequestMapping(value = "/entfrquery")
+    public String entFrQuery() throws Exception {
+        return "business/dataquery/frQuery";
+    }
+
+    /**
+     * 根据查询条件 分页获取法人信息列表
+     *
+     * @param keyword  查询条件  法人名称/统一信用代码/工商注册号/组织机构代码证/纳税人识别号 模糊查询
+     * @param pageNum  当前页码
+     * @param pageSize 每页条数
+     * @return 法人数据
+     * @throws Exception 异常
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getpage", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    public AjaxResult getPage(@RequestParam(name = "keyword", required = true) final String keyword,
+                              @RequestParam(name = "pageNum", required = true) int pageNum,
+                              @RequestParam(name = "pageSize", required = true) int pageSize) throws Exception {
+        // 1.查询第一页数据
+        Map<String, Object> qMap = new HashedMap() {{
+            this.put("frmc", keyword);
+            this.put("tyxydm", keyword);
+            this.put("djzch", keyword);
+            this.put("zzjgdm", keyword);
+//            this.put("nsrsbh",keyword);
+        }};
+        return AjaxResult.success("成功", caDjJbxxService.getByKeyword(qMap, pageNum, pageSize));
+    }
+
+    /**
+     * 进入法人基本详情页
+     *
+     * @param frwybs 法人唯一标识
+     * @param model  model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/djjbxx/{frwybs}", method = RequestMethod.GET)
+    public String entFrDetail(@PathVariable(value = "frwybs") String frwybs, Model model) throws Exception {
+        model.addAttribute("jbxx", caDjJbxxService.getFrJbxx(frwybs));
+        model.addAttribute("frwybs", frwybs);
+        return "business/dataquery/frDjjbxx";
+    }
+
+    /**
+     * 进入法人资本与资产页
+     *
+     * @param frwybs 法人唯一标识
+     * @param model  model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/zbyzc/{frwybs}", method = RequestMethod.GET)
+    public String entZbyzc(@PathVariable(value = "frwybs") String frwybs, Model model) throws Exception {
+        model.addAttribute("zbyzc", caDjJbxxService.getFrZbyzc(frwybs));
+        model.addAttribute("frwybs", frwybs);
+        return "business/dataquery/frZbyzc";
+    }
+    
+    /**
+     * 进入页
+     *
+     * @param frwybs 法人唯一标识
+     * @param model  model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/admission/{frwybs}", method = RequestMethod.GET)
+    public String entAdmission(@PathVariable(value = "frwybs") String frwybs, Model model) throws Exception {
+        model.addAttribute("zbyzc", caDjJbxxService.getFrZbyzc(frwybs));
+        model.addAttribute("frwybs", frwybs);
+        return "business/dataquery/frAdmission";
+    }
+    
+    /**
+     * 进入页
+     *
+     * @param frwybs 法人唯一标识
+     * @param model  model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/comment/{frwybs}", method = RequestMethod.GET)
+    public String entComment(@PathVariable(value = "frwybs") String frwybs, Model model) throws Exception {
+        model.addAttribute("zbyzc", caDjJbxxService.getFrZbyzc(frwybs));
+        model.addAttribute("frwybs", frwybs);
+        return "business/dataquery/frComment";
+    }
+    
+    /**
+     * 进入页
+     *
+     * @param frwybs 法人唯一标识
+     * @param model  model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/lawenforce/{frwybs}", method = RequestMethod.GET)
+    public String entLawEnforce(@PathVariable(value = "frwybs") String frwybs, Model model) throws Exception {
+        model.addAttribute("zbyzc", caDjJbxxService.getFrZbyzc(frwybs));
+        model.addAttribute("frwybs", frwybs);
+        return "business/dataquery/frLawEnforce";
+    }
+    
+    /**
+     * 进入页
+     *
+     * @param frwybs 法人唯一标识
+     * @param model  model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/lawinfo/{frwybs}", method = RequestMethod.GET)
+    public String entLawInfo(@PathVariable(value = "frwybs") String frwybs, Model model) throws Exception {
+        model.addAttribute("zbyzc", caDjJbxxService.getFrZbyzc(frwybs));
+        model.addAttribute("frwybs", frwybs);
+        return "business/dataquery/frLawInfo";
+    }
+    
+    /**
+     * 进入页
+     *
+     * @param frwybs 法人唯一标识
+     * @param model  model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/produce/{frwybs}", method = RequestMethod.GET)
+    public String entProduce(@PathVariable(value = "frwybs") String frwybs, Model model) throws Exception {
+        model.addAttribute("zbyzc", caDjJbxxService.getFrZbyzc(frwybs));
+        model.addAttribute("frwybs", frwybs);
+        return "business/dataquery/frProduce";
+    }
+    
+    /**
+     * 进入页
+     *
+     * @param frwybs 法人唯一标识
+     * @param model  model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/tax/{frwybs}", method = RequestMethod.GET)
+    public String entTax(@PathVariable(value = "frwybs") String frwybs, Model model) throws Exception {
+        model.addAttribute("zbyzc", caDjJbxxService.getFrZbyzc(frwybs));
+        model.addAttribute("frwybs", frwybs);
+        return "business/dataquery/frTax";
+    }
+}

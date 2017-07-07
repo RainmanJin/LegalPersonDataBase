@@ -1,0 +1,605 @@
+/**
+ * Copyright© 2003-2016 浙江汇信科技有限公司, All Rights Reserved. <br/>
+ */
+package com.icinfo.frk.business.model;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.icinfo.framework.mybatis.mapper.annotation.Before;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+import javax.persistence.*;
+
+/**
+ * 描述:  cd_zb_gqxx_valid 对应的实体类.<br>
+ * WARNING：不是表中字段的属性必须加@Transient注解
+ * @author framework generator
+ * @date 2017年07月06日
+ */
+@Table(name = "frk.cd_zb_gqxx_valid")
+public class CdZbGqxxValid implements Serializable {
+    @Column(name = "id")
+    private String id;
+
+    @Column(name = "hash_unique")
+    private String hashUnique;
+
+    @Column(name = "gdsfbs")
+    private String gdsfbs;
+
+    @Column(name = "nbxh")
+    private String nbxh;
+
+    @Column(name = "frwybs")
+    private String frwybs;
+
+    @Column(name = "ancheid")
+    private String ancheid;
+
+    @Column(name = "gd")
+    private String gd;
+
+    @Column(name = "gd_lx")
+    private String gdLx;
+
+    @Column(name = "zjlx_gd")
+    private String zjlxGd;
+
+    @Column(name = "zjhm_gd")
+    private String zjhmGd;
+
+    @Column(name = "gq_zre")
+    private BigDecimal gqZre;
+
+    @Column(name = "gq_qrqbl")
+    private BigDecimal gqQrqbl;
+
+    @Column(name = "gq_qrhbl")
+    private BigDecimal gqQrhbl;
+
+    @Column(name = "gq_zrlx")
+    private String gqZrlx;
+
+    @Column(name = "gq_zrrq")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date gqZrrq;
+
+    @Column(name = "cz_czr")
+    private String czCzr;
+
+    @Column(name = "cz_zqr")
+    private String czZqr;
+
+    @Column(name = "cz_se")
+    private BigDecimal czSe;
+
+    @Column(name = "sedw")
+    private String sedw;
+
+    @Column(name = "cz_djrq")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date czDjrq;
+
+    @Column(name = "cz_zt")
+    private String czZt;
+
+    @Column(name = "dj_zxfy")
+    private String djZxfy;
+
+    @Column(name = "dj_cdwh")
+    private String djCdwh;
+
+    @Column(name = "dj_zxsx")
+    private String djZxsx;
+
+    @Column(name = "dj_bzxrlx")
+    private String djBzxrlx;
+
+    @Column(name = "dj_bzxr")
+    private String djBzxr;
+
+    @Column(name = "dj_gqs")
+    private Integer djGqs;
+
+    @Column(name = "dj_qxqs")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date djQxqs;
+
+    @Column(name = "dj_qxjz")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date djQxjz;
+
+    @Column(name = "datasrdep")
+    private String datasrdep;
+
+    @Column(name = "datasource")
+    private String datasource;
+
+    @Column(name = "datakeycontent")
+    private String datakeycontent;
+
+    @Column(name = "createtime")
+    private String createtime;
+
+    @Column(name = "updatetime")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date updatetime;
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * @return id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @return hash_unique
+     */
+    public String getHashUnique() {
+        return hashUnique;
+    }
+
+    /**
+     * @param hashUnique
+     */
+    public void setHashUnique(String hashUnique) {
+        this.hashUnique = hashUnique;
+    }
+
+    /**
+     * @return gdsfbs
+     */
+    public String getGdsfbs() {
+        return gdsfbs;
+    }
+
+    /**
+     * @param gdsfbs
+     */
+    public void setGdsfbs(String gdsfbs) {
+        this.gdsfbs = gdsfbs;
+    }
+
+    /**
+     * @return nbxh
+     */
+    public String getNbxh() {
+        return nbxh;
+    }
+
+    /**
+     * @param nbxh
+     */
+    public void setNbxh(String nbxh) {
+        this.nbxh = nbxh;
+    }
+
+    /**
+     * @return frwybs
+     */
+    public String getFrwybs() {
+        return frwybs;
+    }
+
+    /**
+     * @param frwybs
+     */
+    public void setFrwybs(String frwybs) {
+        this.frwybs = frwybs;
+    }
+
+    /**
+     * @return ancheid
+     */
+    public String getAncheid() {
+        return ancheid;
+    }
+
+    /**
+     * @param ancheid
+     */
+    public void setAncheid(String ancheid) {
+        this.ancheid = ancheid;
+    }
+
+    /**
+     * @return gd
+     */
+    public String getGd() {
+        return gd;
+    }
+
+    /**
+     * @param gd
+     */
+    public void setGd(String gd) {
+        this.gd = gd;
+    }
+
+    /**
+     * @return gd_lx
+     */
+    public String getGdLx() {
+        return gdLx;
+    }
+
+    /**
+     * @param gdLx
+     */
+    public void setGdLx(String gdLx) {
+        this.gdLx = gdLx;
+    }
+
+    /**
+     * @return zjlx_gd
+     */
+    public String getZjlxGd() {
+        return zjlxGd;
+    }
+
+    /**
+     * @param zjlxGd
+     */
+    public void setZjlxGd(String zjlxGd) {
+        this.zjlxGd = zjlxGd;
+    }
+
+    /**
+     * @return zjhm_gd
+     */
+    public String getZjhmGd() {
+        return zjhmGd;
+    }
+
+    /**
+     * @param zjhmGd
+     */
+    public void setZjhmGd(String zjhmGd) {
+        this.zjhmGd = zjhmGd;
+    }
+
+    /**
+     * @return gq_zre
+     */
+    public BigDecimal getGqZre() {
+        return gqZre;
+    }
+
+    /**
+     * @param gqZre
+     */
+    public void setGqZre(BigDecimal gqZre) {
+        this.gqZre = gqZre;
+    }
+
+    /**
+     * @return gq_qrqbl
+     */
+    public BigDecimal getGqQrqbl() {
+        return gqQrqbl;
+    }
+
+    /**
+     * @param gqQrqbl
+     */
+    public void setGqQrqbl(BigDecimal gqQrqbl) {
+        this.gqQrqbl = gqQrqbl;
+    }
+
+    /**
+     * @return gq_qrhbl
+     */
+    public BigDecimal getGqQrhbl() {
+        return gqQrhbl;
+    }
+
+    /**
+     * @param gqQrhbl
+     */
+    public void setGqQrhbl(BigDecimal gqQrhbl) {
+        this.gqQrhbl = gqQrhbl;
+    }
+
+    /**
+     * @return gq_zrlx
+     */
+    public String getGqZrlx() {
+        return gqZrlx;
+    }
+
+    /**
+     * @param gqZrlx
+     */
+    public void setGqZrlx(String gqZrlx) {
+        this.gqZrlx = gqZrlx;
+    }
+
+    /**
+     * @return gq_zrrq
+     */
+    public Date getGqZrrq() {
+        return gqZrrq;
+    }
+
+    /**
+     * @param gqZrrq
+     */
+    public void setGqZrrq(Date gqZrrq) {
+        this.gqZrrq = gqZrrq;
+    }
+
+    /**
+     * @return cz_czr
+     */
+    public String getCzCzr() {
+        return czCzr;
+    }
+
+    /**
+     * @param czCzr
+     */
+    public void setCzCzr(String czCzr) {
+        this.czCzr = czCzr;
+    }
+
+    /**
+     * @return cz_zqr
+     */
+    public String getCzZqr() {
+        return czZqr;
+    }
+
+    /**
+     * @param czZqr
+     */
+    public void setCzZqr(String czZqr) {
+        this.czZqr = czZqr;
+    }
+
+    /**
+     * @return cz_se
+     */
+    public BigDecimal getCzSe() {
+        return czSe;
+    }
+
+    /**
+     * @param czSe
+     */
+    public void setCzSe(BigDecimal czSe) {
+        this.czSe = czSe;
+    }
+
+    /**
+     * @return sedw
+     */
+    public String getSedw() {
+        return sedw;
+    }
+
+    /**
+     * @param sedw
+     */
+    public void setSedw(String sedw) {
+        this.sedw = sedw;
+    }
+
+    /**
+     * @return cz_djrq
+     */
+    public Date getCzDjrq() {
+        return czDjrq;
+    }
+
+    /**
+     * @param czDjrq
+     */
+    public void setCzDjrq(Date czDjrq) {
+        this.czDjrq = czDjrq;
+    }
+
+    /**
+     * @return cz_zt
+     */
+    public String getCzZt() {
+        return czZt;
+    }
+
+    /**
+     * @param czZt
+     */
+    public void setCzZt(String czZt) {
+        this.czZt = czZt;
+    }
+
+    /**
+     * @return dj_zxfy
+     */
+    public String getDjZxfy() {
+        return djZxfy;
+    }
+
+    /**
+     * @param djZxfy
+     */
+    public void setDjZxfy(String djZxfy) {
+        this.djZxfy = djZxfy;
+    }
+
+    /**
+     * @return dj_cdwh
+     */
+    public String getDjCdwh() {
+        return djCdwh;
+    }
+
+    /**
+     * @param djCdwh
+     */
+    public void setDjCdwh(String djCdwh) {
+        this.djCdwh = djCdwh;
+    }
+
+    /**
+     * @return dj_zxsx
+     */
+    public String getDjZxsx() {
+        return djZxsx;
+    }
+
+    /**
+     * @param djZxsx
+     */
+    public void setDjZxsx(String djZxsx) {
+        this.djZxsx = djZxsx;
+    }
+
+    /**
+     * @return dj_bzxrlx
+     */
+    public String getDjBzxrlx() {
+        return djBzxrlx;
+    }
+
+    /**
+     * @param djBzxrlx
+     */
+    public void setDjBzxrlx(String djBzxrlx) {
+        this.djBzxrlx = djBzxrlx;
+    }
+
+    /**
+     * @return dj_bzxr
+     */
+    public String getDjBzxr() {
+        return djBzxr;
+    }
+
+    /**
+     * @param djBzxr
+     */
+    public void setDjBzxr(String djBzxr) {
+        this.djBzxr = djBzxr;
+    }
+
+    /**
+     * @return dj_gqs
+     */
+    public Integer getDjGqs() {
+        return djGqs;
+    }
+
+    /**
+     * @param djGqs
+     */
+    public void setDjGqs(Integer djGqs) {
+        this.djGqs = djGqs;
+    }
+
+    /**
+     * @return dj_qxqs
+     */
+    public Date getDjQxqs() {
+        return djQxqs;
+    }
+
+    /**
+     * @param djQxqs
+     */
+    public void setDjQxqs(Date djQxqs) {
+        this.djQxqs = djQxqs;
+    }
+
+    /**
+     * @return dj_qxjz
+     */
+    public Date getDjQxjz() {
+        return djQxjz;
+    }
+
+    /**
+     * @param djQxjz
+     */
+    public void setDjQxjz(Date djQxjz) {
+        this.djQxjz = djQxjz;
+    }
+
+    /**
+     * @return datasrdep
+     */
+    public String getDatasrdep() {
+        return datasrdep;
+    }
+
+    /**
+     * @param datasrdep
+     */
+    public void setDatasrdep(String datasrdep) {
+        this.datasrdep = datasrdep;
+    }
+
+    /**
+     * @return datasource
+     */
+    public String getDatasource() {
+        return datasource;
+    }
+
+    /**
+     * @param datasource
+     */
+    public void setDatasource(String datasource) {
+        this.datasource = datasource;
+    }
+
+    /**
+     * @return datakeycontent
+     */
+    public String getDatakeycontent() {
+        return datakeycontent;
+    }
+
+    /**
+     * @param datakeycontent
+     */
+    public void setDatakeycontent(String datakeycontent) {
+        this.datakeycontent = datakeycontent;
+    }
+
+    /**
+     * @return createtime
+     */
+    public String getCreatetime() {
+        return createtime;
+    }
+
+    /**
+     * @param createtime
+     */
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
+    }
+
+    /**
+     * @return updatetime
+     */
+    public Date getUpdatetime() {
+        return updatetime;
+    }
+
+    /**
+     * @param updatetime
+     */
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
+    }
+}

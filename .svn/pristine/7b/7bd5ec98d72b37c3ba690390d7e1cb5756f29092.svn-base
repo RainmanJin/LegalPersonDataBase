@@ -1,0 +1,912 @@
+/**
+ * Copyright© 2003-2016 浙江汇信科技有限公司, All Rights Reserved. <br/>
+ */
+package com.icinfo.frk.business.model;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import javax.persistence.Column;
+import javax.persistence.Table;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+
+/**
+ * 描述:  ca_dj_jbxx 对应的实体类.<br>
+ * WARNING：不是表中字段的属性必须加@Transient注解
+ * @author framework generator
+ * @date 2017年06月27日
+ */
+@Table(name = "frk.ca_dj_jbxx")
+public class CaDjJbxx implements Serializable {
+    @Column(name = "hash_unique")
+    private String hashUnique;
+
+    @Column(name = "frwybs")
+    private String frwybs;
+
+    @Column(name = "tyxydm")
+    private String tyxydm;
+
+    @Column(name = "zzjgdm")
+    private String zzjgdm;
+
+    @Column(name = "frfl")
+    private String frfl;
+
+    @Column(name = "frflxl")
+    private String frflxl;
+
+    @Column(name = "frmc")
+    private String frmc;
+
+    @Column(name = "fddbr")
+    private String fddbr;
+
+    @Column(name = "fr_zjlx")
+    private String frZjlx;
+
+    @Column(name = "fr_zjhm")
+    private String frZjhm;
+
+    @Column(name = "djjg")
+    private String djjg;
+
+    @Column(name = "zgjg")
+    private String zgjg;
+
+    @Column(name = "djrq")
+    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+    private Date djrq;
+
+    @Column(name = "cxzt")
+    private String cxzt;
+
+    @Column(name = "cyrs")
+    private Integer cyrs;
+
+    @Column(name = "djzlx")
+    private String djzlx;
+
+    @Column(name = "djzch")
+    private String djzch;
+
+    @Column(name = "ywfw")
+    private String ywfw;
+
+    @Column(name = "qy_jy")
+    private String qyJy;
+
+    @Column(name = "zczb")
+    private BigDecimal zczb;
+
+    @Column(name = "bm_bz")
+    private String bmBz;
+
+    @Column(name = "jfly")
+    private String jfly;
+
+    @Column(name = "jgsyxz")
+    private String jgsyxz;
+
+    @Column(name = "shzzlx")
+    private String shzzlx;
+
+    @Column(name = "qy_lx")
+    private String qyLx;
+
+    @Column(name = "qy_lxdl")
+    private String qyLxdl;
+
+    @Column(name = "hyml")
+    private String hyml;
+
+    @Column(name = "hydm")
+    private String hydm;
+
+    @Column(name = "hzrq")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date hzrq;
+
+    @Column(name = "jyqsrq")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date jyqsrq;
+
+    @Column(name = "jyjzrq")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date jyjzrq;
+
+    @Column(name = "jggss")
+    private String jggss;
+
+    @Column(name = "jgsws")
+    private String jgsws;
+
+    @Column(name = "gt_zcxs")
+    private String gtZcxs;
+
+    @Column(name = "bz_cz")
+    private Integer bzCz;
+
+    @Column(name = "zjjb")
+    private String zjjb;
+
+    @Column(name = "zjpb")
+    private String zjpb;
+
+    @Column(name = "mzbm_ns")
+    private String mzbmNs;
+
+    @Column(name = "jb")
+    private String jb;
+
+    @Column(name = "bz_zfzg")
+    private Integer bzZfzg;
+
+    @Column(name = "jyjg_bxlx")
+    private String jyjgBxlx;
+
+    @Column(name = "whjg_dj")
+    private String whjgDj;
+
+    @Column(name = "dh")
+    private String dh;
+
+    @Column(name = "yx")
+    private String yx;
+
+    @Column(name = "cz")
+    private String cz;
+
+    @Column(name = "frmc_jc")
+    private String frmcJc;
+
+    @Column(name = "frmc_en")
+    private String frmcEn;
+
+    @Column(name = "datasource")
+    private String datasource;
+
+    @Column(name = "datasrdep")
+    private String datasrdep;
+
+    @Column(name = "datakeycontent")
+    private String datakeycontent;
+
+    @Column(name = "createtime")
+    private String createtime;
+
+    @Column(name = "updatetime")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date updatetime;
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * @return hash_unique
+     */
+    public String getHashUnique() {
+        return hashUnique;
+    }
+
+    /**
+     * @param hashUnique
+     */
+    public void setHashUnique(String hashUnique) {
+        this.hashUnique = hashUnique;
+    }
+
+    /**
+     * @return frwybs
+     */
+    public String getFrwybs() {
+        return frwybs;
+    }
+
+    /**
+     * @param frwybs
+     */
+    public void setFrwybs(String frwybs) {
+        this.frwybs = frwybs;
+    }
+
+    /**
+     * @return tyxydm
+     */
+    public String getTyxydm() {
+        return tyxydm;
+    }
+
+    /**
+     * @param tyxydm
+     */
+    public void setTyxydm(String tyxydm) {
+        this.tyxydm = tyxydm;
+    }
+
+    /**
+     * @return zzjgdm
+     */
+    public String getZzjgdm() {
+        return zzjgdm;
+    }
+
+    /**
+     * @param zzjgdm
+     */
+    public void setZzjgdm(String zzjgdm) {
+        this.zzjgdm = zzjgdm;
+    }
+
+    /**
+     * @return frfl
+     */
+    public String getFrfl() {
+        return frfl;
+    }
+
+    /**
+     * @param frfl
+     */
+    public void setFrfl(String frfl) {
+        this.frfl = frfl;
+    }
+
+    /**
+     * @return frflxl
+     */
+    public String getFrflxl() {
+        return frflxl;
+    }
+
+    /**
+     * @param frflxl
+     */
+    public void setFrflxl(String frflxl) {
+        this.frflxl = frflxl;
+    }
+
+    /**
+     * @return frmc
+     */
+    public String getFrmc() {
+        return frmc;
+    }
+
+    /**
+     * @param frmc
+     */
+    public void setFrmc(String frmc) {
+        this.frmc = frmc;
+    }
+
+    /**
+     * @return fddbr
+     */
+    public String getFddbr() {
+        return fddbr;
+    }
+
+    /**
+     * @param fddbr
+     */
+    public void setFddbr(String fddbr) {
+        this.fddbr = fddbr;
+    }
+
+    /**
+     * @return fr_zjlx
+     */
+    public String getFrZjlx() {
+        return frZjlx;
+    }
+
+    /**
+     * @param frZjlx
+     */
+    public void setFrZjlx(String frZjlx) {
+        this.frZjlx = frZjlx;
+    }
+
+    /**
+     * @return fr_zjhm
+     */
+    public String getFrZjhm() {
+        return frZjhm;
+    }
+
+    /**
+     * @param frZjhm
+     */
+    public void setFrZjhm(String frZjhm) {
+        this.frZjhm = frZjhm;
+    }
+
+    /**
+     * @return djjg
+     */
+    public String getDjjg() {
+        return djjg;
+    }
+
+    /**
+     * @param djjg
+     */
+    public void setDjjg(String djjg) {
+        this.djjg = djjg;
+    }
+
+    /**
+     * @return zgjg
+     */
+    public String getZgjg() {
+        return zgjg;
+    }
+
+    /**
+     * @param zgjg
+     */
+    public void setZgjg(String zgjg) {
+        this.zgjg = zgjg;
+    }
+
+    /**
+     * @return djrq
+     */
+    public Date getDjrq() {
+        return djrq;
+    }
+
+    /**
+     * @param djrq
+     */
+    public void setDjrq(Date djrq) {
+        this.djrq = djrq;
+    }
+
+    /**
+     * @return cxzt
+     */
+    public String getCxzt() {
+        return cxzt;
+    }
+
+    /**
+     * @param cxzt
+     */
+    public void setCxzt(String cxzt) {
+        this.cxzt = cxzt;
+    }
+
+    /**
+     * @return cyrs
+     */
+    public Integer getCyrs() {
+        return cyrs;
+    }
+
+    /**
+     * @param cyrs
+     */
+    public void setCyrs(Integer cyrs) {
+        this.cyrs = cyrs;
+    }
+
+    /**
+     * @return djzlx
+     */
+    public String getDjzlx() {
+        return djzlx;
+    }
+
+    /**
+     * @param djzlx
+     */
+    public void setDjzlx(String djzlx) {
+        this.djzlx = djzlx;
+    }
+
+    /**
+     * @return djzch
+     */
+    public String getDjzch() {
+        return djzch;
+    }
+
+    /**
+     * @param djzch
+     */
+    public void setDjzch(String djzch) {
+        this.djzch = djzch;
+    }
+
+    /**
+     * @return ywfw
+     */
+    public String getYwfw() {
+        return ywfw;
+    }
+
+    /**
+     * @param ywfw
+     */
+    public void setYwfw(String ywfw) {
+        this.ywfw = ywfw;
+    }
+
+    /**
+     * @return qy_jy
+     */
+    public String getQyJy() {
+        return qyJy;
+    }
+
+    /**
+     * @param qyJy
+     */
+    public void setQyJy(String qyJy) {
+        this.qyJy = qyJy;
+    }
+
+    /**
+     * @return zczb
+     */
+    public BigDecimal getZczb() {
+        return zczb;
+    }
+
+    /**
+     * @param zczb
+     */
+    public void setZczb(BigDecimal zczb) {
+        this.zczb = zczb;
+    }
+
+    /**
+     * @return bm_bz
+     */
+    public String getBmBz() {
+        return bmBz;
+    }
+
+    /**
+     * @param bmBz
+     */
+    public void setBmBz(String bmBz) {
+        this.bmBz = bmBz;
+    }
+
+    /**
+     * @return jfly
+     */
+    public String getJfly() {
+        return jfly;
+    }
+
+    /**
+     * @param jfly
+     */
+    public void setJfly(String jfly) {
+        this.jfly = jfly;
+    }
+
+    /**
+     * @return jgsyxz
+     */
+    public String getJgsyxz() {
+        return jgsyxz;
+    }
+
+    /**
+     * @param jgsyxz
+     */
+    public void setJgsyxz(String jgsyxz) {
+        this.jgsyxz = jgsyxz;
+    }
+
+    /**
+     * @return shzzlx
+     */
+    public String getShzzlx() {
+        return shzzlx;
+    }
+
+    /**
+     * @param shzzlx
+     */
+    public void setShzzlx(String shzzlx) {
+        this.shzzlx = shzzlx;
+    }
+
+    /**
+     * @return qy_lx
+     */
+    public String getQyLx() {
+        return qyLx;
+    }
+
+    /**
+     * @param qyLx
+     */
+    public void setQyLx(String qyLx) {
+        this.qyLx = qyLx;
+    }
+
+    /**
+     * @return qy_lxdl
+     */
+    public String getQyLxdl() {
+        return qyLxdl;
+    }
+
+    /**
+     * @param qyLxdl
+     */
+    public void setQyLxdl(String qyLxdl) {
+        this.qyLxdl = qyLxdl;
+    }
+
+    /**
+     * @return hyml
+     */
+    public String getHyml() {
+        return hyml;
+    }
+
+    /**
+     * @param hyml
+     */
+    public void setHyml(String hyml) {
+        this.hyml = hyml;
+    }
+
+    /**
+     * @return hydm
+     */
+    public String getHydm() {
+        return hydm;
+    }
+
+    /**
+     * @param hydm
+     */
+    public void setHydm(String hydm) {
+        this.hydm = hydm;
+    }
+
+    /**
+     * @return hzrq
+     */
+    public Date getHzrq() {
+        return hzrq;
+    }
+
+    /**
+     * @param hzrq
+     */
+    public void setHzrq(Date hzrq) {
+        this.hzrq = hzrq;
+    }
+
+    /**
+     * @return jyqsrq
+     */
+    public Date getJyqsrq() {
+        return jyqsrq;
+    }
+
+    /**
+     * @param jyqsrq
+     */
+    public void setJyqsrq(Date jyqsrq) {
+        this.jyqsrq = jyqsrq;
+    }
+
+    /**
+     * @return jyjzrq
+     */
+    public Date getJyjzrq() {
+        return jyjzrq;
+    }
+
+    /**
+     * @param jyjzrq
+     */
+    public void setJyjzrq(Date jyjzrq) {
+        this.jyjzrq = jyjzrq;
+    }
+
+    /**
+     * @return jggss
+     */
+    public String getJggss() {
+        return jggss;
+    }
+
+    /**
+     * @param jggss
+     */
+    public void setJggss(String jggss) {
+        this.jggss = jggss;
+    }
+
+    /**
+     * @return jgsws
+     */
+    public String getJgsws() {
+        return jgsws;
+    }
+
+    /**
+     * @param jgsws
+     */
+    public void setJgsws(String jgsws) {
+        this.jgsws = jgsws;
+    }
+
+    /**
+     * @return gt_zcxs
+     */
+    public String getGtZcxs() {
+        return gtZcxs;
+    }
+
+    /**
+     * @param gtZcxs
+     */
+    public void setGtZcxs(String gtZcxs) {
+        this.gtZcxs = gtZcxs;
+    }
+
+    /**
+     * @return bz_cz
+     */
+    public Integer getBzCz() {
+        return bzCz;
+    }
+
+    /**
+     * @param bzCz
+     */
+    public void setBzCz(Integer bzCz) {
+        this.bzCz = bzCz;
+    }
+
+    /**
+     * @return zjjb
+     */
+    public String getZjjb() {
+        return zjjb;
+    }
+
+    /**
+     * @param zjjb
+     */
+    public void setZjjb(String zjjb) {
+        this.zjjb = zjjb;
+    }
+
+    /**
+     * @return zjpb
+     */
+    public String getZjpb() {
+        return zjpb;
+    }
+
+    /**
+     * @param zjpb
+     */
+    public void setZjpb(String zjpb) {
+        this.zjpb = zjpb;
+    }
+
+    /**
+     * @return mzbm_ns
+     */
+    public String getMzbmNs() {
+        return mzbmNs;
+    }
+
+    /**
+     * @param mzbmNs
+     */
+    public void setMzbmNs(String mzbmNs) {
+        this.mzbmNs = mzbmNs;
+    }
+
+    /**
+     * @return jb
+     */
+    public String getJb() {
+        return jb;
+    }
+
+    /**
+     * @param jb
+     */
+    public void setJb(String jb) {
+        this.jb = jb;
+    }
+
+    /**
+     * @return bz_zfzg
+     */
+    public Integer getBzZfzg() {
+        return bzZfzg;
+    }
+
+    /**
+     * @param bzZfzg
+     */
+    public void setBzZfzg(Integer bzZfzg) {
+        this.bzZfzg = bzZfzg;
+    }
+
+    /**
+     * @return jyjg_bxlx
+     */
+    public String getJyjgBxlx() {
+        return jyjgBxlx;
+    }
+
+    /**
+     * @param jyjgBxlx
+     */
+    public void setJyjgBxlx(String jyjgBxlx) {
+        this.jyjgBxlx = jyjgBxlx;
+    }
+
+    /**
+     * @return whjg_dj
+     */
+    public String getWhjgDj() {
+        return whjgDj;
+    }
+
+    /**
+     * @param whjgDj
+     */
+    public void setWhjgDj(String whjgDj) {
+        this.whjgDj = whjgDj;
+    }
+
+    /**
+     * @return dh
+     */
+    public String getDh() {
+        return dh;
+    }
+
+    /**
+     * @param dh
+     */
+    public void setDh(String dh) {
+        this.dh = dh;
+    }
+
+    /**
+     * @return yx
+     */
+    public String getYx() {
+        return yx;
+    }
+
+    /**
+     * @param yx
+     */
+    public void setYx(String yx) {
+        this.yx = yx;
+    }
+
+    /**
+     * @return cz
+     */
+    public String getCz() {
+        return cz;
+    }
+
+    /**
+     * @param cz
+     */
+    public void setCz(String cz) {
+        this.cz = cz;
+    }
+
+    /**
+     * @return frmc_jc
+     */
+    public String getFrmcJc() {
+        return frmcJc;
+    }
+
+    /**
+     * @param frmcJc
+     */
+    public void setFrmcJc(String frmcJc) {
+        this.frmcJc = frmcJc;
+    }
+
+    /**
+     * @return frmc_en
+     */
+    public String getFrmcEn() {
+        return frmcEn;
+    }
+
+    /**
+     * @param frmcEn
+     */
+    public void setFrmcEn(String frmcEn) {
+        this.frmcEn = frmcEn;
+    }
+
+    /**
+     * @return datasource
+     */
+    public String getDatasource() {
+        return datasource;
+    }
+
+    /**
+     * @param datasource
+     */
+    public void setDatasource(String datasource) {
+        this.datasource = datasource;
+    }
+
+    /**
+     * @return datasrdep
+     */
+    public String getDatasrdep() {
+        return datasrdep;
+    }
+
+    /**
+     * @param datasrdep
+     */
+    public void setDatasrdep(String datasrdep) {
+        this.datasrdep = datasrdep;
+    }
+
+    /**
+     * @return datakeycontent
+     */
+    public String getDatakeycontent() {
+        return datakeycontent;
+    }
+
+    /**
+     * @param datakeycontent
+     */
+    public void setDatakeycontent(String datakeycontent) {
+        this.datakeycontent = datakeycontent;
+    }
+
+    /**
+     * @return createtime
+     */
+    public String getCreatetime() {
+        return createtime;
+    }
+
+    /**
+     * @param createtime
+     */
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
+    }
+
+    /**
+     * @return updatetime
+     */
+    public Date getUpdatetime() {
+        return updatetime;
+    }
+
+    /**
+     * @param updatetime
+     */
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
+    }
+}

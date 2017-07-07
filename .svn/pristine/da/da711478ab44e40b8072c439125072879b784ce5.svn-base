@@ -1,0 +1,245 @@
+/*
+ * Copyright© 2003-2016 浙江汇信科技有限公司, All Rights Reserved. 
+ */
+package com.icinfo.frk.business.service.impl;
+
+import com.icinfo.framework.core.service.support.MyBatisServiceSupport;
+import com.icinfo.framework.mybatis.pagehelper.Page;
+import com.icinfo.framework.mybatis.pagehelper.PageHelper;
+import com.icinfo.framework.mybatis.pagehelper.PageInfo;
+import com.icinfo.frk.business.mapper.CaDjJbxxMapper;
+import com.icinfo.frk.business.model.CaDjJbxx;
+import com.icinfo.frk.business.service.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * 描述:  ca_dj_jbxx 对应的Service接口实现类.<br>
+ *
+ * @author framework generator
+ * @date 2017年06月27日
+ */
+@Service
+public class CaDjJbxxServiceImpl extends MyBatisServiceSupport implements ICaDjJbxxService {
+    /**
+     * 日志记录器
+     */
+    private static final Logger logger = LoggerFactory.getLogger(CaDjJbxxServiceImpl.class);
+
+    @Autowired
+    private CaDjJbxxMapper caDjJbxxMapper;
+
+    /**
+     * 法定代表人服务
+     */
+    @Autowired
+    private ICaCyFddbrValidService caCyFddbrValidService;
+
+    /**
+     * 地址信息服务
+     */
+    @Autowired
+    private ICaCyDzxxValidService caCyDzxxValidService;
+
+    /**
+     * 变更信息服务
+     */
+    @Autowired
+    private ICaCxBgxxValidService caCxBgxxValidService;
+
+    /**
+     * 车辆信息服务
+     */
+    @Autowired
+    private ICdDcClxxValidService cdDcClxxValidService;
+
+    /**
+     * 不动产信息服务
+     */
+    @Autowired
+    private ICdGdBdcxxValidService cdGdBdcxxValidService;
+
+    /**
+     * 拖拉机信息服务
+     */
+    @Autowired
+    private ICdDcTljxxValidService cdDcTljxxValidService;
+
+    /**
+     * 船舶信息服务
+     */
+    @Autowired
+    private ICdDcCbxxValidService cdDcCbxxValidService;
+
+    /**
+     * 股东及出资信息服务
+     */
+    @Autowired
+    private ICdZbGdczxxValidService cdZbGdczxxValidService;
+
+    /**
+     * 股权信息服务
+     */
+    @Autowired
+    private ICdZbGqxxValidService cdZbGqxxValidService;
+
+    /**
+     * 动产抵押信息服务
+     */
+    @Autowired
+    private ICdGdDcdyrValidService cdGdDcdyrValidService;
+
+    /**
+     * 知识产权信息服务
+     */
+    @Autowired
+    private ICdWxzcZscqxxValidService cdWxzcZscqxxValidService;
+
+    /**
+     * 土地使用权信息服务
+     */
+    @Autowired
+    private ICdWxzcGtsyqxxValidService cdWxzcGtsyqxxValidService;
+
+    /**
+     * 采矿权信息服务
+     */
+    @Autowired
+    private ICdWxzcCksyqxxValidService cdWxzcCksyqxxValidService;
+
+    /**
+     * 林业使用权信息服务
+     */
+    @Autowired
+    private ICdWxzcLysyqxxValidService cdWxzcLysyqxxValidService;
+
+    /**
+     * 生物资产信息服务
+     */
+    @Autowired
+    private ICdQtSwzcValidService cdQtSwzcValidService;
+
+    /**
+     * 分页获取法人登记基本信息。
+     *
+     * @param map      参数map
+     * @param pageNum  当前页码
+     * @param pageSize 每页条数
+     * @return 法人登记证列表
+     */
+    @Override
+    public PageInfo<CaDjJbxx> getByKeyword(Map<String, Object> map, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        Page<CaDjJbxx> page = (Page<CaDjJbxx>) caDjJbxxMapper.selectListByKeyword(map);
+        return page.toPageInfo();
+    }
+
+    @Override
+    public PageInfo<CaDjJbxx> getBasic(Map<String, Object> map, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        Page<CaDjJbxx> page = (Page<CaDjJbxx>) caDjJbxxMapper.selectList(map);
+        return page.toPageInfo();
+    }
+
+    /**
+     * 获取法人登记证基本信息列表
+     *
+     * @param map 参数map
+     * @return 法人登记证列表
+     */
+    @Override
+    public List<CaDjJbxx> getList(Map<String, Object> map) {
+        return caDjJbxxMapper.selectList(map);
+    }
+
+    /**
+     * 获取法人基本信息
+     *
+     * @param frwybs 法人唯一标识
+     * @return
+     */
+    @Override
+    public Map<String, Object> getFrJbxx(String frwybs) throws Exception {
+        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> parmMap = new HashMap<>();
+        parmMap.put("frwybs", frwybs);
+
+        // 1.获取主体登记信息
+        CaDjJbxx caDjJbxx = new CaDjJbxx();
+        caDjJbxx.setFrwybs(frwybs);
+        map.put("ztdj", caDjJbxxMapper.selectOne(caDjJbxx));
+
+        // 2.获取法定代表人
+        map.put("fddbr", caCyFddbrValidService.getList(parmMap));
+
+        // 3.获取地址信息
+        map.put("dzxx", caCyDzxxValidService.getByFrwybs(frwybs));
+
+        // 4.获取法人变更信息
+        map.put("bgxx", caCxBgxxValidService.getList(frwybs));
+        return map;
+    }
+
+    /**
+     * 获取法人资本与资产信息
+     *
+     * @param frwybs 法人唯一标识
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public Map<String, Object> getFrZbyzc(String frwybs) throws Exception {
+        Map<String, Object> map = new HashMap<>();
+
+        // 1.获取主体登记信息
+        CaDjJbxx caDjJbxx = new CaDjJbxx();
+        caDjJbxx.setFrwybs(frwybs);
+        map.put("ztdj", caDjJbxxMapper.selectOne(caDjJbxx));
+
+        // 2.获取车辆数量
+        map.put("clsl", cdDcClxxValidService.getCountByFrwybs(frwybs));
+
+        // 3.获取房屋数量
+        map.put("fwsl", cdGdBdcxxValidService.getCountByFrwybs(frwybs));
+
+        // 4.获取拖拉机数量
+        map.put("tljsl", cdDcTljxxValidService.getCountByFrwybs(frwybs));
+
+        // 5.获取船舶数量
+        map.put("cbsl", cdDcCbxxValidService.getCountByFrwybs(frwybs));
+
+        // 6.获取股东及出资信息
+        map.put("gdczxx", cdZbGdczxxValidService.getList(frwybs));
+
+        // 7.获取股权信息
+        map.put("gqxx", cdZbGqxxValidService.getList(frwybs));
+
+        // 8.获取不动产查封信息
+        map.put("bdccfxx", cdGdBdcxxValidService.getList(frwybs));
+
+        // 9.获取动产抵押信息
+        map.put("dcdyxx", cdGdDcdyrValidService.getList(frwybs));
+
+        // 10.获取知识产权信息
+        map.put("zscqxx", cdWxzcZscqxxValidService.getList(frwybs));
+
+        // 11.获取土地使用权信息
+        map.put("tdsyqxx", cdWxzcGtsyqxxValidService.getList(frwybs));
+
+        // 12.获取采矿权信息
+        map.put("ckqxx", cdWxzcCksyqxxValidService.getList(frwybs));
+
+        // 13.获取林业使用权信息
+        map.put("lysyqxx", cdWxzcLysyqxxValidService.getList(frwybs));
+
+        // 14.获取生物资产信息
+        map.put("swzcxx", cdQtSwzcValidService.getList(frwybs));
+        return map;
+    }
+}

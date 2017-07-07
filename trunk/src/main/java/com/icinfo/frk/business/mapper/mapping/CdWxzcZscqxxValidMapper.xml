@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icinfo.frk.business.mapper.CdWxzcZscqxxValidMapper" >
+  <resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CdWxzcZscqxxValid" >
+    <!--
+      WARNING - @frameworkgenerated
+    -->
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="hash_unique" property="hashUnique" jdbcType="VARCHAR" />
+    <result column="frwybs" property="frwybs" jdbcType="VARCHAR" />
+    <result column="syzmc" property="syzmc" jdbcType="VARCHAR" />
+    <result column="syzbh" property="syzbh" jdbcType="VARCHAR" />
+    <result column="bqdjh" property="bqdjh" jdbcType="VARCHAR" />
+    <result column="zpmc" property="zpmc" jdbcType="VARCHAR" />
+    <result column="zplb" property="zplb" jdbcType="VARCHAR" />
+    <result column="bqdjrq" property="bqdjrq" jdbcType="VARCHAR" />
+    <result column="sbzch" property="sbzch" jdbcType="VARCHAR" />
+    <result column="sbmc" property="sbmc" jdbcType="VARCHAR" />
+    <result column="zscqlx" property="zscqlx" jdbcType="VARCHAR" />
+    <result column="zqr" property="zqr" jdbcType="VARCHAR" />
+    <result column="zqr_bh" property="zqrBh" jdbcType="VARCHAR" />
+    <result column="czqsrq" property="czqsrq" jdbcType="TIMESTAMP" />
+    <result column="czjzrq" property="czjzrq" jdbcType="TIMESTAMP" />
+    <result column="zqbgrq" property="zqbgrq" jdbcType="TIMESTAMP" />
+    <result column="zqzxrq" property="zqzxrq" jdbcType="TIMESTAMP" />
+    <result column="zqzxyy" property="zqzxyy" jdbcType="VARCHAR" />
+    <result column="zqqtwxrq" property="zqqtwxrq" jdbcType="VARCHAR" />
+    <result column="zqqtwxyy" property="zqqtwxyy" jdbcType="VARCHAR" />
+    <result column="datasrdep" property="datasrdep" jdbcType="VARCHAR" />
+    <result column="datasource" property="datasource" jdbcType="VARCHAR" />
+    <result column="datakeycontent" property="datakeycontent" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="VARCHAR" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

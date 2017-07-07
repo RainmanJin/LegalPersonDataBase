@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icinfo.frk.business.mapper.CdGdBdcxxValidMapper" >
+  <resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CdGdBdcxxValid" >
+    <!--
+      WARNING - @frameworkgenerated
+    -->
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="hash_unique" property="hashUnique" jdbcType="VARCHAR" />
+    <result column="frwybs" property="frwybs" jdbcType="VARCHAR" />
+    <result column="fwbh" property="fwbh" jdbcType="VARCHAR" />
+    <result column="fwsyqzh" property="fwsyqzh" jdbcType="VARCHAR" />
+    <result column="lx_fwsyqr" property="lxFwsyqr" jdbcType="VARCHAR" />
+    <result column="fwsyqr" property="fwsyqr" jdbcType="VARCHAR" />
+    <result column="sfzhm" property="sfzhm" jdbcType="VARCHAR" />
+    <result column="fjh" property="fjh" jdbcType="VARCHAR" />
+    <result column="fwszxzqh" property="fwszxzqh" jdbcType="VARCHAR" />
+    <result column="fwzl" property="fwzl" jdbcType="VARCHAR" />
+    <result column="fwszzcs" property="fwszzcs" jdbcType="INTEGER" />
+    <result column="fwjzmj" property="fwjzmj" jdbcType="NUMERIC" />
+    <result column="tnjzmj" property="tnjzmj" jdbcType="NUMERIC" />
+    <result column="fwghyt" property="fwghyt" jdbcType="VARCHAR" />
+    <result column="fwxz" property="fwxz" jdbcType="VARCHAR" />
+    <result column="fwgyqk" property="fwgyqk" jdbcType="VARCHAR" />
+    <result column="fwqlbl" property="fwqlbl" jdbcType="VARCHAR" />
+    <result column="fwdjbbh" property="fwdjbbh" jdbcType="VARCHAR" />
+    <result column="fwsyqdjsj" property="fwsyqdjsj" jdbcType="TIMESTAMP" />
+    <result column="fwsyqbgsj" property="fwsyqbgsj" jdbcType="TIMESTAMP" />
+    <result column="lx_fwsyqdj" property="lxFwsyqdj" jdbcType="VARCHAR" />
+    <result column="bm_cjcs" property="bmCjcs" jdbcType="VARCHAR" />
+    <result column="wh_fwcf" property="whFwcf" jdbcType="VARCHAR" />
+    <result column="fwcfrq" property="fwcfrq" jdbcType="TIMESTAMP" />
+    <result column="sqfwcfdw" property="sqfwcfdw" jdbcType="VARCHAR" />
+    <result column="zt_fwcf" property="ztFwcf" jdbcType="VARCHAR" />
+    <result column="fwcfdw" property="fwcfdw" jdbcType="VARCHAR" />
+    <result column="cxfwcfrq" property="cxfwcfrq" jdbcType="TIMESTAMP" />
+    <result column="datasrdep" property="datasrdep" jdbcType="VARCHAR" />
+    <result column="datasource" property="datasource" jdbcType="VARCHAR" />
+    <result column="datakeycontent" property="datakeycontent" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="VARCHAR" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>

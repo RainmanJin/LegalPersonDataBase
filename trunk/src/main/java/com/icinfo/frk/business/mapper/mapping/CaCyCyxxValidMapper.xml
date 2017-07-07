@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icinfo.frk.business.mapper.CaCyCyxxValidMapper" >
+  <resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CaCyCyxxValid" >
+    <!--
+      WARNING - @frameworkgenerated
+    -->
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="hash_unique" property="hashUnique" jdbcType="VARCHAR" />
+    <result column="frwybs" property="frwybs" jdbcType="VARCHAR" />
+    <result column="dwmc" property="dwmc" jdbcType="VARCHAR" />
+    <result column="tyxydm" property="tyxydm" jdbcType="VARCHAR" />
+    <result column="zzjgdm" property="zzjgdm" jdbcType="VARCHAR" />
+    <result column="xm" property="xm" jdbcType="VARCHAR" />
+    <result column="zjlx" property="zjlx" jdbcType="VARCHAR" />
+    <result column="zjhm" property="zjhm" jdbcType="VARCHAR" />
+    <result column="hjdz" property="hjdz" jdbcType="VARCHAR" />
+    <result column="zs" property="zs" jdbcType="VARCHAR" />
+    <result column="szbm" property="szbm" jdbcType="VARCHAR" />
+    <result column="rzrq" property="rzrq" jdbcType="TIMESTAMP" />
+    <result column="lzrq" property="lzrq" jdbcType="TIMESTAMP" />
+    <result column="lzyy" property="lzyy" jdbcType="VARCHAR" />
+    <result column="dh" property="dh" jdbcType="VARCHAR" />
+    <result column="yddh" property="yddh" jdbcType="VARCHAR" />
+    <result column="dzyx" property="dzyx" jdbcType="VARCHAR" />
+    <result column="zgzbh" property="zgzbh" jdbcType="VARCHAR" />
+    <result column="zgzmc" property="zgzmc" jdbcType="VARCHAR" />
+    <result column="zgzbfrq" property="zgzbfrq" jdbcType="VARCHAR" />
+    <result column="zgzbfbm" property="zgzbfbm" jdbcType="VARCHAR" />
+    <result column="zgzzxrq" property="zgzzxrq" jdbcType="VARCHAR" />
+    <result column="zgzzxbm" property="zgzzxbm" jdbcType="VARCHAR" />
+    <result column="datasrdep" property="datasrdep" jdbcType="VARCHAR" />
+    <result column="datasource" property="datasource" jdbcType="VARCHAR" />
+    <result column="datakeycontent" property="datakeycontent" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="VARCHAR" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <!--获取成员信息列表-->
+  <select id="selectList" parameterType="java.util.Map" resultMap="BaseResultMap">
+    SELECT
+    cyxx.*
+    FROM frk.ca_cy_cyxx_valid cyxx, frk.ca_dj_jbxx jbxx
+    <where>
+      cyxx.frwybs = jbxx.frwybs
+      <if test="tyxydm != null and tyxydm != ''">
+        AND jbxx.tyxydm = #{tyxydm}
+      </if>
+      <if test="zzjgdm != null and zzjgdm != ''">
+        AND jbxx.zzjgdm = #{zzjgdm}
+      </if>
+      <if test="djzch != null and djzch != ''">
+        AND jbxx.djzch = #{djzch}
+      </if>
+      <if test="frwybs != null and frwybs != ''">
+        AND cyxx.frwybs = #{frwybs}
+      </if>
+    </where>
+    ORDER BY updatetime DESC
+  </select>
+
+</mapper>

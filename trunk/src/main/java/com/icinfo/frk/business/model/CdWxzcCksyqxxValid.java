@@ -1,0 +1,348 @@
+/**
+ * Copyright© 2003-2016 浙江汇信科技有限公司, All Rights Reserved. <br/>
+ */
+package com.icinfo.frk.business.model;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.icinfo.framework.mybatis.mapper.annotation.Before;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Date;
+import javax.persistence.*;
+
+/**
+ * 描述:  cd_wxzc_cksyqxx_valid 对应的实体类.<br>
+ * WARNING：不是表中字段的属性必须加@Transient注解
+ * @author framework generator
+ * @date 2017年07月06日
+ */
+@Table(name = "frk.cd_wxzc_cksyqxx_valid")
+public class CdWxzcCksyqxxValid implements Serializable {
+    @Column(name = "id")
+    private String id;
+
+    @Column(name = "hash_unique")
+    private String hashUnique;
+
+    @Column(name = "frwybs")
+    private String frwybs;
+
+    @Column(name = "syzmc")
+    private String syzmc;
+
+    @Column(name = "dz")
+    private String dz;
+
+    @Column(name = "zjhm")
+    private String zjhm;
+
+    @Column(name = "ckqzh")
+    private String ckqzh;
+
+    @Column(name = "ckqksmc")
+    private String ckqksmc;
+
+    @Column(name = "kckz")
+    private String kckz;
+
+    @Column(name = "kqfwzb")
+    private String kqfwzb;
+
+    @Column(name = "ckqkcmj")
+    private BigDecimal ckqkcmj;
+
+    @Column(name = "nkcgm")
+    private BigDecimal nkcgm;
+
+    @Column(name = "yxqsrq")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date yxqsrq;
+
+    @Column(name = "yxdqrq")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date yxdqrq;
+
+    @Column(name = "datasrdep")
+    private String datasrdep;
+
+    @Column(name = "datasource")
+    private String datasource;
+
+    @Column(name = "datakeycontent")
+    private String datakeycontent;
+
+    @Column(name = "createtime")
+    private String createtime;
+
+    @Column(name = "updatetime")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date updatetime;
+
+    private static final long serialVersionUID = 1L;
+
+    /**
+     * @return id
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * @param id
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * @return hash_unique
+     */
+    public String getHashUnique() {
+        return hashUnique;
+    }
+
+    /**
+     * @param hashUnique
+     */
+    public void setHashUnique(String hashUnique) {
+        this.hashUnique = hashUnique;
+    }
+
+    /**
+     * @return frwybs
+     */
+    public String getFrwybs() {
+        return frwybs;
+    }
+
+    /**
+     * @param frwybs
+     */
+    public void setFrwybs(String frwybs) {
+        this.frwybs = frwybs;
+    }
+
+    /**
+     * @return syzmc
+     */
+    public String getSyzmc() {
+        return syzmc;
+    }
+
+    /**
+     * @param syzmc
+     */
+    public void setSyzmc(String syzmc) {
+        this.syzmc = syzmc;
+    }
+
+    /**
+     * @return dz
+     */
+    public String getDz() {
+        return dz;
+    }
+
+    /**
+     * @param dz
+     */
+    public void setDz(String dz) {
+        this.dz = dz;
+    }
+
+    /**
+     * @return zjhm
+     */
+    public String getZjhm() {
+        return zjhm;
+    }
+
+    /**
+     * @param zjhm
+     */
+    public void setZjhm(String zjhm) {
+        this.zjhm = zjhm;
+    }
+
+    /**
+     * @return ckqzh
+     */
+    public String getCkqzh() {
+        return ckqzh;
+    }
+
+    /**
+     * @param ckqzh
+     */
+    public void setCkqzh(String ckqzh) {
+        this.ckqzh = ckqzh;
+    }
+
+    /**
+     * @return ckqksmc
+     */
+    public String getCkqksmc() {
+        return ckqksmc;
+    }
+
+    /**
+     * @param ckqksmc
+     */
+    public void setCkqksmc(String ckqksmc) {
+        this.ckqksmc = ckqksmc;
+    }
+
+    /**
+     * @return kckz
+     */
+    public String getKckz() {
+        return kckz;
+    }
+
+    /**
+     * @param kckz
+     */
+    public void setKckz(String kckz) {
+        this.kckz = kckz;
+    }
+
+    /**
+     * @return kqfwzb
+     */
+    public String getKqfwzb() {
+        return kqfwzb;
+    }
+
+    /**
+     * @param kqfwzb
+     */
+    public void setKqfwzb(String kqfwzb) {
+        this.kqfwzb = kqfwzb;
+    }
+
+    /**
+     * @return ckqkcmj
+     */
+    public BigDecimal getCkqkcmj() {
+        return ckqkcmj;
+    }
+
+    /**
+     * @param ckqkcmj
+     */
+    public void setCkqkcmj(BigDecimal ckqkcmj) {
+        this.ckqkcmj = ckqkcmj;
+    }
+
+    /**
+     * @return nkcgm
+     */
+    public BigDecimal getNkcgm() {
+        return nkcgm;
+    }
+
+    /**
+     * @param nkcgm
+     */
+    public void setNkcgm(BigDecimal nkcgm) {
+        this.nkcgm = nkcgm;
+    }
+
+    /**
+     * @return yxqsrq
+     */
+    public Date getYxqsrq() {
+        return yxqsrq;
+    }
+
+    /**
+     * @param yxqsrq
+     */
+    public void setYxqsrq(Date yxqsrq) {
+        this.yxqsrq = yxqsrq;
+    }
+
+    /**
+     * @return yxdqrq
+     */
+    public Date getYxdqrq() {
+        return yxdqrq;
+    }
+
+    /**
+     * @param yxdqrq
+     */
+    public void setYxdqrq(Date yxdqrq) {
+        this.yxdqrq = yxdqrq;
+    }
+
+    /**
+     * @return datasrdep
+     */
+    public String getDatasrdep() {
+        return datasrdep;
+    }
+
+    /**
+     * @param datasrdep
+     */
+    public void setDatasrdep(String datasrdep) {
+        this.datasrdep = datasrdep;
+    }
+
+    /**
+     * @return datasource
+     */
+    public String getDatasource() {
+        return datasource;
+    }
+
+    /**
+     * @param datasource
+     */
+    public void setDatasource(String datasource) {
+        this.datasource = datasource;
+    }
+
+    /**
+     * @return datakeycontent
+     */
+    public String getDatakeycontent() {
+        return datakeycontent;
+    }
+
+    /**
+     * @param datakeycontent
+     */
+    public void setDatakeycontent(String datakeycontent) {
+        this.datakeycontent = datakeycontent;
+    }
+
+    /**
+     * @return createtime
+     */
+    public String getCreatetime() {
+        return createtime;
+    }
+
+    /**
+     * @param createtime
+     */
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
+    }
+
+    /**
+     * @return updatetime
+     */
+    public Date getUpdatetime() {
+        return updatetime;
+    }
+
+    /**
+     * @param updatetime
+     */
+    public void setUpdatetime(Date updatetime) {
+        this.updatetime = updatetime;
+    }
+}
