@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+
+<!-- 不使用namespace是由于sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CfSsSwdjxxValidMapper" >
+
+    <resultMap id="BaseResultMap" class="com.company.project.model.CfSsSwdjxxValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="gsdjzclxmc" column="gsdjzclxmc"/>
+        <result property="dsdjzclxmc" column="dsdjzclxmc"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="nsrmc" column="nsrmc"/>
+        <result property="shxydm" column="shxydm"/>
+        <result property="zzjgdm" column="zzjgdm"/>
+        <result property="fddbrxm" column="fddbrxm"/>
+        <result property="sfzhm" column="sfzhm"/>
+        <result property="nsrsbh" column="nsrsbh"/>
+        <result property="gszgbm" column="gszgbm"/>
+        <result property="gsdjrq" column="gsdjrq"/>
+        <result property="gsqyzt" column="gsqyzt"/>
+        <result property="gsfzch" column="gsfzch"/>
+        <result property="dszgbm" column="dszgbm"/>
+        <result property="dsdjrq" column="dsdjrq"/>
+        <result property="dsjszh" column="dsjszh"/>
+        <result property="dsqyzt" column="dsqyzt"/>
+        <result property="dsfzch" column="dsfzch"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+    </resultMap>
+
+	
+</mapper>
+

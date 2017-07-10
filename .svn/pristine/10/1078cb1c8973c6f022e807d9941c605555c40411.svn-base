@@ -5,7 +5,12 @@ package com.icinfo.frk.business.service.impl;
 
 import com.icinfo.framework.core.service.support.MyBatisServiceSupport;
 import com.icinfo.frk.business.mapper.CdGdBdcxxValidMapper;
+import com.icinfo.frk.business.mapper.CeRyRyxxValidMapper;
+import com.icinfo.frk.business.mapper.CeXkzBaxxValidMapper;
 import com.icinfo.frk.business.model.CdGdBdcxxValid;
+import com.icinfo.frk.business.model.CeRyRyxxValid;
+import com.icinfo.frk.business.model.CeXkzBaxxValid;
+import com.icinfo.frk.business.service.CeXkzBaxxValidService;
 import com.icinfo.frk.business.service.ICdGdBdcxxValidService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,17 +26,17 @@ import java.util.List;
  * @date 2017年07月06日
  */
 @Service
-public class CdGdBdcxxValidServiceImpl extends MyBatisServiceSupport implements ICdGdBdcxxValidService {
+public class CeXkzBaxxValidServiceImpl extends MyBatisServiceSupport implements CeXkzBaxxValidService {
     /**
      * 日志记录器
      */
-    private static final Logger logger = LoggerFactory.getLogger(CdGdBdcxxValidServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(CeXkzBaxxValidServiceImpl.class);
 
     /**
      * 注入不动产信息Mapper
      */
     @Autowired
-    private CdGdBdcxxValidMapper cdGdBdcxxValidMapper;
+    private CeXkzBaxxValidMapper ceXkzBaxxValidMapper;
 
     /**
      * 获取不动产查封信息列表
@@ -41,12 +46,11 @@ public class CdGdBdcxxValidServiceImpl extends MyBatisServiceSupport implements 
      * @throws Exception
      */
     @Override
-    public List<CdGdBdcxxValid> getList(String frwybs) throws Exception {
-        CdGdBdcxxValid cdGdBdcxxValid = new CdGdBdcxxValid();
-        cdGdBdcxxValid.setFrwybs(frwybs);
-        return cdGdBdcxxValidMapper.select(cdGdBdcxxValid);
+    public List<CeXkzBaxxValid> getList(String frwybs) throws Exception {
+    	CeXkzBaxxValid ceXkzBaxxValid = new CeXkzBaxxValid();
+    	ceXkzBaxxValid.setfrwybs(frwybs);
+        return ceXkzBaxxValidMapper.select(ceXkzBaxxValid);
     }
-
     /**
      * 根据法人唯一标识查询房屋数量
      *
@@ -54,10 +58,11 @@ public class CdGdBdcxxValidServiceImpl extends MyBatisServiceSupport implements 
      * @return 房屋数量
      * @throws Exception 异常
      */
-    @Override
-    public int getCountByFrwybs(String frwybs) throws Exception {
-        CdGdBdcxxValid q = new CdGdBdcxxValid();
-        q.setFrwybs(frwybs);
-        return cdGdBdcxxValidMapper.selectCount(q);
-    }
+
+	@Override
+	public int getCountByFrwybs(String frwybs) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

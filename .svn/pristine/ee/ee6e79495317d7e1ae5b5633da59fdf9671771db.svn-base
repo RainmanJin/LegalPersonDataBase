@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<c:url value='/css/vendor/dataTables.bootstrap.min.css'/>">
     <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
     <meta charset="utf-8">
-    <title>法人资本与资产</title>
+    <title>生产经营</title>
 </head>
 <body>
 <jsp:include page="../../common/header.jsp?ref=detail"/>
@@ -44,11 +44,13 @@
                     </li>
                     <li class=""><span class="tab-item"><a href="<c:url value='/data/frdetail/${frwybs}'/>">资本与资产</a></span>
                     </li>
-                    <li class="tab-selected"><span class="tab-item"><a href="<c:url value='/data/frdetail/admission/${frwybs}'/>">许可、资质与荣誉</a></span>
+                    <li ><span class="tab-item"><a href="<c:url value='/data/frdetail/admission/${frwybs}'/>">许可、资质与荣誉</a></span>
                     </li>
                     <li><span class=""><a href="<c:url value='/data/frdetail/tax/${frwybs}'/>">纳税、参保与缴费</a></span>
                     </li>
-                    <li><span class=""><a href="<c:url value='/data/frdetail/produce/${frwybs}'/>">生产经营</a></span>
+                    <li class="tab-selected"><span class=""><a href="<c:url value='/data/frdetail/produce/${frwybs}'/>">生产经营</a></span>
+                    </li>
+					<li><span class=""><a href="<c:url value='/data/frdetail/lawenforce/${frwybs}'/>">行政执法</a></span>
                     </li>
                     <li><span class=""><a href="<c:url value='/data/frdetail/lawinfo/${frwybs}'/>">司法信息</a></span>
                     </li>
@@ -59,16 +61,18 @@
             <div class="tab-content">
                 <div class="tab-panel tab-panel-show">
                     <div class="light-info mt10 center pos-rel">
-                        <i class="flex-icon"></i>基本资产情况汇总
+                        <i class="flex-icon"></i>化学药品原料药制造
                     </div>
                     <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
                         <thead>
                             <tr>
-                                <th>注册资本</th>
-                                <th>车辆数量</th>
-                                <th>房屋数量</th>
-                                <th>拖拉机数量</th>
-                                <th>船舶数量</th>
+                                <th>序号</th>
+                                <th>委托加工药品通用名</th>
+                                <th>药品受委托加工数量</th>
+                                <th>药品加工委托方名称</th>
+                                <th>药品加工受托方名称</th>
+                                <th>药品加工期限</th>
+                                <th>药品委托加工备案日期</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -83,19 +87,18 @@
                     </table>
 
                     <div class="light-info mt10 center pos-rel">
-                        <i class="flex-icon"></i>股东及出资信息
+                        <i class="flex-icon"></i>医疗器械制造
                     </div>
                     <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
                         <thead>
                         <tr>
                             <th>序号</th>
-                            <th>股东名称</th>
-                            <th>股东类型</th>
-                            <th>认缴出资额</th>
-                            <th>认缴出资比例</th>
-                            <th>认缴出资时间</th>
-                            <th>实缴出资额</th>
-                            <th>实缴出资比例</th>
+                            <th>生产许可/备案编号（委托方）</th>
+                            <th>委托生产产品名称</th>
+                            <th>产品注册号/备案号</th>
+                            <th>委托期限</th>
+                            <th>备案日期</th>
+                            <th>备案部门</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -116,17 +119,19 @@
 
 
                     <div class="light-info mt10 center pos-rel">
-                        <i class="flex-icon"></i>股权变更情况
+                        <i class="flex-icon"></i>印刷委托书备案信息
                     </div>
                     <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
                         <thead>
                         <tr>
                             <th>序号</th>
-                            <th>投资人</th>
-                            <th>股权转让额</th>
-                            <th>转让前股权比例</th>
-                            <th>转让后股权比例</th>
-                            <th>股权转让日期</th>
+                            <th>委托印刷书的编号</th>
+                            <th>委托印刷书（刊）名</th>
+                            <th>产品注册号/备案号</th>
+                            <th>书(刊)印刷委托书创建时间</th>
+                            <th>出版单位办理时间</th>
+                            <th>印刷企业办理时间</th>
+                            <th>撤销委托书的时间</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -145,16 +150,19 @@
 
 
                     <div class="light-info mt10 center pos-rel">
-                        <i class="flex-icon"></i>股权出质情况
+                        <i class="flex-icon"></i>测绘与地理项目信息
                     </div>
                     <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
                         <thead>
                         <tr>
                             <th>序号</th>
-                            <th>股权出质人</th>
-                            <th>股权质权人</th>
-                            <th>股权出质数额</th>
-                            <th>股权出质登记日期</th>
+                            <th>项目名称</th>
+                            <th>委托单位</th>
+                            <th>项目类型</th>
+                            <th>项目开始时间</th>
+                            <th>项目完工时间</th>
+                            <th>项目金额</th>
+                            <th>项目备案时间</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -174,18 +182,15 @@
 
 
                     <div class="light-info mt10 center pos-rel">
-                        <i class="flex-icon"></i>股权冻结情况
+                        <i class="flex-icon"></i>国家知识产权软科学研究计划项目信息
                     </div>
                     <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
                         <thead>
                         <tr>
                             <th>序号</th>
-                            <th>股权冻结执行法院</th>
-                            <th>股权冻结执行裁定书文号</th>
-                            <th>股权冻结执行事项</th>
-                            <th>股权冻结被执行人</th>
-                            <th>股权冻结期限自</th>
-                            <th>股权冻结期限至</th>
+                            <th>建设单位、单位名称</th>
+                            <th>项目编号</th>
+                            <th>项目名称</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -207,18 +212,17 @@
 
 
                     <div class="light-info mt10 center pos-rel">
-                        <i class="flex-icon"></i>不动产查封信息
+                        <i class="flex-icon"></i>国家重大科学仪器设备开发专项计划项目信息
                     </div>
                     <table id="metadata-table" class="table-row  nowrap" width="100%">
                         <thead>
                         <tr>
                             <th>序号</th>
-                            <th>房屋所有权人</th>
-                            <th>房屋所有权登记时间</th>
-                            <th>房屋查封文号</th>
-                            <th>房屋查封申请日期</th>
-                            <th>申请房屋查封单位</th>
-                            <th>查封状态</th>
+                            <th>建设单位、单位名称</th>
+                            <th>项目名称</th>
+                            <th>项目负责人</th>
+                            <th>中央财政经费（万元）</th>
+                            <th>项目实施周期（年）</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -238,17 +242,15 @@
 
 
                     <div class="light-info mt10 center pos-rel">
-                        <i class="flex-icon"></i>动产抵押信息
+                        <i class="flex-icon"></i>国家重点新产品计划项目信息
                     </div>
                     <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
                         <thead>
                         <tr>
                             <th>序号</th>
-                            <th>抵押人名称</th>
-                            <th>抵押是否失效</th>
-                            <th>抵押物</th>
-                            <th>抵押日期</th>
-                            <th>抵押金额</th>
+                            <th>建设单位、单位名称</th>
+                            <th>项目编号</th>
+                            <th>项目名称</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -267,17 +269,17 @@
 
 
                     <div class="light-info mt10 center pos-rel">
-                        <i class="flex-icon"></i>无形资产-知识产权信息
+                        <i class="flex-icon"></i>交通建设项目信息
                     </div>
                     <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
                         <thead>
                         <tr>
                             <th>序号</th>
-                            <th>知识产权出质人</th>
-                            <th>版权登记号</th>
-                            <th>作品名称</th>
-                            <th>作品类别</th>
-                            <th>版权登记日期</th>
+                            <th>项目名称</th>
+                            <th>工程状态</th>
+                            <th>项目类型</th>
+                            <th>开工时间</th>
+                            <th>交工时间</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -296,17 +298,18 @@
 
 
                     <div class="light-info mt10 center pos-rel">
-                        <i class="flex-icon"></i>土地使用权信息
+                        <i class="flex-icon"></i>重大产业项目信息
                     </div>
                     <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
                         <thead>
                         <tr>
                             <th>序号</th>
-                            <th>土地使用权登记日期</th>
-                            <th>土地使用权登记状态</th>
-                            <th>土地使用权使用年限</th>
-                            <th>土地是否抵押</th>
-                            <th>土地是否查封</th>
+                            <th>行业地位</th>
+                            <th>项目名称</th>
+                            <th>项目年份</th>
+                            <th>产业项目开工时间</th>
+                            <th>竣工时间</th>
+                            <th>总用地</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -325,18 +328,17 @@
 
 
                     <div class="light-info mt10 center pos-rel">
-                        <i class="flex-icon"></i>无形资产-采矿权
+                        <i class="flex-icon"></i>企业投资项目信息
                     </div>
                     <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
                         <thead>
                         <tr>
                             <th>序号</th>
-                            <th>使用权所有者名称</th>
-                            <th>采矿权证号</th>
-                            <th>采矿权矿山名称</th>
-                            <th>年开采规模</th>
-                            <th>有效起始日期</th>
-                            <th>有效到期日期</th>
+                            <th>建设项目名称</th>
+                            <th>主要建设内容及规模</th>
+                            <th>建设起始时间</th>
+                            <th>建设结束时间</th>
+                            <th>项目总投资</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -356,18 +358,17 @@
 
 
                     <div class="light-info mt10 center pos-rel">
-                        <i class="flex-icon"></i>无形资产-林业使用权
+                        <i class="flex-icon"></i>社会发展项目信息
                     </div>
                     <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
                         <thead>
                         <tr>
                             <th>序号</th>
-                            <th>使用权所有者名称</th>
-                            <th>小地名</th>
-                            <th>山林使用期</th>
-                            <th>山林终止期</th>
-                            <th>是否抵押</th>
-                            <th>是否查封</th>
+                            <th>项目名称</th>
+                            <th>社会发展项目建设</th>
+                            <th>建设工期</th>
+                            <th>项目总投资</th>
+                            <th>项目状态</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -387,19 +388,189 @@
 
 
                     <div class="light-info mt10 center pos-rel">
-                        <i class="flex-icon"></i>其他资产-生物资产
+                        <i class="flex-icon"></i>中央投资项目信息
                     </div>
                     <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
                         <thead>
                         <tr>
                             <th>序号</th>
-                            <th>养殖场名称</th>
-                            <th>畜种</th>
-                            <th>存栏量</th>
-                            <th>商品畜存栏量</th>
-                            <th>仔畜存栏量</th>
-                            <th>母畜存栏量</th>
-                            <th>公畜存栏量</th>
+                            <th>项目名称</th>
+                            <th>专项名称</th>
+                            <th>计划建设内容与规模</th>
+                            <th>项目总投资</th>
+                            <th>项目状态</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="swzcxx" varStatus="status" items="${zbyzc['swzcxx']}">
+                            <tr>
+                                <td>${status.index+1}</td>
+                                <td>${swzcxx.dwmc}</td>
+                                <td>${swzcxx.czhong}</td>
+                                <td>${swzcxx.cll}</td>
+                                <td>${swzcxx.spcsl}</td>
+                                <td>${swzcxx.zcsl}</td>
+                                <td>${swzcxx.mcsl}</td>
+                                <td>${swzcxx.gcsl}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                    
+                    <div class="light-info mt10 center pos-rel">
+                        <i class="flex-icon"></i>农业会展企业信息信息
+                    </div>
+                    <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>参加会展记录</th>
+                            <th>加入会展时间</th>
+                            <th>农业产业化等级类型</th>
+                            <th>主营产品类型</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="swzcxx" varStatus="status" items="${zbyzc['swzcxx']}">
+                            <tr>
+                                <td>${status.index+1}</td>
+                                <td>${swzcxx.dwmc}</td>
+                                <td>${swzcxx.czhong}</td>
+                                <td>${swzcxx.cll}</td>
+                                <td>${swzcxx.spcsl}</td>
+                                <td>${swzcxx.zcsl}</td>
+                                <td>${swzcxx.mcsl}</td>
+                                <td>${swzcxx.gcsl}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                    <div class="light-info mt10 center pos-rel">
+                        <i class="flex-icon"></i>科技成果
+                    </div>
+                    <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>科技成果名称</th>
+                            <th>科技成果登记号</th>
+                            <th>知识产权</th>
+                            <th>成果公报内容</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="swzcxx" varStatus="status" items="${zbyzc['swzcxx']}">
+                            <tr>
+                                <td>${status.index+1}</td>
+                                <td>${swzcxx.dwmc}</td>
+                                <td>${swzcxx.czhong}</td>
+                                <td>${swzcxx.cll}</td>
+                                <td>${swzcxx.spcsl}</td>
+                                <td>${swzcxx.zcsl}</td>
+                                <td>${swzcxx.mcsl}</td>
+                                <td>${swzcxx.gcsl}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                    
+                    <div class="light-info mt10 center pos-rel">
+                        <i class="flex-icon"></i>水利、环境和公共设施管理 废物治理
+                    </div>
+                    <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>废物产生单位</th>
+                            <th>废物接收单位</th>
+                            <th>废物名称</th>
+                            <th>废物数量</th>
+                            <th>废物接收日期</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="swzcxx" varStatus="status" items="${zbyzc['swzcxx']}">
+                            <tr>
+                                <td>${status.index+1}</td>
+                                <td>${swzcxx.dwmc}</td>
+                                <td>${swzcxx.czhong}</td>
+                                <td>${swzcxx.cll}</td>
+                                <td>${swzcxx.spcsl}</td>
+                                <td>${swzcxx.zcsl}</td>
+                                <td>${swzcxx.mcsl}</td>
+                                <td>${swzcxx.gcsl}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                    
+                    <div class="light-info mt10 center pos-rel">
+                        <i class="flex-icon"></i>慈善捐赠
+                    </div>
+                    <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>捐赠项目名称</th>
+                            <th>捐赠金额</th>
+                            <th>受理单位</th>
+                            <th>捐赠日期</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="swzcxx" varStatus="status" items="${zbyzc['swzcxx']}">
+                            <tr>
+                                <td>${status.index+1}</td>
+                                <td>${swzcxx.dwmc}</td>
+                                <td>${swzcxx.czhong}</td>
+                                <td>${swzcxx.cll}</td>
+                                <td>${swzcxx.spcsl}</td>
+                                <td>${swzcxx.zcsl}</td>
+                                <td>${swzcxx.mcsl}</td>
+                                <td>${swzcxx.gcsl}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                    
+                    <div class="light-info mt10 center pos-rel">
+                        <i class="flex-icon"></i>上市信息
+                    </div>
+                    <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>股票代码</th>
+                            <th>上市日期</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="swzcxx" varStatus="status" items="${zbyzc['swzcxx']}">
+                            <tr>
+                                <td>${status.index+1}</td>
+                                <td>${swzcxx.dwmc}</td>
+                                <td>${swzcxx.czhong}</td>
+                                <td>${swzcxx.cll}</td>
+                                <td>${swzcxx.spcsl}</td>
+                                <td>${swzcxx.zcsl}</td>
+                                <td>${swzcxx.mcsl}</td>
+                                <td>${swzcxx.gcsl}</td>
+                            </tr>
+                        </c:forEach>
+                        </tbody>
+                    </table>
+                    
+                    <div class="light-info mt10 center pos-rel">
+                        <i class="flex-icon"></i>承建项目
+                    </div>
+                    <table class="table-row nowrap" width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>项目名称</th>
+                            <th>项目类别</th>
+                            <th>社会发展项目建设内容</th>
+                            <th>项目总投资</th>
                         </tr>
                         </thead>
                         <tbody>

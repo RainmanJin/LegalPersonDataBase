@@ -1,0 +1,253 @@
+/*
+ * Powered By [rapid-framework]
+ * Web Site: http://www.rapid-framework.org.cn
+ * Google Code: http://code.google.com/p/rapid-framework/
+ * Since 2008 - 2017
+ */
+
+package com.icinfo.frk.business.model;
+
+import org.hibernate.validator.constraints.Length;
+
+/**
+ * @author badqiu email:badqiu(a)gmail.com
+ * @version 1.0
+ * @since 1.0
+ */
+
+
+public class CfSsNsjlValid implements java.io.Serializable{
+	private static final long serialVersionUID = 5454155825314635342L;
+
+
+
+
+	//可以直接使用: @Length(max=50,message="用户名长度不能大于50")显示错误消息
+	//columns START
+	@Length(max=2147483647)
+	private java.lang.String id;
+	@Length(max=2147483647)
+	private java.lang.String hashUnique;
+	@Length(max=2147483647)
+	private java.lang.String frwybs;
+	@Length(max=2147483647)
+	private java.lang.String nsrmc;
+	@Length(max=2147483647)
+	private java.lang.String shxydm;
+	@Length(max=2147483647)
+	private java.lang.String zzjgdm;
+	
+	private java.util.Date skssqs;
+	
+	private java.util.Date skssqz;
+	
+	private Long gsyje;
+	
+	private Long gssje;
+	
+	private Long gnzzs;
+	
+	private Long gnxfs;
+	
+	private Long qysds;
+	@Length(max=2147483647)
+	private java.lang.String dszsxm;
+	@Length(max=2147483647)
+	private java.lang.String dsskzl;
+	
+	private Long dssje;
+	
+	private java.util.Date dsrkrq;
+	@Length(max=2147483647)
+	private java.lang.String datasrdep;
+	@Length(max=2147483647)
+	private java.lang.String datasource;
+	@Length(max=2147483647)
+	private java.lang.String datakeycontent;
+	@Length(max=2147483647)
+	private java.lang.String createtime;
+	
+	private java.util.Date updatetime;
+	//columns END
+
+
+
+	public void setId(java.lang.String value) {
+		this.id = value;
+	}
+
+	public java.lang.String getId() {
+		return this.id;
+	}
+
+	public void setHashUnique(java.lang.String value) {
+		this.hashUnique = value;
+	}
+
+	public java.lang.String getHashUnique() {
+		return this.hashUnique;
+	}
+
+	public void setFrwybs(java.lang.String value) {
+		this.frwybs = value;
+	}
+
+	public java.lang.String getFrwybs() {
+		return this.frwybs;
+	}
+
+	public void setNsrmc(java.lang.String value) {
+		this.nsrmc = value;
+	}
+
+	public java.lang.String getNsrmc() {
+		return this.nsrmc;
+	}
+
+	public void setShxydm(java.lang.String value) {
+		this.shxydm = value;
+	}
+
+	public java.lang.String getShxydm() {
+		return this.shxydm;
+	}
+
+	public void setZzjgdm(java.lang.String value) {
+		this.zzjgdm = value;
+	}
+
+	public java.lang.String getZzjgdm() {
+		return this.zzjgdm;
+	}
+
+	public void setSkssqs(java.util.Date value) {
+		this.skssqs = value;
+	}
+
+	public java.util.Date getSkssqs() {
+		return this.skssqs;
+	}
+
+	public void setSkssqz(java.util.Date value) {
+		this.skssqz = value;
+	}
+
+	public java.util.Date getSkssqz() {
+		return this.skssqz;
+	}
+
+	public void setGsyje(Long value) {
+		this.gsyje = value;
+	}
+
+	public Long getGsyje() {
+		return this.gsyje;
+	}
+
+	public void setGssje(Long value) {
+		this.gssje = value;
+	}
+
+	public Long getGssje() {
+		return this.gssje;
+	}
+
+	public void setGnzzs(Long value) {
+		this.gnzzs = value;
+	}
+
+	public Long getGnzzs() {
+		return this.gnzzs;
+	}
+
+	public void setGnxfs(Long value) {
+		this.gnxfs = value;
+	}
+
+	public Long getGnxfs() {
+		return this.gnxfs;
+	}
+
+	public void setQysds(Long value) {
+		this.qysds = value;
+	}
+
+	public Long getQysds() {
+		return this.qysds;
+	}
+
+	public void setDszsxm(java.lang.String value) {
+		this.dszsxm = value;
+	}
+
+	public java.lang.String getDszsxm() {
+		return this.dszsxm;
+	}
+
+	public void setDsskzl(java.lang.String value) {
+		this.dsskzl = value;
+	}
+
+	public java.lang.String getDsskzl() {
+		return this.dsskzl;
+	}
+
+	public void setDssje(Long value) {
+		this.dssje = value;
+	}
+
+	public Long getDssje() {
+		return this.dssje;
+	}
+
+	public void setDsrkrq(java.util.Date value) {
+		this.dsrkrq = value;
+	}
+
+	public java.util.Date getDsrkrq() {
+		return this.dsrkrq;
+	}
+
+	public void setDatasrdep(java.lang.String value) {
+		this.datasrdep = value;
+	}
+
+	public java.lang.String getDatasrdep() {
+		return this.datasrdep;
+	}
+
+	public void setDatasource(java.lang.String value) {
+		this.datasource = value;
+	}
+
+	public java.lang.String getDatasource() {
+		return this.datasource;
+	}
+
+	public void setDatakeycontent(java.lang.String value) {
+		this.datakeycontent = value;
+	}
+
+	public java.lang.String getDatakeycontent() {
+		return this.datakeycontent;
+	}
+
+	public void setCreatetime(java.lang.String value) {
+		this.createtime = value;
+	}
+
+	public java.lang.String getCreatetime() {
+		return this.createtime;
+	}
+
+	public void setUpdatetime(java.util.Date value) {
+		this.updatetime = value;
+	}
+
+	public java.util.Date getUpdatetime() {
+		return this.updatetime;
+	}
+
+
+}
+

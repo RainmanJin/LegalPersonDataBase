@@ -5,6 +5,7 @@ package com.icinfo.frk.business.service;
 
 import com.icinfo.framework.core.service.BaseService;
 import com.icinfo.frk.business.model.CdGdBdcxxValid;
+import com.icinfo.frk.business.model.CeRyRyxxValid;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
  * @author framework generator
  * @date 2017年07月06日
  */
-public interface ICdGdBdcxxValidService extends BaseService {
+public interface CeRyRyxxValidService extends BaseService {
 
     /**
      * 获取不动产信息列表
@@ -23,7 +24,7 @@ public interface ICdGdBdcxxValidService extends BaseService {
      * @return 不动产查封信息列表
      * @throws Exception
      */
-    List<CdGdBdcxxValid> getList(String frwybs) throws Exception;
+    List<CeRyRyxxValid> getList(String frwybs) throws Exception;
     /**
      * 根据法人唯一标识查询房屋数量
      *

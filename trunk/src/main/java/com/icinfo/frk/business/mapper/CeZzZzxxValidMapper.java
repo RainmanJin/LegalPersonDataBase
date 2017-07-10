@@ -8,8 +8,11 @@
  */
 package com.icinfo.frk.business.mapper;
 
+import java.util.List;
+
 import com.icinfo.framework.mybatis.mapper.common.Mapper;
-import com.icinfo.frk.business.model.CdWxzcGtsyqxxValid;
+import com.icinfo.frk.business.model.CeXkzXzxkxxValid;
+import com.icinfo.frk.business.model.CeZzZzxxValid;
 
 /**
  * 描述:  cd_wxzc_gtsyqxx_valid 对应的Mapper接口.<br>
@@ -17,5 +20,5 @@ import com.icinfo.frk.business.model.CdWxzcGtsyqxxValid;
  * @author framework generator
  * @date 2017年07月06日
  */
-public interface CdWxzcGtsyqxxValidMapper extends Mapper<CdWxzcGtsyqxxValid> {
+public interface CeZzZzxxValidMapper extends Mapper<CeZzZzxxValid> {
 }

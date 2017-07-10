@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+
+<!-- 不使用namespace是由于sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CfGgzfZyxxValidMapper" >
+
+    <resultMap id="BaseResultMap" class="com.company.project.model.CfGgzfZyxxValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="tyxydm" column="tyxydm"/>
+        <result property="dwmc" column="dwmc"/>
+        <result property="zzjgdm" column="zzjgdm"/>
+        <result property="dlhh" column="dlhh"/>
+        <result property="dljfsj" column="dljfsj"/>
+        <result property="zydl" column="zydl"/>
+        <result property="ydlx" column="ydlx"/>
+        <result property="jfzh" column="jfzh"/>
+        <result property="djsj" column="djsj"/>
+        <result property="yhlx" column="yhlx"/>
+        <result property="cbsj" column="cbsj"/>
+        <result property="ydssq" column="ydssq"/>
+        <result property="ydl" column="ydl"/>
+        <result property="ydje" column="ydje"/>
+        <result property="jfrq" column="jfrq"/>
+        <result property="jfje" column="jfje"/>
+        <result property="yddz" column="yddz"/>
+        <result property="qdl" column="qdl"/>
+        <result property="dfqfsd" column="dfqfsd"/>
+        <result property="dfqfze" column="dfqfze"/>
+        <result property="mhsyfw" column="mhsyfw"/>
+        <result property="mhzy" column="mhzy"/>
+        <result property="mhzsbh" column="mhzsbh"/>
+        <result property="mhwc" column="mhwc"/>
+        <result property="mhyt" column="mhyt"/>
+        <result property="mhyxqz" column="mhyxqz"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+    </resultMap>
+
+	
+</mapper>
+
