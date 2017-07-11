@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.ChSfajAjxxValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.ChSfajAjxxValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybsSqzx" column="frwybs_sqzx"/>
+        <result property="frwybsBzx" column="frwybs_bzx"/>
+        <result property="ah" column="ah"/>
+        <result property="afd" column="afd"/>
+        <result property="afsj" column="afsj"/>
+        <result property="ay" column="ay"/>
+        <result property="az" column="az"/>
+        <result property="sycx" column="sycx"/>
+        <result property="bajg" column="bajg"/>
+        <result property="barq" column="barq"/>
+        <result property="larq" column="larq"/>
+        <result property="jarq" column="jarq"/>
+        <result property="slzt" column="slzt"/>
+        <result property="jafs" column="jafs"/>
+        <result property="pjjg" column="pjjg"/>
+        <result property="sxrq" column="sxrq"/>
+        <result property="sxcpah" column="sxcpah"/>
+        <result property="ajxz" column="ajxz"/>
+        <result property="ajly" column="ajly"/>
+        <result property="sqbd" column="sqbd"/>
+        <result property="zxf" column="zxf"/>
+        <result property="qsfy" column="qsfy"/>
+        <result property="yscbfg" column="yscbfg"/>
+        <result property="ajzt" column="ajzt"/>
+        <result property="sqzxr" column="sqzxr"/>
+        <result property="bzxr" column="bzxr"/>
+        <result property="cbdw" column="cbdw"/>
+        <result property="farq" column="farq"/>
+        <result property="far" column="far"/>
+        <result property="bjrq" column="bjrq"/>
+        <result property="xxjafs" column="xxjafs"/>
+        <result property="yzxbd" column="yzxbd"/>
+        <result property="dwbd" column="dwbd"/>
+        <result property="zxats" column="zxats"/>
+        <result property="zxts" column="zxts"/>
+        <result property="gdrq" column="gdrq"/>
+        <result property="gdr" column="gdr"/>
+        <result property="czah" column="czah"/>
+        <result property="lar" column="lar"/>
+        <result property="sdclrq" column="sdclrq"/>
+        <result property="ajzxyj" column="ajzxyj"/>
+        <result property="sjay" column="sjay"/>
+        <result property="gdqsr" column="gdqsr"/>
+        <result property="bgqx" column="bgqx"/>
+        <result property="jzcs" column="jzcs"/>
+        <result property="hfjg" column="hfjg"/>
+        <result property="ajdsrmc" column="ajdsrmc"/>
+        <result property="zxdw" column="zxdw"/>
+        <result property="wsbh" column="wsbh"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+</mapper>

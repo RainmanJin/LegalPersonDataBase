@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.ChBlJyycmlValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.ChBlJyycmlValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="nbxh" column="nbxh"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="lrjyycmlyy" column="lrjyycmlyy"/>
+        <result property="lrjyycmlrq" column="lrjyycmlrq"/>
+        <result property="zclrjdjg" column="zclrjdjg"/>
+        <result property="ycjyycmlyy" column="ycjyycmlyy"/>
+        <result property="ycjyycmlrq" column="ycjyycmlrq"/>
+        <result property="zcycjdjg" column="zcycjdjg"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+</mapper>
