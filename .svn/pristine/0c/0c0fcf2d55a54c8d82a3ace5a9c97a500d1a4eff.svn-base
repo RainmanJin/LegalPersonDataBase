@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CgWtWhfwValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CgWtWhfwValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="tyxydm" column="tyxydm"/>
+        <result property="frmc" column="frmc"/>
+        <result property="yxjszs" column="yxjszs"/>
+        <result property="zltrc" column="zltrc"/>
+        <result property="skwxwjcc" column="skwxwjcc"/>
+        <result property="wdzjbgzhd" column="wdzjbgzhd"/>
+        <result property="tsgwzfwl" column="tsgwzfwl"/>
+        <result property="tsgysfwqk" column="tsgysfwqk"/>
+        <result property="zzppjqhdcs" column="zzppjqhdcs"/>
+        <result property="zzwyhdcs" column="zzwyhdcs"/>
+        <result property="jbxlbbc" column="jbxlbbc"/>
+        <result property="jbzlgs" column="jbzlgs"/>
+        <result property="zzglllyjjzcs" column="zzglllyjjzcs"/>
+        <result property="ywhgzddw" column="ywhgzddw"/>
+        <result property="cjwyhdrc" column="cjwyhdrc"/>
+        <result property="cjpxbrc" column="cjpxbrc"/>
+        <result property="cgzlrc" column="cgzlrc"/>
+        <result property="bwhzzdqzyytd" column="bwhzzdqzyytd"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+</mapper>

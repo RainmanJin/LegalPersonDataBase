@@ -1,0 +1,723 @@
+package com.icinfo.frk.business.model;
+import java.util.*;
+import javax.persistence.Table;
+/**
+ * @AUTHOR:Code Templates
+
+
+/**
+ * 
+ * @author Guanzhou Song
+ */
+@Table(name="frk.cg_gc_zytzxm_valid")
+public class CgGcZytzxmValid  implements java.io.Serializable{
+
+	private static final long serialVersionUID = 5454155825314635342L;
+
+	//columns START
+	//
+	private java.lang.String id;
+	//
+	private java.lang.String hashUnique;
+	//
+	private java.lang.String frwybs;
+	//
+	private java.lang.String tyxydm;
+	//
+	private java.lang.String jsdw;
+	//
+	private java.lang.String xmdwxy;
+	//
+	private java.lang.String xmmc;
+	//
+	private java.lang.String zxmc;
+	//
+	private java.lang.String dq;
+	//
+	private java.lang.String sxq;
+	//
+	private java.lang.String jsdd;
+	//
+	private java.lang.String jsxz;
+	//
+	private java.lang.String xmlx;
+	//
+	private java.lang.String xmglms;
+	//
+	private java.lang.String dqjsjd;
+	//
+	private java.lang.String xmfzr;
+	//
+	private java.lang.String fzrsj;
+	//
+	private java.lang.String jhkgnf;
+	//
+	private java.lang.String jhjgnf;
+	//
+	private java.lang.String jhjsnrygm;
+	//
+	private Long xmztz;
+	//
+	private java.lang.String gfwh;
+	//
+	private java.util.Date gfrq;
+	//
+	private Long zyjhtz;
+	//
+	private Long zyyxdtz;
+	//
+	private java.lang.String zyxdtzbpc;
+	//
+	private java.lang.String sfwh;
+	//
+	private java.util.Date sfrq;
+	//
+	private Long sczzj;
+	//
+	private java.lang.String sjxdpc;
+	//
+	private Long shczzj;
+	//
+	private java.lang.String shfwh;
+	//
+	private java.util.Date shfrq;
+	//
+	private Long xczzj;
+	//
+	private java.lang.String xsqfwh;
+	//
+	private java.util.Date xsqfrq;
+	//
+	private Long dfzj;
+	//
+	private Long zczj;
+	//
+	private Long yxdk;
+	//
+	private Long qtzj;
+	//
+	private java.lang.String lxrsj;
+	//
+	private java.lang.String sjzgbm;
+	//
+	private java.lang.String zgcj;
+	//
+	private java.lang.String xmlxr;
+	//
+	private java.lang.String xmlxrsj;
+	//
+	private java.lang.String htbh;
+	//
+	private java.lang.String htmc;
+	//
+	private java.lang.String htzynr;
+	//
+	private java.lang.String htlb;
+	//
+	private java.lang.String htqdxs;
+	//
+	private Long htje;
+	//
+	private java.lang.String htqdsj;
+	//
+	private java.lang.String bjzfzj;
+	//
+	private java.lang.String htfj;
+	//
+	private java.lang.String htbz;
+	//
+	private java.lang.String zyzjbtnf;
+	//
+	private java.lang.String zyzjbtjd;
+	//
+	private java.lang.String zyzjpzh;
+	//
+	private Long zyzjbtje;
+	//
+	private java.lang.String zybtzjyt;
+	//
+	private java.lang.String sjzjbtnf;
+	//
+	private java.lang.String sjzjbtjd;
+	//
+	private java.lang.String sjzjpzh;
+	//
+	private Long sjzjbtje;
+	//
+	private java.lang.String sjbtzjyt;
+	//
+	private java.lang.String datasrdep;
+	//
+	private java.lang.String datasource;
+	//
+	private java.lang.String datakeycontent;
+	//
+	private java.lang.String createtime;
+	//
+	private java.util.Date updatetime;
+	//columns END
+
+
+
+	public void setId(java.lang.String value) {
+		this.id = value;
+	}
+
+	public java.lang.String getId() {
+		return this.id;
+	}
+
+	public void setHashUnique(java.lang.String value) {
+		this.hashUnique = value;
+	}
+
+	public java.lang.String getHashUnique() {
+		return this.hashUnique;
+	}
+
+	public void setFrwybs(java.lang.String value) {
+		this.frwybs = value;
+	}
+
+	public java.lang.String getFrwybs() {
+		return this.frwybs;
+	}
+
+	public void setTyxydm(java.lang.String value) {
+		this.tyxydm = value;
+	}
+
+	public java.lang.String getTyxydm() {
+		return this.tyxydm;
+	}
+
+	public void setJsdw(java.lang.String value) {
+		this.jsdw = value;
+	}
+
+	public java.lang.String getJsdw() {
+		return this.jsdw;
+	}
+
+	public void setXmdwxy(java.lang.String value) {
+		this.xmdwxy = value;
+	}
+
+	public java.lang.String getXmdwxy() {
+		return this.xmdwxy;
+	}
+
+	public void setXmmc(java.lang.String value) {
+		this.xmmc = value;
+	}
+
+	public java.lang.String getXmmc() {
+		return this.xmmc;
+	}
+
+	public void setZxmc(java.lang.String value) {
+		this.zxmc = value;
+	}
+
+	public java.lang.String getZxmc() {
+		return this.zxmc;
+	}
+
+	public void setDq(java.lang.String value) {
+		this.dq = value;
+	}
+
+	public java.lang.String getDq() {
+		return this.dq;
+	}
+
+	public void setSxq(java.lang.String value) {
+		this.sxq = value;
+	}
+
+	public java.lang.String getSxq() {
+		return this.sxq;
+	}
+
+	public void setJsdd(java.lang.String value) {
+		this.jsdd = value;
+	}
+
+	public java.lang.String getJsdd() {
+		return this.jsdd;
+	}
+
+	public void setJsxz(java.lang.String value) {
+		this.jsxz = value;
+	}
+
+	public java.lang.String getJsxz() {
+		return this.jsxz;
+	}
+
+	public void setXmlx(java.lang.String value) {
+		this.xmlx = value;
+	}
+
+	public java.lang.String getXmlx() {
+		return this.xmlx;
+	}
+
+	public void setXmglms(java.lang.String value) {
+		this.xmglms = value;
+	}
+
+	public java.lang.String getXmglms() {
+		return this.xmglms;
+	}
+
+	public void setDqjsjd(java.lang.String value) {
+		this.dqjsjd = value;
+	}
+
+	public java.lang.String getDqjsjd() {
+		return this.dqjsjd;
+	}
+
+	public void setXmfzr(java.lang.String value) {
+		this.xmfzr = value;
+	}
+
+	public java.lang.String getXmfzr() {
+		return this.xmfzr;
+	}
+
+	public void setFzrsj(java.lang.String value) {
+		this.fzrsj = value;
+	}
+
+	public java.lang.String getFzrsj() {
+		return this.fzrsj;
+	}
+
+	public void setJhkgnf(java.lang.String value) {
+		this.jhkgnf = value;
+	}
+
+	public java.lang.String getJhkgnf() {
+		return this.jhkgnf;
+	}
+
+	public void setJhjgnf(java.lang.String value) {
+		this.jhjgnf = value;
+	}
+
+	public java.lang.String getJhjgnf() {
+		return this.jhjgnf;
+	}
+
+	public void setJhjsnrygm(java.lang.String value) {
+		this.jhjsnrygm = value;
+	}
+
+	public java.lang.String getJhjsnrygm() {
+		return this.jhjsnrygm;
+	}
+
+	public void setXmztz(Long value) {
+		this.xmztz = value;
+	}
+
+	public Long getXmztz() {
+		return this.xmztz;
+	}
+
+	public void setGfwh(java.lang.String value) {
+		this.gfwh = value;
+	}
+
+	public java.lang.String getGfwh() {
+		return this.gfwh;
+	}
+
+	public void setGfrq(java.util.Date value) {
+		this.gfrq = value;
+	}
+
+	public java.util.Date getGfrq() {
+		return this.gfrq;
+	}
+
+	public void setZyjhtz(Long value) {
+		this.zyjhtz = value;
+	}
+
+	public Long getZyjhtz() {
+		return this.zyjhtz;
+	}
+
+	public void setZyyxdtz(Long value) {
+		this.zyyxdtz = value;
+	}
+
+	public Long getZyyxdtz() {
+		return this.zyyxdtz;
+	}
+
+	public void setZyxdtzbpc(java.lang.String value) {
+		this.zyxdtzbpc = value;
+	}
+
+	public java.lang.String getZyxdtzbpc() {
+		return this.zyxdtzbpc;
+	}
+
+	public void setSfwh(java.lang.String value) {
+		this.sfwh = value;
+	}
+
+	public java.lang.String getSfwh() {
+		return this.sfwh;
+	}
+
+	public void setSfrq(java.util.Date value) {
+		this.sfrq = value;
+	}
+
+	public java.util.Date getSfrq() {
+		return this.sfrq;
+	}
+
+	public void setSczzj(Long value) {
+		this.sczzj = value;
+	}
+
+	public Long getSczzj() {
+		return this.sczzj;
+	}
+
+	public void setSjxdpc(java.lang.String value) {
+		this.sjxdpc = value;
+	}
+
+	public java.lang.String getSjxdpc() {
+		return this.sjxdpc;
+	}
+
+	public void setShczzj(Long value) {
+		this.shczzj = value;
+	}
+
+	public Long getShczzj() {
+		return this.shczzj;
+	}
+
+	public void setShfwh(java.lang.String value) {
+		this.shfwh = value;
+	}
+
+	public java.lang.String getShfwh() {
+		return this.shfwh;
+	}
+
+	public void setShfrq(java.util.Date value) {
+		this.shfrq = value;
+	}
+
+	public java.util.Date getShfrq() {
+		return this.shfrq;
+	}
+
+	public void setXczzj(Long value) {
+		this.xczzj = value;
+	}
+
+	public Long getXczzj() {
+		return this.xczzj;
+	}
+
+	public void setXsqfwh(java.lang.String value) {
+		this.xsqfwh = value;
+	}
+
+	public java.lang.String getXsqfwh() {
+		return this.xsqfwh;
+	}
+
+	public void setXsqfrq(java.util.Date value) {
+		this.xsqfrq = value;
+	}
+
+	public java.util.Date getXsqfrq() {
+		return this.xsqfrq;
+	}
+
+	public void setDfzj(Long value) {
+		this.dfzj = value;
+	}
+
+	public Long getDfzj() {
+		return this.dfzj;
+	}
+
+	public void setZczj(Long value) {
+		this.zczj = value;
+	}
+
+	public Long getZczj() {
+		return this.zczj;
+	}
+
+	public void setYxdk(Long value) {
+		this.yxdk = value;
+	}
+
+	public Long getYxdk() {
+		return this.yxdk;
+	}
+
+	public void setQtzj(Long value) {
+		this.qtzj = value;
+	}
+
+	public Long getQtzj() {
+		return this.qtzj;
+	}
+
+	public void setLxrsj(java.lang.String value) {
+		this.lxrsj = value;
+	}
+
+	public java.lang.String getLxrsj() {
+		return this.lxrsj;
+	}
+
+	public void setSjzgbm(java.lang.String value) {
+		this.sjzgbm = value;
+	}
+
+	public java.lang.String getSjzgbm() {
+		return this.sjzgbm;
+	}
+
+	public void setZgcj(java.lang.String value) {
+		this.zgcj = value;
+	}
+
+	public java.lang.String getZgcj() {
+		return this.zgcj;
+	}
+
+	public void setXmlxr(java.lang.String value) {
+		this.xmlxr = value;
+	}
+
+	public java.lang.String getXmlxr() {
+		return this.xmlxr;
+	}
+
+	public void setXmlxrsj(java.lang.String value) {
+		this.xmlxrsj = value;
+	}
+
+	public java.lang.String getXmlxrsj() {
+		return this.xmlxrsj;
+	}
+
+	public void setHtbh(java.lang.String value) {
+		this.htbh = value;
+	}
+
+	public java.lang.String getHtbh() {
+		return this.htbh;
+	}
+
+	public void setHtmc(java.lang.String value) {
+		this.htmc = value;
+	}
+
+	public java.lang.String getHtmc() {
+		return this.htmc;
+	}
+
+	public void setHtzynr(java.lang.String value) {
+		this.htzynr = value;
+	}
+
+	public java.lang.String getHtzynr() {
+		return this.htzynr;
+	}
+
+	public void setHtlb(java.lang.String value) {
+		this.htlb = value;
+	}
+
+	public java.lang.String getHtlb() {
+		return this.htlb;
+	}
+
+	public void setHtqdxs(java.lang.String value) {
+		this.htqdxs = value;
+	}
+
+	public java.lang.String getHtqdxs() {
+		return this.htqdxs;
+	}
+
+	public void setHtje(Long value) {
+		this.htje = value;
+	}
+
+	public Long getHtje() {
+		return this.htje;
+	}
+
+	public void setHtqdsj(java.lang.String value) {
+		this.htqdsj = value;
+	}
+
+	public java.lang.String getHtqdsj() {
+		return this.htqdsj;
+	}
+
+	public void setBjzfzj(java.lang.String value) {
+		this.bjzfzj = value;
+	}
+
+	public java.lang.String getBjzfzj() {
+		return this.bjzfzj;
+	}
+
+	public void setHtfj(java.lang.String value) {
+		this.htfj = value;
+	}
+
+	public java.lang.String getHtfj() {
+		return this.htfj;
+	}
+
+	public void setHtbz(java.lang.String value) {
+		this.htbz = value;
+	}
+
+	public java.lang.String getHtbz() {
+		return this.htbz;
+	}
+
+	public void setZyzjbtnf(java.lang.String value) {
+		this.zyzjbtnf = value;
+	}
+
+	public java.lang.String getZyzjbtnf() {
+		return this.zyzjbtnf;
+	}
+
+	public void setZyzjbtjd(java.lang.String value) {
+		this.zyzjbtjd = value;
+	}
+
+	public java.lang.String getZyzjbtjd() {
+		return this.zyzjbtjd;
+	}
+
+	public void setZyzjpzh(java.lang.String value) {
+		this.zyzjpzh = value;
+	}
+
+	public java.lang.String getZyzjpzh() {
+		return this.zyzjpzh;
+	}
+
+	public void setZyzjbtje(Long value) {
+		this.zyzjbtje = value;
+	}
+
+	public Long getZyzjbtje() {
+		return this.zyzjbtje;
+	}
+
+	public void setZybtzjyt(java.lang.String value) {
+		this.zybtzjyt = value;
+	}
+
+	public java.lang.String getZybtzjyt() {
+		return this.zybtzjyt;
+	}
+
+	public void setSjzjbtnf(java.lang.String value) {
+		this.sjzjbtnf = value;
+	}
+
+	public java.lang.String getSjzjbtnf() {
+		return this.sjzjbtnf;
+	}
+
+	public void setSjzjbtjd(java.lang.String value) {
+		this.sjzjbtjd = value;
+	}
+
+	public java.lang.String getSjzjbtjd() {
+		return this.sjzjbtjd;
+	}
+
+	public void setSjzjpzh(java.lang.String value) {
+		this.sjzjpzh = value;
+	}
+
+	public java.lang.String getSjzjpzh() {
+		return this.sjzjpzh;
+	}
+
+	public void setSjzjbtje(Long value) {
+		this.sjzjbtje = value;
+	}
+
+	public Long getSjzjbtje() {
+		return this.sjzjbtje;
+	}
+
+	public void setSjbtzjyt(java.lang.String value) {
+		this.sjbtzjyt = value;
+	}
+
+	public java.lang.String getSjbtzjyt() {
+		return this.sjbtzjyt;
+	}
+
+	public void setDatasrdep(java.lang.String value) {
+		this.datasrdep = value;
+	}
+
+	public java.lang.String getDatasrdep() {
+		return this.datasrdep;
+	}
+
+	public void setDatasource(java.lang.String value) {
+		this.datasource = value;
+	}
+
+	public java.lang.String getDatasource() {
+		return this.datasource;
+	}
+
+	public void setDatakeycontent(java.lang.String value) {
+		this.datakeycontent = value;
+	}
+
+	public java.lang.String getDatakeycontent() {
+		return this.datakeycontent;
+	}
+
+	public void setCreatetime(java.lang.String value) {
+		this.createtime = value;
+	}
+
+	public java.lang.String getCreatetime() {
+		return this.createtime;
+	}
+
+	public void setUpdatetime(java.util.Date value) {
+		this.updatetime = value;
+	}
+
+	public java.util.Date getUpdatetime() {
+		return this.updatetime;
+	}
+
+}
+

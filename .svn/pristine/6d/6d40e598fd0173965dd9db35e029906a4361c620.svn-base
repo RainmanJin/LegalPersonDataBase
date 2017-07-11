@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CgYsSlysxxValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CgYsSlysxxValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="tyxydm" column="tyxydm"/>
+        <result property="dwmc" column="dwmc"/>
+        <result property="zzjgdm" column="zzjgdm"/>
+        <result property="zdhm" column="zdhm"/>
+        <result property="cbtxlx" column="cbtxlx"/>
+        <result property="imohm" column="imohm"/>
+        <result property="cbhh" column="cbhh"/>
+        <result property="cm" column="cm"/>
+        <result property="cblx" column="cblx"/>
+        <result property="ck" column="ck"/>
+        <result property="cbdwlx" column="cbdwlx"/>
+        <result property="cbyddsj" column="cbyddsj"/>
+        <result property="cbcs" column="cbcs"/>
+        <result property="cbmdg" column="cbmdg"/>
+        <result property="aislx" column="aislx"/>
+        <result property="cbwzjssj" column="cbwzjssj"/>
+        <result property="cbwzlx" column="cbwzlx"/>
+        <result property="gpssj" column="gpssj"/>
+        <result property="cbwzjd" column="cbwzjd"/>
+        <result property="cbwzwd" column="cbwzwd"/>
+        <result property="cbhx" column="cbhx"/>
+        <result property="csx" column="csx"/>
+        <result property="cbsd" column="cbsd"/>
+        <result property="cbzt" column="cbzt"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+</mapper>

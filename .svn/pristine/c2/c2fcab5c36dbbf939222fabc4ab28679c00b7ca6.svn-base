@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CgZzHxypzzValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CgZzHxypzzValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="dwmc" column="dwmc"/>
+        <result property="tyshxydm" column="tyshxydm"/>
+        <result property="zzjgdm" column="zzjgdm"/>
+        <result property="mzpSqrq" column="mzp_sqrq"/>
+        <result property="mzpWpmc" column="mzp_wpmc"/>
+        <result property="mzpWpsl" column="mzp_wpsl"/>
+        <result property="mzpWpgg" column="mzp_wpgg"/>
+        <result property="mzpWpyt" column="mzp_wpyt"/>
+        <result property="mzpYxq" column="mzp_yxq"/>
+        <result property="wtjgtym" column="wtjgtym"/>
+        <result property="wtjgbh" column="wtjgbh"/>
+        <result property="ypspm" column="ypspm"/>
+        <result property="ypjx" column="ypjx"/>
+        <result property="ypgg" column="ypgg"/>
+        <result property="ypswtjgsl" column="ypswtjgsl"/>
+        <result property="ypjgwtfqy" column="ypjgwtfqy"/>
+        <result property="ypjgwtfmc" column="ypjgwtfmc"/>
+        <result property="ypjgwtfdz" column="ypjgwtfdz"/>
+        <result property="ypjgstfmc" column="ypjgstfmc"/>
+        <result property="ypjgstfdz" column="ypjgstfdz"/>
+        <result property="ypjgqx" column="ypjgqx"/>
+        <result property="ypwtjgbarq" column="ypwtjgbarq"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+</mapper>

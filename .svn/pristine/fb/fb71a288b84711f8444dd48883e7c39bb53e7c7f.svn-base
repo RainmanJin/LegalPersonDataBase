@@ -1,0 +1,161 @@
+package com.icinfo.frk.business.model;
+import java.util.*;
+import javax.persistence.Table;
+
+
+/**
+ * 
+ * @author Guanzhou Song
+ */
+@Table(name="frk.cg_ggfw_flyz_valid")
+public class CgGgfwFlyzValid  implements java.io.Serializable{
+
+	private static final long serialVersionUID = 5454155825314635342L;
+
+	//columns START
+	//
+	private java.lang.String id;
+	//
+	private java.lang.String hashUnique;
+	//
+	private java.lang.String frwybs;
+	//
+	private java.lang.String yzls;
+	//
+	private java.lang.String yzlsdw;
+	//
+	private java.lang.String syrxm;
+	//
+	private java.lang.String syrsfzhm;
+	//
+	private java.lang.String syrlxdz;
+	//
+	private java.lang.String flyzay;
+	//
+	private java.lang.String datasrdep;
+	//
+	private java.lang.String datasource;
+	//
+	private java.lang.String datakeycontent;
+	//
+	private java.lang.String createtime;
+	//
+	private java.util.Date updatetime;
+	//columns END
+
+
+
+	public void setId(java.lang.String value) {
+		this.id = value;
+	}
+
+	public java.lang.String getId() {
+		return this.id;
+	}
+
+	public void setHashUnique(java.lang.String value) {
+		this.hashUnique = value;
+	}
+
+	public java.lang.String getHashUnique() {
+		return this.hashUnique;
+	}
+
+	public void setFrwybs(java.lang.String value) {
+		this.frwybs = value;
+	}
+
+	public java.lang.String getFrwybs() {
+		return this.frwybs;
+	}
+
+	public void setYzls(java.lang.String value) {
+		this.yzls = value;
+	}
+
+	public java.lang.String getYzls() {
+		return this.yzls;
+	}
+
+	public void setYzlsdw(java.lang.String value) {
+		this.yzlsdw = value;
+	}
+
+	public java.lang.String getYzlsdw() {
+		return this.yzlsdw;
+	}
+
+	public void setSyrxm(java.lang.String value) {
+		this.syrxm = value;
+	}
+
+	public java.lang.String getSyrxm() {
+		return this.syrxm;
+	}
+
+	public void setSyrsfzhm(java.lang.String value) {
+		this.syrsfzhm = value;
+	}
+
+	public java.lang.String getSyrsfzhm() {
+		return this.syrsfzhm;
+	}
+
+	public void setSyrlxdz(java.lang.String value) {
+		this.syrlxdz = value;
+	}
+
+	public java.lang.String getSyrlxdz() {
+		return this.syrlxdz;
+	}
+
+	public void setFlyzay(java.lang.String value) {
+		this.flyzay = value;
+	}
+
+	public java.lang.String getFlyzay() {
+		return this.flyzay;
+	}
+
+	public void setDatasrdep(java.lang.String value) {
+		this.datasrdep = value;
+	}
+
+	public java.lang.String getDatasrdep() {
+		return this.datasrdep;
+	}
+
+	public void setDatasource(java.lang.String value) {
+		this.datasource = value;
+	}
+
+	public java.lang.String getDatasource() {
+		return this.datasource;
+	}
+
+	public void setDatakeycontent(java.lang.String value) {
+		this.datakeycontent = value;
+	}
+
+	public java.lang.String getDatakeycontent() {
+		return this.datakeycontent;
+	}
+
+	public void setCreatetime(java.lang.String value) {
+		this.createtime = value;
+	}
+
+	public java.lang.String getCreatetime() {
+		return this.createtime;
+	}
+
+	public void setUpdatetime(java.util.Date value) {
+		this.updatetime = value;
+	}
+
+	public java.util.Date getUpdatetime() {
+		return this.updatetime;
+	}
+
+}
+

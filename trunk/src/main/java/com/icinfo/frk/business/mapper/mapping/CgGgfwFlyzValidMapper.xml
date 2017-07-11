@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CgGgfwFlyzValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CgGgfwFlyzValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="yzls" column="yzls"/>
+        <result property="yzlsdw" column="yzlsdw"/>
+        <result property="syrxm" column="syrxm"/>
+        <result property="syrsfzhm" column="syrsfzhm"/>
+        <result property="syrlxdz" column="syrlxdz"/>
+        <result property="flyzay" column="flyzay"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+</mapper>
