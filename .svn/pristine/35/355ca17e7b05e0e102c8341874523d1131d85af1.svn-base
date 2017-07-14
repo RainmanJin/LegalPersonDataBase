@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icinfo.frk.business.mapper.DtBmsjtjMapper" >
+  <resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.DtBmsjtj" >
+    <!--
+      WARNING - @frameworkgenerated
+    -->
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="bmmc" property="bmmc" jdbcType="VARCHAR" />
+    <result column="zwbm" property="zwbm" jdbcType="VARCHAR" />
+    <result column="bmc" property="bmc" jdbcType="VARCHAR" />
+    <result column="cjksl" property="cjksl" jdbcType="INTEGER" />
+    <result column="qxksl" property="qxksl" jdbcType="INTEGER" />
+    <result column="pcwgsl" property="pcwgsl" jdbcType="INTEGER" />
+    <result column="frksl" property="frksl" jdbcType="INTEGER" />
+    <result column="ppbl" property="ppbl" jdbcType="NUMERIC" />
+  </resultMap>
+</mapper>
