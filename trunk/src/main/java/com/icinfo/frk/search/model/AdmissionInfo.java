@@ -18,7 +18,7 @@ import java.util.Date;
  * @date 2017年07月06日
  */
 @Table(name = "frk.cd_zb_gdczxx_valid")
-public class AssetInfo implements Serializable {
+public class AdmissionInfo implements Serializable {
     @Column(name = "id")
     private String id;
     

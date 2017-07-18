@@ -3,12 +3,10 @@
  */
 package com.icinfo.frk.search.service;
 
-import java.util.List;
 import java.util.Map;
-
-import com.alibaba.fastjson.JSONObject;
 import com.icinfo.framework.core.service.BaseService;
-import com.icinfo.frk.search.dto.LegalPersonDto;
+import com.icinfo.framework.mybatis.pagehelper.PageInfo;
+import com.icinfo.frk.search.dto.AdmissionInfoDto;
 
 /**
  * 描述:    dt_frfl_tj 对应的Service接口.<br>
@@ -16,9 +14,6 @@ import com.icinfo.frk.search.dto.LegalPersonDto;
  * @author framework generator
  * @date 2017年05月10日
  */
-public interface SearchService extends BaseService {
-	
-
-	
-	
+public interface IAdmissionSearchService extends BaseService {
+	PageInfo<AdmissionInfoDto> doGetDefinedPage(Map<String, Object> map, int pageNum, int pageSize) throws Exception;
 }

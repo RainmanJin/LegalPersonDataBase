@@ -33,44 +33,7 @@ require(['layer1', 'common/http', 'common/util', 'handlebars', 'common/hbsHelper
             }
         ])
     }
-/*--------------------------------------------------------------------------------------------*/   
-    /**
-     * 初始化dataTable
-     */
    
-    
-    function _initDataTable() {
-        table = dataTable.load({
-            //需要初始化dataTable的dom元素
-            el: '#metadata-table',
-            showIndex: true,
-            ajax: {
-                url: window.__FRK__.root_url + "data/search/basicsearch.json",
-                data: function (d) {
-                    d.name= $("#LPname").val();
-                    d.trustCode = {"TrustCode": $("#TrustCode").val()};
-                    d.category = {"Range": $("#Range").val()};
-                }
-            },
-            //需注意如果data没有对应的字段的，请设置为null，不然ie下会出错;
-            //className不要写成class
-            columns: [
-                {data: null, defaultContent: '', width: '30px'},
-                {data: 'frmc', width: '80px'},
-                {data: 'tyxydm', width: '100px'},
-                {data: 'fddbr', width: '150px'},
-                {data: 'djrq', width: '200px'},
-                {data: 'hydm', width: '100px'},
-                {data: 'cxzt', width: '100px'},
-                
-            ]
-        })
-    }
-    
-    
-    
-    
-    
 /*---------------------------------------------------------------------------------------------------------------------*/
     /**
      * 描述：获取基本信息列表
@@ -78,13 +41,19 @@ require(['layer1', 'common/http', 'common/util', 'handlebars', 'common/hbsHelper
      */
     var table;
     function _getJbxxList(pageNum) {
-        var LPname = $.trim($('#LPname').val());
-        var TrustCode = $.trim($('#TrustCode').val());
-        var Range = $.trim($('#Range').val());
+        var AdmissionName = $.trim($('#AdmissionName').val());
+        var AdmissionContent = $.trim($('#AdmissionContent').val());
+        var AwardtName = $.trim($('#AwardtName').val());
+        var QualificationName = $.trim($('#QualificationName').val());
         
        http.httpRequest({
-            url:  window.__FRK__.root_url + "data/search/basicsearch.json",
-            data: {name: LPname, trustCode: TrustCode, category: Range,pageNum: pageNum, pageSize: pageSize},
+            url:  window.__FRK__.root_url + "data/search/admissionsearch.json",
+            data: {AdmissionName: AdmissionName,
+            	AdmissionContent:AdmissionContent,
+            	AwardtName:AwardtName,
+            	QualificationName:QualificationName,
+            	   pageNum: pageNum, 
+            	   pageSize: pageSize},
             success: function (data) {
                 layer.closeAll();
                 var total = data.ajaxResult.data.total;
