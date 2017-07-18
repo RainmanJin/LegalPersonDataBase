@@ -56,7 +56,7 @@ public class CaCyCyxxValidController extends BaseController {
         // 传参执行查询
         List<CaCyCyxxValid> caCyCyxxValids = caCyCyxxValidService.getList(new HashMap<String, Object>() {{
             this.put("tyxydm", tyxydm);
-            this.put("zzjgdm", zzjgdm);
+            this.put("zzjgdm", zzjgdm == null?"":zzjgdm.replace("-",""));
             this.put("djzch", djzch);
         }});
 

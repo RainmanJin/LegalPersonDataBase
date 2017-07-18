@@ -125,30 +125,33 @@
 
     <!-- 法人校核  -->
     <select id="frCheck" resultType="com.icinfo.frk.api.dto.FrCheckDto">
-        SELECT frwybs,
-        tyxydm,
-        frmc as qydwmc,
-        zzjgdm,
-        djjg as hzjg,
-        hzrq as hzsj,
-        fddbr,
-        (SELECT fr_content FROM frk.ca_code_frfl WHERE fr_code = frfl) frlx,
-        (SELECT fr_content FROM frk.ca_code_frdjzt WHERE fr_code = cxzt) zt,
-        zcdz
-        FROM frk.ca_dj_jbxx
-        <where>
-            <if test="tyxydm != null and tyxydm != ''">
-                AND tyxydm = #{tyxydm}
-            </if>
-            <if test="frdwmc != null and frdwmc != ''">
-                AND frmc LIKE '%'||#{frdwmc}||'%'
-            </if>
-            <if test="zzjgdm != null and zzjgdm != ''">
-                AND zzjgdm = #{zzjgdm}
-            </if>
-        </where>
+        select frwybs,tyxydm,qydwmc,zzjgdm,hzjg,hzsj,fddbr,frlx,zt,zcdz from (
+            SELECT frwybs,
+            tyxydm,
+            frmc as qydwmc,
+            zzjgdm,
+            djjg as hzjg,
+            hzrq as hzsj,
+            fddbr,
+            (SELECT fr_content FROM frk.ca_code_frfl WHERE fr_code = frfl) frlx,
+            (SELECT fr_content FROM frk.ca_code_frdjzt WHERE fr_code = cxzt) zt,
+            zcdz,
+            updatetime
+            FROM frk.ca_dj_jbxx
+            <where>
+                <if test="tyxydm != null and tyxydm != ''">
+                    AND tyxydm = #{tyxydm}
+                </if>
+                <if test="frdwmc != null and frdwmc != ''">
+                    AND frmc LIKE '%'||#{frdwmc}||'%'
+                </if>
+                <if test="zzjgdm != null and zzjgdm != ''">
+                    AND zzjgdm = #{zzjgdm}
+                </if>
+            </where>
+            limit 100
+        )
         ORDER BY updatetime DESC
-        limit 100
     </select>
 
     <select id="getStatus" parameterType="String" resultMap="StatusResultMap">

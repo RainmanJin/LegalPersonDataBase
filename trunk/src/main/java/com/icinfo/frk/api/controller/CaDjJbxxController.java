@@ -12,13 +12,13 @@ import com.icinfo.frk.business.service.ICaDjJbxxService;
 import com.icinfo.frk.common.exception.APIException;
 import com.icinfo.frk.common.response.ApiResponse;
 import com.icinfo.frk.common.utils.BeanUtils;
+import com.icinfo.frk.common.utils.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * 描述:  ca_dj_jbxx 对应的Controller类.<br>
@@ -57,11 +57,12 @@ public class CaDjJbxxController extends BaseController {
         // 传参执行查询
         List<CaDjJbxx> caDjJbxxList = caDjJbxxService.getList(new HashMap<String, Object>() {{
             this.put("tyxydm", tyxydm);
-            this.put("zzjgdm", zzjgdm);
+            this.put("zzjgdm", zzjgdm == null?"":zzjgdm.replace("-",""));
             this.put("djzch", djzch);
-            this.put("cxzt","正常");
         }});
-        return BeanUtils.copyList(CaDjJbxxDto.class, caDjJbxxList);
+
+        // 重复数据过滤
+        return BeanUtils.copyList(CaDjJbxxDto.class, CollectionUtils.unique(caDjJbxxList,"frwybs"));
     }
 
     /**
@@ -80,6 +81,6 @@ public class CaDjJbxxController extends BaseController {
         if (StringUtils.isBlank(tyxydm) && StringUtils.isBlank(frdwmc) && StringUtils.isBlank(zzjgdm)) {
             throw new APIException(ApiResponse.FAIL_MISS_PARAM_CODE, ApiResponse.FAIL_MISS_PARAM_MSG);
         }
-        return caDjJbxxService.frCheck(tyxydm, frdwmc, zzjgdm);
+        return caDjJbxxService.frCheck(tyxydm, frdwmc, zzjgdm == null?"":zzjgdm.replace("-",""));
     }
 }

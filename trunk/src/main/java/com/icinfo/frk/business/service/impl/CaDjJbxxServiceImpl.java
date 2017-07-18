@@ -18,6 +18,7 @@ import com.icinfo.frk.business.mapper.CeZzZzxxValidMapper;
 import com.icinfo.frk.business.model.CaDjJbxx;
 import com.icinfo.frk.business.model.CeXkzXzxkxxValid;
 import com.icinfo.frk.business.service.*;
+import com.icinfo.frk.common.utils.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -264,17 +265,6 @@ public class CaDjJbxxServiceImpl extends MyBatisServiceSupport implements ICaDjJ
     @Override
     public List<FrCheckDto> frCheck(String tyxydm, String frdwmc, String zzjgdm) throws Exception {
         List<FrCheckDto> list = caDjJbxxMapper.frCheck(tyxydm, frdwmc, zzjgdm);
-        List<FrCheckDto> result = new ArrayList<>();
-        Map<String, String> filterMap = new HashMap<>();
-        // 去重，取最新的一条数据
-        for (FrCheckDto dto : list) {
-            if (filterMap.containsKey(dto.getFrwybs())) {
-                continue;
-            } else {
-                result.add(dto);
-                filterMap.put(dto.getFrwybs(), "1");
-            }
-        }
-        return result;
+        return CollectionUtils.unique(list,"frwybs");
     }
 }
