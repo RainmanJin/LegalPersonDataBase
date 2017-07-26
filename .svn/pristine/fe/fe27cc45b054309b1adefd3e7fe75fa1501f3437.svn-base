@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icinfo.frk.search.mapper.LawEnforceSearchMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.search.dto.LawEnforceInfoDto" >
+	</resultMap>
+
+ 	<select id="selectDetail" parameterType="java.util.Map" resultMap="BaseResultMap">
+        SELECT frmc,a.frwybs,a.tyxydm,fddbr,djrq,hydm,cxzt
+        From frk.ca_dj_jbxx a 
+		<if test="Surveillance != null and Surveillance != ''">
+		LEFT JOIN frk.ch_ccjc_zdjg_valid b ON a.frwybs= b.frwybs
+		</if>
+		<if test="RandomTest != null and RandomTest != ''">
+		LEFT JOIN frk.ch_ccjc_jdcc_valid c ON a.frwybs= c.frwybs
+		</if>
+		<if test="Food != null and Food != '' or (Medicine != null and Medicine != '')">
+		LEFT JOIN frk.ch_bl_jdjcbhgjl_valid d ON a.frwybs= d.frwybs
+		</if>
+		<if test="Rank != null and Rank != ''">
+		LEFT JOIN frk.ch_njnb_ldbzsmsc_valid f ON a.frwybs= f.frwybs
+		</if>
+		<if test="Station != null and Station != ''">
+		LEFT JOIN frk.ch_ccjc_jcjk_valid g ON a.frwybs= g.frwybs
+		</if>
+		<if test="Electro != null and Electro != ''">
+		LEFT JOIN frk.ch_bl_qdjl_valid h ON a.frwybs= h.frwybs
+		</if>
+		<if test="Abnormal != null and Abnormal != ''">
+		LEFT JOIN frk.ch_bl_jyycml_valid i ON a.frwybs= i.frwybs
+		</if>
+		<if test="Danger != null and Danger != ''">
+		LEFT JOIN frk.cg_aqsc_yhjl_valid j ON a.frwybs= j.frwybs
+		</if>
+    <where>
+    	<if test="Name != null and Name != ''">
+        AND frmc LIKE '%'||#{Name}||'%'
+        </if>
+        <if test="Range != null and Range != ''">
+        AND ywfw LIKE '%'||#{Range}||'%'
+        </if>
+        <if test="UnitedID != null and UnitedID != ''">
+        AND tyxydm = #{UnitedID}
+        </if>
+        <if test="Surveillance != null and Surveillance != ''">
+		AND b.jgnr LIKE '%'||#{Surveillance}||'%'
+		</if>
+		<if test="RandomTest != null and RandomTest != ''">
+		AND c.ccchxmmc LIKE '%'||#{RandomTest}||'%'
+		</if>
+		<if test="Food != null and Food != ''">
+		AND d.bccspmc LIKE '%'||#{Food}||'%'
+		</if>
+		<if test="Medicine != null and Medicine != ''">
+		AND d.bccypmc LIKE '%'||#{Medicine}||'%'
+		</if>
+		<if test="Rank != null and Rank != ''">
+		AND f.pddj = #{Rank}
+		</if>
+		<if test="Station != null and Station != ''">
+		AND g.zdmc LIKE '%'||#{Station}||'%'
+		</if>
+		<if test="Electro != null and Electro != ''">
+		AND h.ydhm = #{Electro}
+		</if>
+		<if test="Abnormal != null and Abnormal != ''">
+		AND i.lrjyycmlyy LIKE '%'||#{Abnormal}||'%'
+		</if>
+		<if test="Danger != null and Danger != ''">
+		AND j.czzdaqyhnr LIKE '%'||#{Danger}||'%'
+		</if>
+      </where>
+    </select>
+
+  
+  
+  
+
+  
+  
+  	
+</mapper>

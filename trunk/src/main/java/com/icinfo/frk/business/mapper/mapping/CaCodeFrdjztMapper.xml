@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icinfo.frk.business.mapper.CaCodeFrdjztMapper">
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CaCodeFrdjzt">
+        <!--
+          WARNING - @frameworkgenerated
+        -->
+        <result column="fr_code" jdbcType="DECIMAL" property="frCode"/>
+        <result column="fr_content" jdbcType="VARCHAR" property="frContent"/>
+     </resultMap>
+	<select id="selectCxzts" parameterType="String" resultType="String">
+    	SELECT fr_content From frk.ca_code_frdjzt;
+    </select>
+</mapper>

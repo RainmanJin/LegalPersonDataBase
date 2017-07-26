@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icinfo.frk.business.mapper.CaCodeIndustryMapper">
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CaCodeIndustry">
+        <!--
+          WARNING - @frameworkgenerated
+        -->
+        <result column="hz_code" jdbcType="DECIMAL" property="hzCode"/>
+        <result column="hy_content" jdbcType="VARCHAR" property="hyContent"/>
+        <result column="hy_supcode" jdbcType="VARCHAR" property="hySupcode"/>
+     </resultMap>
+	<select id="getIndustrys" parameterType="java.lang.String" resultMap="BaseResultMap">
+    	SELECT hy_content ,hy_supcode FROM frk.ca_code_industry  
+    </select>
+</mapper>

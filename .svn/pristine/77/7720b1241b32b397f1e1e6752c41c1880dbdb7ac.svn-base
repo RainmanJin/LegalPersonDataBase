@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icinfo.frk.search.mapper.TaxSearchMapper" >
+<resultMap id="BaseResultMap" type="com.icinfo.frk.search.dto.TaxInfoDto" >
+    <result column="hash_unique" jdbcType="VARCHAR" property="hashUnique"/>
+        <result column="frwybs" jdbcType="VARCHAR" property="frwybs"/>
+        <result column="tyxydm" jdbcType="VARCHAR" property="tyxydm"/>
+        <result column="zzjgdm" jdbcType="VARCHAR" property="zzjgdm"/>
+        <result column="frfl" jdbcType="VARCHAR" property="frfl"/>
+        <result column="frflxl" jdbcType="VARCHAR" property="frflxl"/>
+        <result column="frmc" jdbcType="VARCHAR" property="frmc"/>
+        <result column="fddbr" jdbcType="VARCHAR" property="fddbr"/>
+        <result column="fr_zjlx" jdbcType="VARCHAR" property="frZjlx"/>
+        <result column="fr_zjhm" jdbcType="VARCHAR" property="frZjhm"/>
+        <result column="djjg" jdbcType="VARCHAR" property="djjg"/>
+        <result column="zgjg" jdbcType="VARCHAR" property="zgjg"/>
+        <result column="djrq" jdbcType="TIMESTAMP" property="djrq"/>
+        <result column="cxzt" jdbcType="VARCHAR" property="cxzt"/>
+        <result column="cyrs" jdbcType="INTEGER" property="cyrs"/>
+        <result column="djzlx" jdbcType="VARCHAR" property="djzlx"/>
+        <result column="djzch" jdbcType="VARCHAR" property="djzch"/>
+        <result column="ywfw" jdbcType="VARCHAR" property="ywfw"/>
+        <result column="qy_jy" jdbcType="VARCHAR" property="qyJy"/>
+        <result column="zczb" jdbcType="NUMERIC" property="zczb"/>
+        <result column="bm_bz" jdbcType="VARCHAR" property="bmBz"/>
+        <result column="jfly" jdbcType="VARCHAR" property="jfly"/>
+        <result column="jgsyxz" jdbcType="VARCHAR" property="jgsyxz"/>
+        <result column="shzzlx" jdbcType="VARCHAR" property="shzzlx"/>
+        <result column="qy_lx" jdbcType="VARCHAR" property="qyLx"/>
+        <result column="qy_lxdl" jdbcType="VARCHAR" property="qyLxdl"/>
+        <result column="hyml" jdbcType="VARCHAR" property="hyml"/>
+        <result column="hydm" jdbcType="VARCHAR" property="hydm"/>
+        <result column="hzrq" jdbcType="TIMESTAMP" property="hzrq"/>
+        <result column="jyqsrq" jdbcType="TIMESTAMP" property="jyqsrq"/>
+        <result column="jyjzrq" jdbcType="TIMESTAMP" property="jyjzrq"/>
+        <result column="jggss" jdbcType="VARCHAR" property="jggss"/>
+        <result column="jgsws" jdbcType="VARCHAR" property="jgsws"/>
+        <result column="gt_zcxs" jdbcType="VARCHAR" property="gtZcxs"/>
+        <result column="bz_cz" jdbcType="INTEGER" property="bzCz"/>
+        <result column="zjjb" jdbcType="VARCHAR" property="zjjb"/>
+        <result column="zjpb" jdbcType="VARCHAR" property="zjpb"/>
+        <result column="mzbm_ns" jdbcType="VARCHAR" property="mzbmNs"/>
+        <result column="jb" jdbcType="VARCHAR" property="jb"/>
+        <result column="bz_zfzg" jdbcType="INTEGER" property="bzZfzg"/>
+        <result column="jyjg_bxlx" jdbcType="VARCHAR" property="jyjgBxlx"/>
+        <result column="whjg_dj" jdbcType="VARCHAR" property="whjgDj"/>
+        <result column="dh" jdbcType="VARCHAR" property="dh"/>
+        <result column="yx" jdbcType="VARCHAR" property="yx"/>
+        <result column="cz" jdbcType="VARCHAR" property="cz"/>
+        <result column="frmc_jc" jdbcType="VARCHAR" property="frmcJc"/>
+        <result column="frmc_en" jdbcType="VARCHAR" property="frmcEn"/>
+        <result column="datasource" jdbcType="VARCHAR" property="datasource"/>
+        <result column="datasrdep" jdbcType="VARCHAR" property="datasrdep"/>
+        <result column="datakeycontent" jdbcType="VARCHAR" property="datakeycontent"/>
+        <result column="createtime" jdbcType="VARCHAR" property="createtime"/>
+        <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime"/>
+        <result column="frjgdm" jdbcType="VARCHAR" property="frjgdm"/>
+        <result column="zcdz" jdbcType="VARCHAR" property="zcdz"/>
+        <result column="hy_content" property="hy_content" jdbcType="VARCHAR"/>
+        <result column="nsrsbh" property="nsrsbh" jdbcType="VARCHAR"/>
+        <result column="dlhh" property="dlhh" jdbcType="VARCHAR"/>
+        <result column="cxzt" property="cxzt" jdbcType="VARCHAR"/>
+  </resultMap>
+  
+ <select id="selectDetail" parameterType="java.util.Map" resultMap="BaseResultMap">
+        SELECT frmc,a.frwybs,tyxydm,fddbr,djrq,nsrsbh,cxzt,hydm,ywfw
+        From frk.ca_dj_jbxx a 
+		LEFT JOIN frk.cf_ss_swdjxx_valid b ON a.frwybs= b.frwybs
+		<if test="NumMax != null and NumMax !='' or (NumMin != null and NumMin !='')">
+		RIGHT JOIN (SELECT COUNT (*),frwybs FROM frk.cf_bx_gjj_valid GROUP BY frwybs ) c
+		ON a.frwybs = c.frwybs
+		</if>
+        <where>
+            <if test="Name != null and Name != ''">
+                AND a.frmc LIKE '%'||#{Name}||'%'
+            </if>
+            <if test="UnitedID != null and UnitedID != ''">
+                AND a.frwybs = #{UnitedID}
+            </if>
+            <if test="TaxID != null and TaxID != ''">
+                AND b.nsrsbh = #{TaxID}
+            </if>
+            <if test="NumMin != null and NumMin != ''">
+                AND c.count &gt;= cast(#{NumMin} as INT)
+            </if>
+            <if test="NumMax != null and NumMax != ''">
+                AND c.count &lt;= cast(#{NumMax} as INT)
+            </if>
+        </where>
+    </select>
+</mapper>

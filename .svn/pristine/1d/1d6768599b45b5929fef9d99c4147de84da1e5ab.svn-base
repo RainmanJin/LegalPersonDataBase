@@ -1,0 +1,38 @@
+package com.icinfo.frk.business.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Table;
+
+@Table(name = "frk.ca_code_frfl")
+public class CaCodeFrfl implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Column(name = "fr_code")
+	private String frCode;
+
+	@Column(name = "fr_content")
+	private String frContent;
+
+	public String getFrCode() {
+		return frCode;
+	}
+
+	public void setFrCode(String frCode) {
+		this.frCode = frCode;
+	}
+
+	public String getFrContent() {
+		return frContent;
+	}
+
+	public void setFrContent(String frContent) {
+		this.frContent = frContent;
+	}
+
+}
