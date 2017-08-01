@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CaProblemListMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CaProblemList">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="departmentName" column="department_name"/>
+        <result property="tableName" column="table_name"/>
+        <result property="invalidType" column="invalid_type"/>
+        <result property="datauuid" column="datauuid"/>
+        <result property="colName" column="col_name"/>
+        <result property="busKey" column="bus_key"/>
+        <result property="createDate" column="create_date"/>
+        <result property="tongTime" column="tong_time"/>
+        <result property="cleanTimestamp" column="clean_timestamp"/>
+	</resultMap>
+	<select id="selectList" resultMap="BaseResultMap">
+  SELECT department_name,table_name,invalid_type,bus_key,clean_timestamp
+  FROM frk.ca_problem_list
+  </select>
+</mapper>

@@ -1,0 +1,129 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: dxh
+  Date: 2017/6/29
+  Time: 13:58
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="renderer" content="webkit">
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="/css/reg.server.css">
+<link rel="stylesheet" href="/css/style.css">
+<style type="text/css">
+
+/*  .pagination span.current {
+    color: #fff;
+    background: #fff !important;
+}
+
+.pagination .active a {
+    background: #d2aa64 !important;
+    border: 1px solid #d2aa64 !important;
+    color: #fff !important;
+} */
+
+.entName{
+    text-decoration:underline;
+    color:black;
+}
+.num-icon {
+	width: 25px;
+	
+}
+</style>
+</head>
+<body>
+	<div class="iframe-wrap">
+		<div class="form-panel mb10">
+			<form id="search-form" class="form-box">
+				<div class="form-list">
+					<div class="form-item clearfix">
+						<label for="" class="col-2"></label>
+						<div class="col-7 mt6 ">
+							<div class="col-6 ipt-box pdr5 border-box mt5">
+								<input type="text" id="keyword" class="ipt-txt mr5"
+									name="keyword" value=""
+									placeholder="请输入姓名、完整身份证号码或者姓名全称+完整身份证号码 ">
+							</div>
+							<!--  <div class="col-3 pdr5 border-box">
+	                            <div class="ipt-box col-12">
+	                                <select id="type" name="type">
+	                                    <option value="">关系</option>
+	                                    <option value="0">法定代表人/负责人</option>
+	                                    <option value="1">股东</option>
+	                                    <option value="2">高管</option>
+	                                </select>
+	                            </div>
+	                   		</div> -->
+							<div class="fl ml5">
+								<input id="searchBtn" type="submit" id="search" value="搜索"
+									class="btn mr20">
+							</div>
+						</div>
+					</div>
+			</form>
+		</div>
+	</div>
+	<h4 id="h4_count" class="ps-title" style="display: none">
+		查询结果：共<span id="num" class="light"></span>人<span id="numText"
+			style="display: none;">，最多显示<span class="light">50</span>人以内的信息，请输入更精确的条件查询。
+		</span>
+	</h4>
+	<div class="tabbale" data-component="tab">
+		<div class="tab-content" id="search-list"></div>
+	</div>
+	<!-- 搜索结果列表 start -->
+	<script id="tpl_searchlist" type="text/x-handlebars-template">
+</br>
+{{#each this}}
+	<div class="tab-panel tab-panel-show" >
+				<div class="clearfix sel-title-box">
+					<i class="fl  num-icon">{{tableNum @index}}</i> <span class="fl line-h30"><a href="javascript:;" id="{{cerNOAESE}}" class="entName light">{{name}}</a>  身份证号：{{cerNOFormat cerNO}} </span> <strong class="red-light">{{isLimitFormat isLimit}}</strong>
+
+				</div>
+				<div class="clearfix sel-title-box">
+					<i class="fl  flex-icon " id="divTable_{{cerNO}}_li"></i>
+					<h6 class="add-title fl seled-title">
+						当前投资/任职企业记录（<span id="page_num_{{cerNO}}"  class="light">0</span>）
+					</h6>				
+				</div>
+				<div id="divTable_{{cerNO}}" >
+				<table  border="0" cellspacing="0" cellpadding="0" class="table-row perc-100">
+					<thead style="white-space: nowrap;">
+						<tr>
+							<th width="2%" class="center">序号</th>
+							<th class="center">统一信用代码/注册号</th>
+							<th class="center">所投资/企业名称</th>
+							<th class="center">关系/职务</th>
+							<th class="center">成立时间</th>
+							<th class="center">登记机关</th>
+							<th class="center">登记状态</th>
+						</tr>
+					</thead>
+					<tbody id="table_{{cerNO}}"></tbody>
+				</table>
+				<br>
+				<div class="notice-pagination-box clearfix">
+                	<span class="page-total">共查询到  <em id="investmentCount_{{cerNO}}"></em> 条信息，共<em id="investmentPageCount_{{cerNO}}"></em>页</span>
+                	<div id="{{cerNO}}" class="pagination">
+
+                	</div>
+            	</div>
+				</div>
+	{{eachFunction cerNO}}
+</div>
+</br>
+{{/each}}
+</script>
+
+	<script src="/js/lib/require.js"></script>
+	<script src="/js/config.js"></script>
+	<script src="/js/business/dataquery/zrrQuery.js"></script>
+</body>
+</html>

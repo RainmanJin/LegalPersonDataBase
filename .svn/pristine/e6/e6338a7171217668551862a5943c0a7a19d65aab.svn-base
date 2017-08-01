@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icinfo.frk.search.mapper.LawInfoSearchMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.search.dto.LawInfoDto" >
+	</resultMap>
+
+ 	<select id="selectDetail" parameterType="java.util.Map" resultMap="BaseResultMap">
+        SELECT frmc,a.frwybs,a.tyxydm,fddbr,djrq,hydm,cxzt
+        From frk.ca_dj_jbxx a 
+		<if test="Reason != null and Reason != ''">
+		LEFT JOIN frk.ch_sfaj_ajxx_valid b ON a.frwybs= b.frwybs
+		</if>
+		<if test="Type != null and Type != ''">
+		LEFT JOIN frk.ch_sfaj_ajdsrxx_valid c ON a.frwybs= c.frwybs
+		</if>
+		<if test="ExeName != null and ExeName != ''">
+		LEFT JOIN frk.ch_sfaj_sxbzxr_valid d ON a.frwybs= d.frwybs
+		</if>
+    <where>
+        <if test="Reason != null and Reason != ''">
+		AND b.ay LIKE '%'||#{Reason}||'%'
+		</if>
+		<if test="Type != null and Type != ''">
+		AND c.dsrlx = #{Type}
+		</if>
+		<if test="ExeName != null and ExeName != ''">
+		AND d.bzxrmc = #{Food}
+		</if>
+      </where>
+    </select>
+
+  
+  
+  
+
+  
+  
+  	
+</mapper>
