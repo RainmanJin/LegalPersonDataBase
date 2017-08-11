@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CgAqscYhjlValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CgAqscYhjlValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="tyxydm" column="tyxydm"/>
+        <result property="dwmc" column="dwmc"/>
+        <result property="czzdaqyhnr" column="czzdaqyhnr"/>
+        <result property="rdsj" column="rdsj"/>
+        <result property="rdyj" column="rdyj"/>
+        <result property="rdjg" column="rdjg"/>
+        <result property="xasj" column="xasj"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      czzdaqyhnr,rdsj,rdyj,rdjg,xasj
+      FROM frk.cg_aqsc_yhjl_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+    
+    <select id="findYhjlMsg" parameterType="map" resultMap="BaseResultMap">
+    	select
+    		frwybs,dwmc,czzdaqyhnr,rdsj,rdyj,rdjg,xasj
+    	from frk.cg_aqsc_yhjl_valid
+    	<where>
+    		<if test="frwybs!=null and frwybs!=''">
+    			frwybs=#{frwybs}
+    		</if>
+    		<if test="dwmc!=null and dwmc!=''" >
+    			and dwmc like CONCAT('%',#{dwmc},'%')
+    		</if>
+    	</where>
+    </select>
+</mapper>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.ChBlXzcfxxValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.ChBlXzcfxxValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="dwmc"  column="dwmc"/>
+        <result property="tyshxydm" column="tyshxydm"/>
+        <result property="xzcfSsdq" column="xzcf_ssdq"/>
+        <result property="xzcfZfbm" column="xzcf_zfbm"/>
+        <result property="xzcfBmbm" column="xzcf_bmbm"/>
+        <result property="xzcfWh" column="xzcf_wh"/>
+        <result property="xzcfAm" column="xzcf_am"/>
+        <result property="xzcfDxlb" column="xzcf_dxlb"/>
+        <result property="xzcfBm" column="xzcf_bm"/>
+        <result property="xzcfQlsx" column="xzcf_qlsx"/>
+        <result property="xzcfZy" column="xzcf_zy"/>
+        <result property="xzcfRq" column="xzcf_rq"  />
+        <result property="bzGk" column="bz_gk"/>
+        <result property="xzcfBgkyj" column="xzcf_bgkyj"/>
+        <result property="bzXzcf" column="bz_xzcf"/>
+        <result property="xzcfCxsm" column="xzcf_cxsm"/>
+        <result property="xzcfCxrq" column="xzcf_cxrq"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+	
+	  <select id="getList" parameterType="String" resultMap="BaseResultMap">
+        SELECT
+        xzcf_zfbm,xzcf_am,xzcf_dxlb,xzcf_qlsx,xzcf_rq,xzcf_cxrq,xzcf_cxsm
+        FROM frk.ch_bl_xzcfxx_valid
+        WHERE frwybs = #{frwybs}
+    	</select>
+    	
+    	<select id="findXzcfMsg" parameterType="map" resultMap="BaseResultMap">
+    		select 
+    			id,frwybs,dwmc,xzcf_zfbm,xzcf_am,xzcf_dxlb,xzcf_qlsx,xzcf_rq,xzcf_cxrq,xzcf_cxsm
+    		from
+    			frk.ch_bl_xzcfxx_valid 
+    		<where>
+    			<if test="frwybs!=null and frwybs!=''">
+    				frwybs=#{frwybs}
+    			</if>
+    			<if test="dwmc!=null and dwmc!=''">
+    				and dwmc like CONCAT('%',#{dwmc},'%')
+    			</if>
+    		</where>
+    	</select>
+</mapper>

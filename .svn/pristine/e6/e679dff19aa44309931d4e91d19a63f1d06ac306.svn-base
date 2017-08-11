@@ -1,0 +1,734 @@
+require(['layer1',
+         'component/dataTable',
+         'common/util',
+         'common/http',
+         'jquery',
+         'jquery.serialize',
+         'handlebars',
+         'jquery','laydate'], function (layer, dataTable, util, http, handlebars) {
+
+	var entTable,xzcfTable,xzqzTable,zdjgTable,bhgjlTable,jgnjTable,qynbTable,
+	ldbzTable,wxdnjTable,jcjkTable,qdjlTable,sgxxTable,yhjlTable,fljgTable,jdccTable,
+	xzcf_flag=0,xzqz_flag=0,zdjg_flag=0,bhgjl_flag=0,jgnj_flag=0,qynb_flag=0,
+	ldbz_flag=0,wxdnj_flag=0,jcjk_flag=0,qdjl_flag=0,sgxx_flag=0,yhjl_flag=0,
+	fljg_flag=0,jdcc_flag=0;
+	var xzcf_Form = $("#xzcf_form").serializeObject();
+	var xzqz_Form = $("#xzqz_form").serializeObject();
+	var zdjg_Form = $("#zdjg_form").serializeObject();
+	var bhgjl_Form = $("#bhgjl_form").serializeObject();
+	var jgnj_Form = $("#jgnj_form").serializeObject();
+	var qynb_Form = $("#qynb_form").serializeObject();
+	var ldbz_Form = $("#ldbz_form").serializeObject();
+	var wxdnj_Form = $("#wxdnj_form").serializeObject();
+	var jcjk_Form = $("#jcjk_form").serializeObject();
+	var qdjl_Form = $("#qdjl_form").serializeObject();
+	var sgxx_Form = $("#sgxx_form").serializeObject();
+	var yhjl_Form = $("#yhjl_form").serializeObject();
+	var fljg_Form = $("#fljg_form").serializeObject();
+	var jdcc_Form = $("#jdcc_form").serializeObject();
+	init();
+
+	function init() {
+		bind();
+	}
+	
+
+	function initDataTable() {
+		entTable = dataTable.load({
+			// 需要初始化dataTable的dom元素
+			el : '#search_table',
+			showIndex : true,
+			scrollX : true,
+			aLengthMenu : [ 5, 10, 20, 50, 100 ],
+			ajax : {
+				url : '/data/search/lawenforcesearch.json',
+				data : function(d) {
+					d.params = $("#search_form").serializeObject();
+				}
+			},
+			columns : [ {
+				data : null,
+				defaultContent : 1,
+			}, {
+				data : "frmc"
+			}, {
+				data : "frwybs"
+			}, {
+				data : "fddbr"
+			}, {
+				data : "djrq"
+			}, {
+				data : "hydm"
+			}, {
+				data : "cxzt"
+			}],
+			columnDefs : [{
+				  targets : 2,
+	           	  render : function(data, type, row, meta){
+	           		  return "<a href='javascript:void(0)' class='tyxydm' priPID='"+row.tyxydm+"'>" + row.frwybs + "</a>";
+	           	  }
+			}]
+		});
+	}
+	//行政处罚信息
+	function initTableXzcf(){
+		xzcfTable = dataTable.load({
+			el:'#xzcf_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/findXzcfMsg',
+				data:function(d){
+					d.params=xzcf_Form;
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'frwybs',className:'center',width:"100px;"},
+				{data:'dwmc',className:'center',width:"100px;"},
+				{data:'xzcfZfbm',className:'center',width:"100px;"},
+				{data:'xzcfAm',className:'center',width:"100px;"},
+				{data:'xzcfDxlb',className:'center',width:"100px;"},
+				{data:'xzcfRq',className:'center',width:"100px;"},
+				{data:'xzcfCxrq',className:'center',width:"100px;"},
+				{data:'xzcfCxsm',className:'center',width:"100px;"}
+			],
+			columnDefs:[{
+				targets:1, render:function(data,type,row,meta){ 
+            	return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.frwybs+"</a>";
+				} 
+			}
+			]
+		})
+		
+	}
+	
+	//行政强制信息
+	function initTableXzqz(){
+		xzqzTable = dataTable.load({
+			el:'#xzqz_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/findXzqzMsg',
+				data:function(d){
+					d.params=xzqz_Form;
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'frwybs',className:'center',width:"100px;"},
+				{data:'dwmc',className:'center',width:"100px;"},
+				{data:'xzqzLscsrq',className:'center',width:"100px;"},
+				{data:'xzqzJcrq',className:'center',width:"100px;"},
+				{data:'xzqzZxwh',className:'center',width:"100px;"},
+				{data:'xzqzZxnr',className:'center',width:"100px;"},
+				{data:'xzqzZxrq',className:'center',width:"100px;"}
+				
+			],
+			columnDefs:[{
+				targets:1, render:function(data,type,row,meta){ 
+            	return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.frwybs+"</a>";
+				} 
+			}
+			]
+		})
+		
+	}
+	//监督抽查信息
+	function initTableJdcc(){
+		jdccTable = dataTable.load({
+			el:'#jdcc_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/findJdccMsg',
+				data:function(d){
+					d.params=jdcc_Form;
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'frwybs',className:'center',width:"100px;"},
+				{data:'bccdw',className:'center',width:"100px;"},
+				{data:'ccchxmmc',className:'center',width:"100px;"},
+				{data:'jybgrq',className:'center',width:"100px;"},
+				{data:'datasrdep',className:'center',width:"100px;"}
+				
+			],
+			columnDefs:[{
+				targets:1, render:function(data,type,row,meta){ 
+            	return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.frwybs+"</a>";
+				} 
+			}
+			]
+		})
+		
+	}
+
+	//重点监管信息
+	function initTableZdjg(){
+		zdjgTable = dataTable.load({
+			el:'#zdjg_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/findZdjgMsg',
+				data:function(d){
+					d.params=zdjg_Form;
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'frwybs',className:'center',width:"100px;"},
+				{data:'dwmc',className:'center',width:"100px;"},
+				{data:'lrzdjgyy',className:'center',width:"100px;"},
+				{data:'jgnr',className:'center',width:"100px;"},
+				{data:'lrsj',className:'center',width:"100px;"},
+				{data:'jgjg',className:'center',width:"100px;"},
+				{data:'cxsj',className:'center',width:"100px;"}
+				
+			],
+			columnDefs:[{
+				targets:1, render:function(data,type,row,meta){ 
+            	return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.frwybs+"</a>";
+				} 
+			}
+			]
+		})
+		
+	}
+	//不合格记录信息
+	function initTableBhgjl(){
+		bhgjlTable = dataTable.load({
+			el:'#bhgjl_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/findBadRecordMsg',
+				data:function(d){
+					d.params=bhgjl_Form;
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'cpscdwwybs',className:'center',width:"100px;"},
+				{data:'bccspmc',className:'center',width:"100px;"},
+				{data:'bccypmc',className:'center',width:"100px;"},
+				{data:'jyjl',className:'center',width:"100px;"},
+				{data:'ccrq',className:'center',width:"100px;"},
+				{data:'jcrwxddw',className:'center',width:"100px;"},
+				{data:'bhgchxmmc',className:'center',width:"100px;"},
+				{data:'bhgjljybgrq',className:'center',width:"100px;"}
+				
+			],
+			columnDefs:[{
+				targets:1, render:function(data,type,row,meta){ 
+            	return "<a href='javascript:void(0);' class='look' corpid='"+row.qywybs+"'>"+row.qywybs+"</a>";
+				} 
+			}
+			]
+		})
+		
+	}
+	//机构年检信息
+	function initTableJgnj(){
+		jgnjTable = dataTable.load({
+			el:'#jgnj_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/findJgnjMsg',
+				data:function(d){
+					d.params=jgnj_Form;
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'frwybs',className:'center',width:"100px;"},
+				{data:'dwmc',className:'center',width:"100px;"},
+				{data:'njnd',className:'center',width:"100px;"},
+				{data:'njbg',className:'center',width:"100px;"},
+				{data:'pgqk',className:'center',width:"100px;"},
+			],
+			columnDefs:[{
+				targets:1, render:function(data,type,row,meta){ 
+            	return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.frwybs+"</a>";
+				} 
+			}
+			]
+		})
+		
+	}
+	//企业年报信息
+	function initTableQynb(){
+		qynbTable = dataTable.load({
+			el:'#qynb_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/findQynbMsg',
+				data:function(d){
+					d.params=qynb_Form;
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'qywybs',className:'center',width:"100px;"},
+				{data:'qymc',className:'center',width:"100px;"},
+				{data:'nbnd',className:'center',width:"100px;"},
+				{data:'ndbgrq',className:'center',width:"100px;"},
+				{data:'ndbgzt',className:'center',width:"100px;"},
+			],
+			columnDefs:[{
+				targets:1, render:function(data,type,row,meta){ 
+            	return "<a href='javascript:void(0);' class='look' corpid='"+row.qywybs+"'>"+row.qywybs+"</a>";
+				} 
+			}
+			]
+		})
+		
+	}
+	
+	//劳动保障书面审查信息
+	function initTableLdbz(){
+		ldbzTable = dataTable.load({
+			el:'#ldbz_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/findNdsmscMsg',
+				data:function(d){
+					d.params=ldbz_Form;
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'frwybs',className:'center',width:"100px;"},
+				{data:'dsfrmc',className:'center',width:"100px;"},
+				{data:'smscnd',className:'center',width:"100px;"},
+				{data:'pddj',className:'center',width:"100px;"},
+				{data:'datasrdep',className:'center',width:"100px;"},
+			],
+			columnDefs:[{
+				targets:1, render:function(data,type,row,meta){ 
+            	return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.frwybs+"</a>";
+				} 
+			}
+			]
+		})
+		
+	}
+	//无线电台（站）年检信息
+	function initTableWxdnj(){
+		wxdnjTable = dataTable.load({
+			el:'#wxdnj_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/findWxdtMsg',
+				data:function(d){
+					d.params=wxdnj_Form;
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'frwybs',className:'center',width:"100px;"},
+				{data:'dwmc',className:'center',width:"100px;"},
+				{data:'datasrdep',className:'center',width:"100px;"},
+				{data:'wxdznjnd',className:'center',width:"100px;"},
+				{data:'njjg',className:'center',width:"100px;"}
+			],
+			columnDefs:[{
+				targets:1, render:function(data,type,row,meta){ 
+            	return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.frwybs+"</a>";
+				} 
+			}
+			]
+		})
+		
+	}
+	//监测监控信息
+	function initTableJcjk(){
+		jcjkTable = dataTable.load({
+			el:'#jcjk_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/findJcjkMsg',
+				data:function(d){
+					d.params=jcjk_Form;
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'qywybs',className:'center',width:"100px;"},
+				{data:'dwmc',className:'center',width:"100px;"},
+				{data:'zdmc',className:'center',width:"100px;"},
+				{data:'jcsj',className:'center',width:"100px;"},
+				{data:'jczb',className:'center',width:"100px;"},
+				{data:'jcjg',className:'center',width:"100px;"},
+				{data:'dbqk',className:'center',width:"100px;"}
+			],
+			columnDefs:[{
+				targets:1, render:function(data,type,row,meta){ 
+            	return "<a href='javascript:void(0);' class='look' corpid='"+row.qywybs+"'>"+row.qywybs+"</a>";
+				} 
+			}
+			]
+		})
+		
+	}
+	//窃电记录信息
+	function initTableQdjl(){
+		qdjlTable = dataTable.load({
+			el:'#qdjl_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/findQdjlMsg',
+				data:function(d){
+					d.params=qdjl_Form;
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'frwybs',className:'center',width:"100px;"},
+				{data:'ydhm',className:'center',width:"100px;"},
+				{data:'yddz',className:'center',width:"100px;"},
+				{data:'qdl',className:'center',width:"100px;"},
+				{data:'qdsd',className:'center',width:"100px;"},
+				{data:'qdze',className:'center',width:"100px;"},
+				{data:'datasrdep',className:'center',width:"100px;"}
+			],
+			columnDefs:[{
+				targets:1, render:function(data,type,row,meta){ 
+            	return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.frwybs+"</a>";
+				} 
+			}
+			]
+		})
+		
+	}
+	//事故信息
+	function initTableSgxx(){
+		sgxxTable = dataTable.load({
+			el:'#sgxx_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/findSgxxMsg',
+				data:function(d){
+					d.params=sgxx_Form;
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'frwybs',className:'center',width:"100px;"},
+				{data:'dwmc',className:'center',width:"100px;"},
+				{data:'sgdd',className:'center',width:"100px;"},
+				{data:'sglx',className:'center',width:"100px;"},
+				{data:'sgyy',className:'center',width:"100px;"},
+				{data:'sgfssj',className:'center',width:"100px;"},
+				{data:'swrs',className:'center',width:"100px;"},
+				{data:'zsrs',className:'center',width:"100px;"},
+				{data:'ccss',className:'center',width:"100px;"},
+				{data:'sgjyqk',className:'center',width:"100px;"}
+			],
+			columnDefs:[{
+				targets:1, render:function(data,type,row,meta){ 
+            	return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.frwybs+"</a>";
+				} 
+			}
+			]
+		})
+		
+	}
+	//隐患信息
+	function initTableYhjl(){
+		yhjlTable = dataTable.load({
+			el:'#yhjl_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/findYhjlMsg',
+				data:function(d){
+					d.params=yhjl_Form;
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'frwybs',className:'center',width:"100px;"},
+				{data:'dwmc',className:'center',width:"100px;"},
+				{data:'rdsj',className:'center',width:"100px;"},
+				{data:'rdyj',className:'center',width:"100px;"},
+				{data:'rdjg',className:'center',width:"100px;"},
+				{data:'xasj',className:'center',width:"100px;"},
+				{data:'czzdaqyhnr',className:'center',width:"100px;"}
+				
+			],
+			columnDefs:[{
+				targets:1, render:function(data,type,row,meta){ 
+            	return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.frwybs+"</a>";
+				} 
+			}
+			]
+		})
+		
+	}
+	//分类监管信息
+	function initTableFljg(){
+		fljgTable = dataTable.load({
+			el:'#fljg_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/findFljgMsg',
+				data:function(d){
+					d.params=fljg_Form;
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'frwybs',className:'center',width:"100px;"},
+				{data:'dwmc',className:'center',width:"100px;"},
+				{data:'pjlb',className:'center',width:"100px;"},
+				{data:'pjyj',className:'center',width:"100px;"},
+				{data:'pjwh',className:'center',width:"100px;"},
+				{data:'pjnd',className:'center',width:"100px;"},
+				{data:'pjjg',className:'center',width:"100px;"},
+				{data:'pjnr',className:'center',width:"100px;"}
+				
+			],
+			columnDefs:[{
+				targets:1, render:function(data,type,row,meta){ 
+            	return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.frwybs+"</a>";
+				} 
+			}
+			]
+		})
+		
+	}
+	
+	function bind() {
+		util.bindEvents([ {
+			el : '#search',
+			event : 'click',
+			handler : function() {
+				var tr = $("#search_table tbody tr:first").text();
+				if(tr=="" || tr==null ){
+					initDataTable();
+				}else{
+				entTable.ajax.reload();
+			}}
+		},{
+        	el:'#reset',
+        	event:'click',
+        	handler:function(){
+        		$("#Name").val("");
+    			$("#UnitedID").val("");
+    			$("#Range").val("");
+    			$("#Surveillance").val("");
+    			$("#RandomTest").val("");
+    			$("#Food").val("");
+    			$("#Medicine").val("");
+    			$("#Rank").val("");
+    			$("#Station").val("");
+    			$("#Electro").val("");
+    			$("#Abnormal").val("");
+    			$("#Danger").val("");
+        	}
+        }, {
+        	el: '.tyxydm',
+            event: 'click',
+            handler: function () {        	
+                var data = entTable.row($(this).closest('td')).data();   
+                window.open('/data/frdetail/lawenforce/' + data.frwybs,'_blank');
+            }
+        },
+        {
+			el:'#xzcf_search',
+			event:'click',
+			handler:function(){
+				xzcf_Form = $("#xzcf_form").serializeObject();
+				if(xzcf_flag==0){
+					initTableXzcf();xzcf_flag = 1;
+				}else{
+					xzcfTable.ajax.reload();
+				}
+			}
+		},
+        {
+			el:'#xzqz_search',
+			event:'click',
+			handler:function(){
+				xzqz_Form = $("#xzqz_form").serializeObject();
+				if(xzqz_flag==0){
+					initTableXzqz();xzqz_flag = 1;
+				}else{
+					xzqzTable.ajax.reload();
+				}
+			}
+		},
+        {
+			el:'#zdjg_search',
+			event:'click',
+			handler:function(){
+				zdjg_Form = $("#zdjg_form").serializeObject();
+				if(zdjg_flag==0){
+					initTableZdjg();zdjg_flag = 1;
+				}else{
+					zdjgTable.ajax.reload();
+				}
+			}
+		}
+		,
+        {
+			el:'#bhgjl_search',
+			event:'click',
+			handler:function(){
+				bhgjl_Form = $("#bhgjl_form").serializeObject();
+				if(bhgjl_flag==0){
+					initTableBhgjl();bhgjl_flag = 1;
+				}else{
+					bhgjlTable.ajax.reload();
+				}
+			}
+		}
+		,
+        {
+			el:'#jgnj_search',
+			event:'click',
+			handler:function(){
+				jgnj_Form = $("#jgnj_form").serializeObject();
+				if(jgnj_flag==0){
+					initTableJgnj();jgnj_flag = 1;
+				}else{
+					jgnjTable.ajax.reload();
+				}
+			}
+		},
+        {
+			el:'#qynb_search',
+			event:'click',
+			handler:function(){
+				qynb_Form = $("#qynb_form").serializeObject();
+				if(qynb_flag==0){
+					initTableQynb();qynb_flag = 1;
+				}else{
+					qynbTable.ajax.reload();
+				}
+			}
+		}
+		,
+        {
+			el:'#ldbz_search',
+			event:'click',
+			handler:function(){
+				ldbz_Form = $("#ldbz_form").serializeObject();
+				if(ldbz_flag==0){
+					initTableLdbz();ldbz_flag = 1;
+				}else{
+					ldbzTable.ajax.reload();
+				}
+			}
+		},
+        {
+			el:'#wxdnj_search',
+			event:'click',
+			handler:function(){
+				wxdnj_Form = $("#wxdnj_form").serializeObject();
+				if(wxdnj_flag==0){
+					initTableWxdnj();wxdnj_flag = 1;
+				}else{
+					wxdnjTable.ajax.reload();
+				}
+			}
+		},
+        {
+			el:'#jcjk_search',
+			event:'click',
+			handler:function(){
+				jcjk_Form = $("#jcjk_form").serializeObject();
+				if(jcjk_flag==0){
+					initTableJcjk();jcjk_flag = 1;
+				}else{
+					jcjkTable.ajax.reload();
+				}
+			}
+		},
+        {
+			el:'#qdjl_search',
+			event:'click',
+			handler:function(){
+				qdjl_Form = $("#qdjl_form").serializeObject();
+				if(qdjl_flag==0){
+					initTableQdjl();qdjl_flag = 1;
+				}else{
+					qdjlTable.ajax.reload();
+				}
+			}
+		},
+        {
+			el:'#sgxx_search',
+			event:'click',
+			handler:function(){
+				sgxx_Form = $("#sgxx_form").serializeObject();
+				if(sgxx_flag==0){
+					initTableSgxx();sgxx_flag = 1;
+				}else{
+					sgxxTable.ajax.reload();
+				}
+			}
+		},
+        {
+			el:'#yhjl_search',
+			event:'click',
+			handler:function(){
+				yhjl_Form = $("#yhjl_form").serializeObject();
+				if(yhjl_flag==0){
+					initTableYhjl();yhjl_flag = 1;
+				}else{
+					yhjlTable.ajax.reload();
+				}
+			}
+		},
+        {
+			el:'#fljg_search',
+			event:'click',
+			handler:function(){
+				fljg_Form = $("#fljg_form").serializeObject();
+				if(fljg_flag==0){
+					initTableFljg();fljg_flag = 1;
+				}else{
+					fljgTable.ajax.reload();
+				}
+			}
+		},
+        {
+			el:'#jdcc_search',
+			event:'click',
+			handler:function(){
+				jdcc_Form = $("#jdcc_form").serializeObject();
+				if(jdcc_flag==0){
+					initTableJdcc();jdcc_flag = 1;
+				}else{
+					jdccTable.ajax.reload();
+				}
+			}
+		},{ 
+			el:'.look', event:'click', handler:function(){
+			 var corpid =$(this).attr('corpid');
+			 if(corpid != null && corpid != ""){
+				 window.open("/data/frdetail/lawenforce/"+corpid,"_blank");
+			 }else{
+				 alert("没有查到相关数据");
+			 }
+			 
+			 } 
+
+		}
+		
+	  ])
+	}
+});

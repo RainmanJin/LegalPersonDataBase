@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icinfo.frk.business.mapper.CaCxBgxxValidMapper" >
+  <resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CaCxBgxxValid" >
+    <!--
+      WARNING - @frameworkgenerated
+    -->
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="hash_unique" property="hashUnique" jdbcType="VARCHAR" />
+    <result column="bgxxbs" property="bgxxbs" jdbcType="VARCHAR" />
+    <result column="frwybs" property="frwybs" jdbcType="VARCHAR" />
+    <result column="tyxydm" property="tyxydm" jdbcType="VARCHAR" />
+    <result column="nbxh" property="nbxh" jdbcType="VARCHAR" />
+    <result column="bgsx" property="bgsx" jdbcType="VARCHAR" />
+    <result column="bgyy" property="bgyy" jdbcType="VARCHAR" />
+    <result column="bgqnr" property="bgqnr" jdbcType="VARCHAR" />
+    <result column="bghnr" property="bghnr" jdbcType="VARCHAR" />
+    <result column="hzrq" property="hzrq" jdbcType="VARCHAR" />
+    <result column="datasrdep" property="datasrdep" jdbcType="VARCHAR" />
+    <result column="datasource" property="datasource" jdbcType="VARCHAR" />
+    <result column="datakeycontent" property="datakeycontent" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <select id="GetList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      bgsx,bgyy,bgqnr,bghnr,hzrq
+      FROM frk.ca_cx_bgxx_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+    
+    <select id="getCaCxBgxx" parameterType="Map" resultMap="BaseResultMap">
+      SELECT
+      bgsx,bgyy,bgqnr,bghnr,hzrq,frwybs
+      FROM frk.ca_cx_bgxx_valid
+      <where>
+      
+          <if test="bgsx != null and bgsx != ''">
+         and bgsx like '%'||#{bgsx}||'%'
+         </if>
+       <if test="frwybs != null and frwybs != ''">
+         and frwybs =#{frwybs}
+         </if>
+         
+      
+      </where>
+    </select>
+    
+    
+    
+</mapper>

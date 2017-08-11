@@ -1,0 +1,253 @@
+/*
+ * Copyright© 2003-2016 浙江汇信科技有限公司, All Rights Reserved. 
+ */
+package com.icinfo.frk.business.controller;
+
+import com.icinfo.framework.common.ajax.AjaxResult;
+import com.icinfo.framework.core.web.BaseController;
+import com.icinfo.framework.mybatis.pagehelper.datatables.PageRequest;
+import com.icinfo.framework.mybatis.pagehelper.datatables.PageResponse;
+import com.icinfo.frk.business.dto.CaDjJbxxDto;
+import com.icinfo.frk.business.entity.DesEncrypt;
+import com.icinfo.frk.business.entity.FrPersons;
+import com.icinfo.frk.business.entity.FrPersonsClass;
+import com.icinfo.frk.business.entity.TreeDetail;
+import com.icinfo.frk.business.entity.ZRR;
+import com.icinfo.frk.business.model.CaCodeFrfl;
+import com.icinfo.frk.business.service.ICaCodeFrfService;
+import com.icinfo.frk.business.service.ICaCodeIndustryService;
+import com.icinfo.frk.business.service.ICaDjJbxxService;
+import com.icinfo.frk.business.service.impl.CaDjJbxxServiceImpl;
+
+import org.apache.commons.collections.map.HashedMap;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * 描述:  ca_dj_jbxx 对应的Controller类.<br>
+ *
+ * @author framework generator
+ * @date 2017年06月27日
+ */
+@Controller
+@RequestMapping("/data/frdetail")
+public class CaDjJbxxController extends BaseController {
+    /**
+     * 日志记录器
+     */
+    private static final Logger logger = LoggerFactory.getLogger(CaDjJbxxController.class);
+
+    @Autowired
+    private ICaDjJbxxService caDjJbxxService;
+    @Autowired
+    private ICaCodeFrfService caCodeFrflVaildService;
+    @Autowired
+    private ICaCodeIndustryService caCodeIndustryVaildService;
+    @Autowired
+    private CaDjJbxxServiceImpl caDjJbxxServiceImpl;
+    /**
+     * 进入法人信息查询页面
+     *
+     * @return 法人数据
+     * @throws Exception 异常
+     */
+    @RequestMapping(value = "/entfrquery")
+    public String entFrQuery() throws Exception {
+        return "business/dataquery/frQuery";
+    }
+
+    /**
+     * 根据查询条件 分页获取法人信息列表
+     *
+     * @param keyword  查询条件  法人名称/统一信用代码/工商注册号/组织机构代码证/纳税人识别号 模糊查询
+     * @param pageNum  当前页码
+     * @param pageSize 每页条数
+     * @return 法人数据
+     * @throws Exception 异常
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getpage", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    public AjaxResult getPage(@RequestParam(name = "keyword", required = true) final String keyword,
+                              @RequestParam(name = "pageNum", required = true) int pageNum,
+                              @RequestParam(name = "pageSize", required = true) int pageSize) throws Exception {
+        // 1.查询第一页数据
+        Map<String, Object> qMap = new HashedMap() {/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+		{
+            this.put("frmc", keyword);
+            this.put("tyxydm", keyword);
+            this.put("djzch", keyword);
+            this.put("zzjgdm", keyword);
+//            this.put("nsrsbh",keyword);
+        }};
+        return AjaxResult.success("成功", caDjJbxxService.getByKeyword(qMap, pageNum, pageSize));
+    }
+
+    /**
+     * 进入法人基本详情页
+     *
+     * @param frwybs 法人唯一标识
+     * @param model  model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/djjbxx/{frwybs}", method = RequestMethod.GET)
+    public String entFrDetail(@PathVariable(value = "frwybs") String frwybs, Model model) throws Exception {
+        model.addAttribute("jbxx", caDjJbxxService.getFrJbxx(frwybs));
+        model.addAttribute("frwybs", frwybs);
+        return "business/dataquery/frDjjbxx";
+    }
+
+    /**
+     * 进入法人资本与资产页
+     *
+     * @param frwybs 法人唯一标识
+     * @param model  model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/zbyzc/{frwybs}", method = RequestMethod.GET)
+    public String entZbyzc(@PathVariable(value = "frwybs") String frwybs, Model model) throws Exception {
+        model.addAttribute("zbyzc", caDjJbxxService.getFrZbyzc(frwybs));
+        model.addAttribute("frwybs", frwybs);
+        return "business/dataquery/frZbyzc";
+    }
+    /**
+     * 进入法人高级查询页面
+     *
+     */
+    @RequestMapping(value = "/detailsearch")
+    public String entFrHighQuery( Model model) throws Exception {
+    	//登记状态
+    	List<String> registStates = caDjJbxxService.getRegistStates();
+    	//法人类型
+    	List<CaCodeFrfl> frStyes = caCodeFrflVaildService.getFrStyes();
+    	model.addAttribute("registStates",registStates);
+    	model.addAttribute("frstyes",frStyes);
+        return "business/dataquery/frHighQuery";
+    }
+    /**
+     * 行业对象树
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/tradeTreeSelect")
+    public ModelAndView gettree() throws Exception {
+    	ModelAndView view  = new ModelAndView("business/dataquery/frTrade");
+		return view;
+    }
+    
+    /**
+     * 行业对象树
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/tradeTreeDate")
+    @ResponseBody
+    public List<TreeDetail> getTreeDate() throws Exception {
+    	List<TreeDetail> industrys = caCodeIndustryVaildService.getIndustrys();
+        return industrys;
+    }
+    /**
+     * 高级查询
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/frHighDetail")
+    @ResponseBody
+    public PageResponse<CaDjJbxxDto>  getFrHighDetail(PageRequest request) throws Exception {
+   
+    	PageResponse<CaDjJbxxDto> list = caDjJbxxService.getFrHighDetail(request);
+		return list;
+    }
+    
+    /**
+     * 进入自然人查询页面
+     *
+     */
+    @RequestMapping(value = "/zrrQuery")
+    public String entzrrQuery( Model model) throws Exception {
+    	
+    	return "business/dataquery/zrrQuery";
+    }
+   
+    /**
+     * 获取自然人人数量
+     * @param zrr
+     * @return
+     * @throws Exception
+     */
+	@RequestMapping(value = "/zrrPersonListCount")
+	@ResponseBody
+	public int zrrPersonListCount(ZRR zrr) throws Exception {
+		String keyword = zrr.getKeyword().trim();
+		if(StringUtils.isNotBlank(keyword)){
+			int count = caDjJbxxServiceImpl.getPersonListCount(keyword);
+			return count;
+		}
+		return 0;
+	}
+	
+	/**
+	 * 查询自然人信息
+	 * @param zrr
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/zrrPersonSearchList")
+	@ResponseBody
+	public List<FrPersons> zrrPersonSearchList(ZRR zrr) throws Exception {
+		List<FrPersons> personList = new ArrayList<FrPersons>();
+		String keyword = zrr.getKeyword().trim();
+		if(StringUtils.isNotBlank(keyword)){
+			personList = caDjJbxxServiceImpl.getPersonSearchList(keyword);
+		}
+		return personList;
+	}
+	
+	/**
+	 * 单个身份自然人信息
+	 * @param params
+	 * @param cerNo
+	 * @param startNum
+	 * @param length
+	 * @param type
+	 * @return
+	 * @throws Exception
+	 */
+	 @RequestMapping(value = "/zrrPersonPageList")
+		@ResponseBody
+		public FrPersonsClass zrrPersonPageList(
+				@RequestParam(name = "start", required = true) int startNum,
+				@RequestParam(name = "length", required = true) int length,
+				@RequestParam(name = "cerNo", required = true) final String cerNo,
+				@RequestParam(name = "keyWord", required = true) final String keyWord
+				)
+				throws Exception {
+		 FrPersonsClass result = caDjJbxxServiceImpl.getPersonPageList(startNum, length, cerNo, keyWord);
+			return result;
+		}
+	 
+	/* @RequestMapping(value = "/zrrDetail/{cerNO}", method = RequestMethod.GET)
+	    public String entzrrDetail(@PathVariable(value = "cerNO") String cerNO, Model model) throws Exception {
+		 	DesEncrypt   des=new   DesEncrypt();
+			des.getKey("aadd");//生成密匙  
+			String desString = des.getDesString(cerNO);
+			
+	        return "business/dataquery/zrrDetailQuery";
+	    }*/
+}

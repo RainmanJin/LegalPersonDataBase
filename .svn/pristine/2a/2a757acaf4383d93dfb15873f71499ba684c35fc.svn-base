@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CgZzYsxxValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CgZzYsxxValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybsWt" column="frwybs_wt"/>
+        <result property="frwybsSt" column="frwybs_st"/>
+        <result property="wtyssbh" column="wtyssbh"/>
+        <result property="wtyssm" column="wtyssm"/>
+        <result property="zfxdwmc" column="zfxdwmc"/>
+        <result property="zfxdwdz" column="zfxdwdz"/>
+        <result property="szyz" column="szyz"/>
+        <result property="szrbj" column="szrbj"/>
+        <result property="syins" column="syins"/>
+        <result property="syes" column="syes"/>
+        <result property="syinz" column="syinz"/>
+        <result property="szs" column="szs"/>
+        <result property="sdj" column="sdj"/>
+        <result property="skb" column="skb"/>
+        <result property="ysjwtslx" column="ysjwtslx"/>
+        <result property="wtfcbdw" column="wtfcbdw"/>
+        <result property="stfycdw" column="stfycdw"/>
+        <result property="yswtscjsj" column="yswtscjsj"/>
+        <result property="yswtsxgsj" column="yswtsxgsj"/>
+        <result property="yswttjsj" column="yswttjsj"/>
+        <result property="cbdwszdcbjblsj" column="cbdwszdcbjblsj"/>
+        <result property="ysqyszdcbjblsj" column="ysqyszdcbjblsj"/>
+        <result property="cbdwblsj" column="cbdwblsj"/>
+        <result property="ysqyblsj" column="ysqyblsj"/>
+        <result property="cxwtssj" column="cxwtssj"/>
+        <result property="cxstssj" column="cxstssj"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      wtyssbh,wtyssm,yswtscjsj,cbdwblsj,ysqyblsj,cxwtssj
+      FROM frk.cg_zz_ysxx_valid
+      WHERE frwybs_wt = #{frwybs}
+    </select>
+    
+    <select id="selectYshDetail" parameterType="Map" resultMap="BaseResultMap">
+		Select frwybs_wt,wtyssbh,wtyssm,wtfcbdw,yswtscjsj,cbdwblsj,ysqyblsj,cxwtssj from frk.cg_zz_ysxx_valid
+		<where>
+			<if test="wtyssm!=null and wtyssm!=''">
+				AND wtyssm LIKE '%'||#{wtyssm}||'%'
+			</if>
+			<if test="wtfcbdw!=null and wtfcbdw!=''">
+				AND wtfcbdw LIKE '%'||#{wtfcbdw}||'%'
+			</if>
+			AND wtyssm IS NOT NULL
+		</where>	
+	</select>
+</mapper>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icinfo.frk.business.mapper.CaCyFddbrValidMapper" >
+  <resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CaCyFddbrValid" >
+    <!--
+      WARNING - @frameworkgenerated
+    -->
+    <result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="hash_unique" property="hashUnique" jdbcType="VARCHAR" />
+    <result column="frwybs" property="frwybs" jdbcType="VARCHAR" />
+    <result column="nbxh" property="nbxh" jdbcType="VARCHAR" />
+    <result column="tyxydm" property="tyxydm" jdbcType="VARCHAR" />
+    <result column="xm" property="xm" jdbcType="VARCHAR" />
+    <result column="zjlx" property="zjlx" jdbcType="VARCHAR" />
+    <result column="zjhm" property="zjhm" jdbcType="VARCHAR" />
+    <result column="gj" property="gj" jdbcType="VARCHAR" />
+    <result column="zw" property="zw" jdbcType="VARCHAR" />
+    <result column="zwcsfs" property="zwcsfs" jdbcType="VARCHAR" />
+    <result column="bz_fzr" property="bzFzr" jdbcType="VARCHAR" />
+    <result column="rmf" property="rmf" jdbcType="VARCHAR" />
+    <result column="rzqsrq" property="rzqsrq" jdbcType="TIMESTAMP" />
+    <result column="rzjzrq" property="rzjzrq" jdbcType="TIMESTAMP" />
+    <result column="fzr_dh" property="fzrDh" jdbcType="VARCHAR" />
+    <result column="fzr_yddh" property="fzrYddh" jdbcType="VARCHAR" />
+    <result column="fzr_dy" property="fzrDy" jdbcType="VARCHAR" />
+    <result column="datasrdep" property="datasrdep" jdbcType="VARCHAR" />
+    <result column="datasource" property="datasource" jdbcType="VARCHAR" />
+    <result column="datakeycontent" property="datakeycontent" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="VARCHAR" />
+    <result column="updatetime" property="updatetime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMap" type="com.icinfo.frk.business.model.CaCyFddbr" >
+  	<result column="frwybs" property="frwybs" jdbcType="VARCHAR" />
+  	<result column="xm" property="xm" jdbcType="VARCHAR" />
+  	<result column="zjhm" property="zjhm" jdbcType="VARCHAR" />
+  	<result column="zw" property="zw" jdbcType="VARCHAR" />
+  	 <result column="bz_fzr" property="bzFzr" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <!--获取法人登记基本信息列表-->
+  <select id="selectList" parameterType="java.util.Map" resultMap="BaseResultMap">
+    SELECT
+    *
+    FROM frk.ca_cy_fddbr_valid
+    <where>
+      <if test="tyxydm != null and tyxydm != ''">
+        AND tyxydm = #{tyxydm}
+      </if>
+      <if test="frwybs != null and frwybs != ''">
+        AND frwybs = #{frwybs}
+      </if>
+      AND zw is null
+    </where>
+    ORDER BY updatetime DESC
+  </select>
+  
+  <select id="GetList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      xm,zjlx,zjhm,gj,zw,zwcsfs,rmf,rzqsrq,rzjzrq
+      FROM frk.ca_cy_fddbr_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+    
+    <select id="getPersonCount" parameterType="com.icinfo.frk.business.model.CaCyFddbr" resultType="int" >
+	    SELECT count(0) FROM frk.ca_cy_fddbr_valid
+	    <where>
+	      <if test="xm != null and xm != ''">
+	        AND xm = #{xm}
+	      </if>
+	      <if test="zjhm != null and zjhm != ''">
+	        AND zjhm = #{zjhm}
+	      </if>
+	      <if test="bzFzr != null and bzFzr != ''">
+	        AND bz_fzr = #{bzFzr}
+	      </if>
+	    </where>
+  </select>  
+  
+  <select id="getZjhmCount" parameterType="String" resultType="int" >
+	    SELECT count(DISTINCT(zjhm)) FROM frk.ca_cy_fddbr_valid where xm = #{xm}    
+  </select> 
+  <select id="getFrwybsCount" parameterType="String" resultType="int" >
+	    SELECT count(frwybs) FROM frk.ca_cy_fddbr_valid where zjhm = #{zjhm} AND frwybs IS NOT NULL
+  </select>
+  <select id="getPersonList" parameterType="com.icinfo.frk.business.model.CaCyFddbr" resultMap="ResultMap">
+    	SELECT DISTINCT zjhm ,xm FROM frk.ca_cy_fddbr_valid
+	    <where>
+	      <if test="xm != null and xm != ''">
+	        AND xm = #{xm}
+	      </if>
+	      <if test="zjhm != null and zjhm != ''">
+	        AND zjhm = #{zjhm}
+	      </if>
+	      AND zjhm IS NOT NULL
+	    </where>
+	    
+	    LIMIT 50
+    </select>
+    <select id="getPerson" parameterType="com.icinfo.frk.business.model.CaCyFddbr" resultMap="BaseResultMap">
+	   	SELECT frwybs,zw FROM frk.ca_cy_fddbr_valid
+	    <where>
+	      <if test="xm != null and xm != ''">
+	        AND xm = #{xm}
+	      </if>
+	      <if test="zjhm != null and zjhm != ''">
+	        AND zjhm = #{zjhm}
+	      </if>
+	    </where>
+	    LIMIT #{length} OFFSET #{startNum}
+   </select>
+   
+   
+   
+   <select id="getCaCyFddbr" parameterType="Map" resultMap="BaseResultMap">
+     SELECT
+      xm,zjlx,zjhm,zw,rmf,rzqsrq,rzjzrq,frwybs
+      FROM frk.ca_cy_fddbr_valid
+     <where>
+         <if test="xm != null and xm != ''">
+         and xm like '%'||#{xm}||'%'
+         </if>
+       <if test="zjhm != null and zjhm != ''">
+         and zjhm =#{zjhm}
+         </if>
+       
+      </where>
+   
+   </select>
+   
+   
+</mapper>

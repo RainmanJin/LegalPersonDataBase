@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 不使用namespace是由于sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CfSsNsjlValidMapper" >
+
+   <resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CfSsNsjlValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="nsrmc" column="nsrmc"/>
+        <result property="shxydm" column="shxydm"/>
+        <result property="zzjgdm" column="zzjgdm"/>
+        <result property="skssqs" column="skssqs"/>
+        <result property="skssqz" column="skssqz"/>
+        <result property="gsyje" column="gsyje"/>
+        <result property="gssje" column="gssje"/>
+        <result property="gnzzs" column="gnzzs"/>
+        <result property="gnxfs" column="gnxfs"/>
+        <result property="qysds" column="qysds"/>
+        <result property="dszsxm" column="dszsxm"/>
+        <result property="dsskzl" column="dsskzl"/>
+        <result property="dssje" column="dssje"/>
+        <result property="dsrkrq" column="dsrkrq"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+    </resultMap>
+<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      skssqs,skssqz,gsyje,gssje,dssje
+      FROM frk.cf_ss_nsjl_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+
+  <select id="selectListByMap" parameterType="Map" resultMap="BaseResultMap">
+    SELECT
+    skssqs,skssqz,gsyje,gssje,dssje,b.frmc,b.frwybs
+    FROM frk.cf_ss_nsjl_valid a, frk.ca_dj_jbxx b
+    <where>
+      a.frwybs = b.frwybs
+      <if test="NationalTaxL != null and NationalTaxL != ''">
+        AND a.gssje &gt;= '%'||#{NationalTaxL}||'%'
+      </if>
+      <if test="NationalTaxH != null and NationalTaxH != ''">
+        AND a.gssje &lt;= '%'||#{NationalTaxH}||'%'
+      </if>
+      <if test="ProvincialTaxL != null and ProvincialTaxL != ''">
+        AND a.dssje &gt;= '%'||#{ProvincialTaxL}||'%'
+      </if>
+      <if test="ProvincialTaxH != null and ProvincialTaxH != ''">
+        AND a.dssje &lt;= '%'||#{ProvincialTaxH}||'%'
+      </if>
+    </where>
+    ORDER BY skssqs DESC
+  </select>
+</mapper>
+

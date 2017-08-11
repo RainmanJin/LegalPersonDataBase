@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- 不使用namespace是由于sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CfSsNsjlGsValidMapper">
+
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CfSsNsjlGsValid">
+
+	</resultMap>
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      gsyje,gssje,sssq
+      FROM frk.cf_ss_nsjl_gs_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+
+	<select id="selectListByMap" parameterType="Map" resultMap="BaseResultMap">
+		SELECT
+		a.gsyje,a.gssje,a.sssq,b.frmc,b.frwybs
+		FROM frk.cf_ss_nsjl_gs_valid a, frk.ca_dj_jbxx b
+		<where>
+			a.frwybs = b.frwybs
+			<if test="NationalTaxL != null and NationalTaxL != ''">
+				AND a.gssje &gt;= CAST (#{NationalTaxL} as NUMERIC )
+			</if>
+			<if test="NationalTaxH != null and NationalTaxH != ''">
+				AND a.gssje &lt;= CAST (#{NationalTaxH} as NUMERIC )
+			</if>
+			<if test="frmc != null and frmc != ''">
+				AND frmc like '%'||#{frmc}||'%'
+			</if>
+		</where>
+		ORDER BY a.sssq DESC
+	</select>
+</mapper>
+

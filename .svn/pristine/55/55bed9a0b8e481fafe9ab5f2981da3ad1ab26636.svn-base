@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CgGcJtjsxmValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CgGcJtjsxmValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="tyxydm" column="tyxydm"/>
+        <result property="xmdm" column="xmdm"/>
+        <result property="xmmc" column="xmmc"/>
+        <result property="gczt" column="gczt"/>
+        <result property="xmlx" column="xmlx"/>
+        <result property="kgsj" column="kgsj"/>
+        <result property="jgsj" column="jgsj"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      xmmc,gczt,xmlx,kgsj,jgsj
+      FROM frk.cg_gc_jtjsxm_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+    
+     <select id="selectJtjsDetail" parameterType="Map" resultMap="BaseResultMap">
+		Select frwybs,xmmc,gczt,xmlx,kgsj,jgsj from frk.cg_gc_jtjsxm_valid
+		<where>
+			<if test="xmmc!=null and xmmc!=''">
+				AND xmmc LIKE '%'||#{xmmc}||'%'
+			</if>
+			<if test="startTime!=null and startTime !=''">
+				AND kgsj &gt;=to_date(#{startTime}, 'YYYY-MM-DD')
+			</if>
+			<if test="endTime!=null and endTime !=''">
+				AND kgsj &lt;=to_date(#{endTime}, 'YYYY-MM-DD')
+			</if>
+			AND xmmc IS NOT NULL
+		</where>	
+	</select>
+</mapper>

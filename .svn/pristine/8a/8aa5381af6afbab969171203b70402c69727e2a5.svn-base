@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.ChXzqzValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.ChXzqzValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="tyxydm" column="tyxydm"/>
+        <result property="dwmc" column="dwmc"/>
+        <result property="zzjgdm" column="zzjgdm"/>
+        <result property="xzqzLscsrq" column="xzqz_lscsrq"/>
+        <result property="xzqzJclsrq" column="xzqz_jclsrq"/>
+        <result property="xzqzWh" column="xzqz_wh"/>
+        <result property="xzqzLsrq" column="xzqz_lsrq"/>
+        <result property="xzqzLsnr" column="xzqz_lsnr"/>
+        <result property="xzqzZxwh" column="xzqz_zxwh"/>
+        <result property="xzqzZxnr" column="xzqz_zxnr"/>
+        <result property="xzqzZxrq" column="xzqz_zxrq"/>
+        <result property="xzqzJcrq" column="xzqz_jcrq"/>
+        <result property="xzqzJcwh" column="xzqz_jcwh"/>
+        <result property="xzqzZxbm" column="xzqz_zxbm"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      	XZQZ_LSCSRQ,XZQZ_JCLSRQ,XZQZ_ZXWH,XZQZ_ZXNR,XZQZ_ZXRQ
+      FROM 
+      	frk.ch_xzqz_valid
+      WHERE 
+      	frwybs = #{frwybs}
+    </select>
+    
+    <select id="findXzqzMsg" parameterType="map" resultMap="BaseResultMap">
+    	select
+    		dwmc,frwybs,xzqz_lscsrq,xzqz_jcrq,xzqz_zxwh,xzqz_zxnr,xzqz_zxrq
+    	from
+    		frk.ch_xzqz_valid
+    	<where>
+    		<if test="frwybs!=null and frwybs!=''">
+    			frwybs=#{frwybs}
+    		</if>
+    		<if test="dwmc!=null and dwmc!=''" >
+    			and dwmc like '%${dwmc}%'
+    		</if>
+    	</where>
+    </select>
+    
+</mapper>

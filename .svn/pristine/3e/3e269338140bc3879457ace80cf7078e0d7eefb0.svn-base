@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.ChCcjcJcjkValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.ChCcjcJcjkValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="qywybs" column="qywybs"/>
+        <result property="dwmc" column="dwmc"/>
+        <result property="zdbm" column="zdbm"/>
+        <result property="zdmc" column="zdmc"/>
+        <result property="zdlx" column="zdlx"/>
+        <result property="zxjksbbm" column="zxjksbbm"/>
+        <result property="gljb" column="gljb"/>
+        <result property="pffs" column="pffs"/>
+        <result property="pfqx" column="pfqx"/>
+        <result property="sczq" column="sczq"/>
+        <result property="scgy" column="scgy"/>
+        <result property="zycp" column="zycp"/>
+        <result property="cqjzbhj" column="cqjzbhj"/>
+        <result property="wrwzljpfzk" column="wrwzljpfzk"/>
+        <result property="jcsj" column="jcsj"/>
+        <result property="jczb" column="jczb"/>
+        <result property="jcjg" column="jcjg"/>
+        <result property="dbqk" column="dbqk"/>
+        <result property="cbbs" column="cbbs"/>
+        <result property="sczt" column="sczt"/>
+        <result property="kssj" column="kssj"/>
+        <result property="jssj" column="jssj"/>
+        <result property="yy" column="yy"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      zdmc,jcsj,jczb,jcjg,dbqk
+      FROM frk.ch_ccjc_jcjk_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+    
+    <select id="findJcjkMsg" parameterType="map" resultMap="BaseResultMap">
+    	select 
+    		qywybs,dwmc,zdmc,jcsj,jczb,jcjg,dbqk
+    	from frk.ch_ccjc_jcjk_valid
+    	<where>
+    		<if test="qywybs!=null and qywybs!=''">
+    			qywybs=#{qywybs}
+    		</if>
+    		<if test="dwmc!=null and dwmc!=''" >
+    			and dwmc like  CONCAT('%',#{dwmc},'%')
+    		</if>
+    	</where>
+    </select>
+</mapper>

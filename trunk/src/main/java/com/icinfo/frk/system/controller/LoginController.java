@@ -66,12 +66,12 @@ public class LoginController extends BaseController {
 
         //验证码校验(Skip check code while developing)
        
-        /*String checkCode = session.getAttribute(DefaultCaptchaServlet.getSessionKey()) + "";
+        String checkCode = session.getAttribute(DefaultCaptchaServlet.getSessionKey()) + "";
 
         if (!loginDto.getCheckCode().equalsIgnoreCase(checkCode)) {
             return AjaxResult.error("验证码输入错误");
         }
-        session.removeAttribute(DefaultCaptchaServlet.getSessionKey());*/
+        session.removeAttribute(DefaultCaptchaServlet.getSessionKey());
         
         
         try {

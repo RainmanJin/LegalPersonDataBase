@@ -1,0 +1,188 @@
+package com.icinfo.frk.search.controller;
+
+import com.icinfo.framework.core.web.BaseController;
+import com.icinfo.framework.mybatis.pagehelper.PageHelper;
+import com.icinfo.framework.mybatis.pagehelper.datatables.PageRequest;
+import com.icinfo.framework.mybatis.pagehelper.datatables.PageResponse;
+import com.icinfo.frk.business.mapper.CfBxSbxxValidMapper;
+import com.icinfo.frk.business.mapper.CfGgzfWxdValidMapper;
+import com.icinfo.frk.business.mapper.CfGgzfZyxxValidMapper;
+import com.icinfo.frk.business.mapper.CfSbCdhbxxValidMapper;
+import com.icinfo.frk.business.mapper.CfSsNsjlDsValidMapper;
+import com.icinfo.frk.business.mapper.CfSsNsjlGsValidMapper;
+import com.icinfo.frk.business.mapper.CfSsSwdjxxValidMapper;
+import com.icinfo.frk.business.model.CfGgzfWxdValid;
+import com.icinfo.frk.business.model.CfGgzfZyxxValid;
+import com.icinfo.frk.business.model.CfSbCdhbxxValid;
+import com.icinfo.frk.business.model.CfSsNsjlDsValid;
+import com.icinfo.frk.business.model.CfSsNsjlGsValid;
+import com.icinfo.frk.business.model.CfSsSwdjxxValid;
+import com.icinfo.frk.business.model.InsuranceCount;
+import com.icinfo.frk.common.utils.AESEUtil;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+/**
+ * 描述:  资本资产对应的Controller类.<br>
+ *
+ * @author framework generator
+ * @date 2017年06月27日
+ */
+@Controller
+@RequestMapping("/data/tax")
+public class TaxController extends BaseController {
+
+  @Autowired
+  private CfGgzfWxdValidMapper cfGgzfWxdValidMapper;
+
+  @Autowired
+  private CfGgzfZyxxValidMapper cfGgzfZyxxValidMapper;
+
+  @Autowired
+  private CfSbCdhbxxValidMapper cfSbCdhbxxValidMapper;
+
+  @Autowired
+  private CfSsSwdjxxValidMapper cfSsSwdjxxValidMapper;
+
+
+  @Autowired
+  private CfBxSbxxValidMapper cfBxSbxxValidMapper;
+
+  @Autowired
+  private CfSsNsjlDsValidMapper cfSsNsjlDsValidMapper;
+
+  @Autowired
+  private CfSsNsjlGsValidMapper cfSsNsjlGsValidMapper;
+
+
+  /**
+   *
+   * @param request
+   * @return
+   * @throws Exception
+   */
+  @RequestMapping(value = "/gsswjf")
+  @ResponseBody
+  public PageResponse<CfSsNsjlGsValid> getgsswjfDetail(PageRequest request) throws Exception {
+    PageHelper.startPage(request.getPageNum(), request.getLength());
+    String frwybs = (String) request.getParams().get("frwybs");
+    if (null != frwybs && !"".equals(frwybs)) {
+      frwybs = AESEUtil.decodeCorpid(frwybs);
+    }
+    List<CfSsNsjlGsValid> list = cfSsNsjlGsValidMapper.getList(frwybs);
+    return new PageResponse<CfSsNsjlGsValid>(list);
+  }
+
+  /**
+   *
+   * @param request
+   * @return
+   * @throws Exception
+   */
+  @RequestMapping(value = "/dsswjf")
+  @ResponseBody
+  public PageResponse<CfSsNsjlDsValid> getdsswjfDetail(PageRequest request) throws Exception {
+    PageHelper.startPage(request.getPageNum(), request.getLength());
+    String frwybs = (String) request.getParams().get("frwybs");
+    if (null != frwybs && !"".equals(frwybs)) {
+      frwybs = AESEUtil.decodeCorpid(frwybs);
+    }
+    List<CfSsNsjlDsValid> list = cfSsNsjlDsValidMapper.getList(frwybs);
+    return new PageResponse<CfSsNsjlDsValid>(list);
+  }
+
+  /**
+   *
+   * @param request
+   * @return
+   * @throws Exception
+   */
+  @RequestMapping(value = "/fzch")
+  @ResponseBody
+  public PageResponse<CfSsSwdjxxValid> getfzchDetail(PageRequest request) throws Exception {
+    PageHelper.startPage(request.getPageNum(), request.getLength());
+    String frwybs = (String) request.getParams().get("frwybs");
+    if (null != frwybs && !"".equals(frwybs)) {
+      frwybs = AESEUtil.decodeCorpid(frwybs);
+    }
+    List<CfSsSwdjxxValid> list = cfSsSwdjxxValidMapper.getList(frwybs);
+    return new PageResponse<CfSsSwdjxxValid>(list);
+  }
+
+  /**
+   *
+   * @param request
+   * @return
+   * @throws Exception
+   */
+  @RequestMapping(value = "/sbgjj")
+  @ResponseBody
+  public PageResponse<InsuranceCount> getsbgjjDetail(PageRequest request) throws Exception {
+    PageHelper.startPage(request.getPageNum(), request.getLength());
+    String frwybs = (String) request.getParams().get("frwybs");
+    if (null != frwybs && !"".equals(frwybs)) {
+      frwybs = AESEUtil.decodeCorpid(frwybs);
+    }
+    List<InsuranceCount> insuranceCounts = cfBxSbxxValidMapper.selectCountByFrwybs(frwybs);
+    return new PageResponse<InsuranceCount>(insuranceCounts);
+  }
+
+  /**
+   *
+   * @param request
+   * @return
+   * @throws Exception
+   */
+  @RequestMapping(value = "/cdhb")
+  @ResponseBody
+  public PageResponse<CfSbCdhbxxValid> getcdhbDetail(PageRequest request) throws Exception {
+    PageHelper.startPage(request.getPageNum(), request.getLength());
+    String frwybs = (String) request.getParams().get("frwybs");
+    if (null != frwybs && !"".equals(frwybs)) {
+      frwybs = AESEUtil.decodeCorpid(frwybs);
+    }
+    List<CfSbCdhbxxValid> list = cfSbCdhbxxValidMapper.getList(frwybs);
+    return new PageResponse<CfSbCdhbxxValid>(list);
+  }
+
+  /**
+   *
+   * @param request
+   * @return
+   * @throws Exception
+   */
+  @RequestMapping(value = "/ydjf")
+  @ResponseBody
+  public PageResponse<CfGgzfZyxxValid> getydjfDetail(PageRequest request) throws Exception {
+    PageHelper.startPage(request.getPageNum(), request.getLength());
+    String frwybs = (String) request.getParams().get("frwybs");
+    if (null != frwybs && !"".equals(frwybs)) {
+      frwybs = AESEUtil.decodeCorpid(frwybs);
+    }
+    List<CfGgzfZyxxValid> list = cfGgzfZyxxValidMapper.getList(frwybs);
+    return new PageResponse<CfGgzfZyxxValid>(list);
+  }
+
+  /**
+   *
+   * @param request
+   * @return
+   * @throws Exception
+   */
+  @RequestMapping(value = "/wxd")
+  @ResponseBody
+  public PageResponse<CfGgzfWxdValid> getwxdDetail(PageRequest request) throws Exception {
+    PageHelper.startPage(request.getPageNum(), request.getLength());
+    String frwybs = (String) request.getParams().get("frwybs");
+    if (null != frwybs && !"".equals(frwybs)) {
+      frwybs = AESEUtil.decodeCorpid(frwybs);
+    }
+    List<CfGgzfWxdValid> list = cfGgzfWxdValidMapper.getList(frwybs);
+    return new PageResponse<CfGgzfWxdValid>(list);
+  }
+
+
+}

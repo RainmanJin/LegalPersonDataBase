@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icinfo.frk.business.mapper.ChSfajAjxxValidMapper">
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.ChSfajAjxxValid">
+		<!-- WARNING - @frameworkgenerated -->
+		<result column="id" jdbcType="VARCHAR" property="id" />
+		<result column="hash_unique" jdbcType="VARCHAR" property="hashUnique" />
+		<result column="frwybs_sqzx" jdbcType="VARCHAR" property="frwybsSqzx" />
+		<result column="frwybs_bzx" jdbcType="VARCHAR" property="frwybsBzx" />
+		<result column="ah" jdbcType="VARCHAR" property="ah" />
+		<result column="afd" jdbcType="VARCHAR" property="afd" />
+		<result column="afsj" jdbcType="TIMESTAMP" property="afsj" />
+		<result column="ay" jdbcType="VARCHAR" property="ay" />
+		<result column="az" jdbcType="NUMERIC" property="az" />
+		<result column="sycx" jdbcType="VARCHAR" property="sycx" />
+		<result column="bajg" jdbcType="VARCHAR" property="bajg" />
+		<result column="barq" jdbcType="TIMESTAMP" property="barq" />
+		<result column="larq" jdbcType="TIMESTAMP" property="larq" />
+		<result column="jarq" jdbcType="TIMESTAMP" property="jarq" />
+		<result column="slzt" jdbcType="VARCHAR" property="slzt" />
+		<result column="jafs" jdbcType="INTEGER" property="jafs" />
+		<result column="pjjg" jdbcType="VARCHAR" property="pjjg" />
+		<result column="sxrq" jdbcType="TIMESTAMP" property="sxrq" />
+		<result column="sxcpah" jdbcType="VARCHAR" property="sxcpah" />
+		<result column="ajxz" jdbcType="VARCHAR" property="ajxz" />
+		<result column="ajly" jdbcType="VARCHAR" property="ajly" />
+		<result column="sqbd" jdbcType="VARCHAR" property="sqbd" />
+		<result column="zxf" jdbcType="NUMERIC" property="zxf" />
+		<result column="qsfy" jdbcType="VARCHAR" property="qsfy" />
+		<result column="yscbfg" jdbcType="VARCHAR" property="yscbfg" />
+		<result column="ajzt" jdbcType="VARCHAR" property="ajzt" />
+		<result column="sqzxr" jdbcType="VARCHAR" property="sqzxr" />
+		<result column="bzxr" jdbcType="VARCHAR" property="bzxr" />
+		<result column="cbdw" jdbcType="VARCHAR" property="cbdw" />
+		<result column="farq" jdbcType="TIMESTAMP" property="farq" />
+		<result column="far" jdbcType="TIMESTAMP" property="far" />
+		<result column="bjrq" jdbcType="TIMESTAMP" property="bjrq" />
+		<result column="xxjafs" jdbcType="TIMESTAMP" property="xxjafs" />
+		<result column="yzxbd" jdbcType="TIMESTAMP" property="yzxbd" />
+		<result column="dwbd" jdbcType="VARCHAR" property="dwbd" />
+		<result column="zxats" jdbcType="INTEGER" property="zxats" />
+		<result column="zxts" jdbcType="INTEGER" property="zxts" />
+		<result column="gdrq" jdbcType="TIMESTAMP" property="gdrq" />
+		<result column="gdr" jdbcType="VARCHAR" property="gdr" />
+		<result column="czah" jdbcType="VARCHAR" property="czah" />
+		<result column="lar" jdbcType="TIMESTAMP" property="lar" />
+		<result column="sdclrq" jdbcType="TIMESTAMP" property="sdclrq" />
+		<result column="ajzxyj" jdbcType="VARCHAR" property="ajzxyj" />
+		<result column="sjay" jdbcType="VARCHAR" property="sjay" />
+		<result column="gdqsr" jdbcType="VARCHAR" property="gdqsr" />
+		<result column="bgqx" jdbcType="TIMESTAMP" property="bgqx" />
+		<result column="jzcs" jdbcType="TIMESTAMP" property="jzcs" />
+		<result column="hfjg" jdbcType="VARCHAR" property="hfjg" />
+		<result column="ajdsrmc" jdbcType="VARCHAR" property="ajdsrmc" />
+		<result column="zxdw" jdbcType="VARCHAR" property="zxdw" />
+		<result column="wsbh" jdbcType="VARCHAR" property="wsbh" />
+		<result column="datasrdep" jdbcType="VARCHAR" property="datasrdep" />
+		<result column="datasource" jdbcType="VARCHAR" property="datasource" />
+		<result column="datakeycontent" jdbcType="VARCHAR" property="datakeycontent" />
+		<result column="createtime" jdbcType="VARCHAR" property="createtime" />
+		<result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+	</resultMap>
+
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+		SELECT
+		ay,jarq,pjjg,sxrq
+		FROM frk.ch_sfaj_ajxx_valid
+		WHERE frwybs_bzx =
+		#{frwybs}
+	</select>
+
+
+
+	<select id="getChSfajAjxxValid" parameterType="Map" resultMap="BaseResultMap">
+		SELECT
+		ay,jarq,pjjg,sxrq,ah,ajdsrmc,frwybs_bzx
+		FROM frk.ch_sfaj_ajxx_valid
+		<where>
+			<if test="ah != null and ah != ''">
+				and ah=#{ah}
+			</if>
+			<if test="ajdsrmc != null and ajdsrmc != ''">
+				and ajdsrmc like '%'||#{ajdsrmc}||'%'
+			</if>
+		</where>
+	</select>
+
+</mapper>

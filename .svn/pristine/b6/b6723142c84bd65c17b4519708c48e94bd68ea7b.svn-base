@@ -1,0 +1,715 @@
+require(['layer1',
+         'component/dataTable',
+         'common/util',
+         'common/http',
+         'jquery',
+         'jquery.serialize',
+         'handlebars',
+         'jquery','laydate'], function (layer, dataTable, util, http, handlebars) {
+	
+	var hxyp_table,ylqx_table,ysh_table,chui_table,zscq_table,jtjs_table,zdcy_table,qytz_table,shfz_table,zytz_table,kgcg_table,csjz_table,ssxx_table,cjxm_table;
+	var hxyp_flag=0,ylqx_flag=0,ysh_flag=0,chui_flag=0,zscq_flag=0,jtjs_flag=0,zdcy_flag=0,qytz_flag=0,shfz_flag=0,zytz_flag=0,kgcg_flag=0,csjz_flag=0,ssxx_flag=0,cjxm_flag=0;
+	// var hxyp_Form = $("#hxyp_form").serializeObject();
+	init();
+	
+	function init(){
+		// initTableFywlxsxcpws();
+		// initTableFyzxaj();
+		// initTableFydsrjbxx();
+		// initTableFyslajxx();
+		bind();
+	}
+	/**
+	 * 化学药品原料药制造
+	 */
+	function initTableHxyp(){
+		hxyp_table = dataTable.load({
+			el:'#hxyp_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/getHxypMsg',
+				data:function(d){
+					d.params=$("#hxyp_form").serializeObject();
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'wtjgtym',className:'center',width:"150px;"},
+				{data:'ypswtjgsl',className:'center',width:"100px;"},
+				{data:'ypjgwtfmc',className:'center',width:"100px;"},
+				{data:'ypjgstfmc',className:'center',width:"100px;"},
+				{data:'ypjgqx',className:'center',width:"50px;"},
+				{data:'ypwtjgbarq',className:'center',width:"100px;"}
+			],
+			columnDefs:[
+	            { targets:1, render:function(data,type,row,meta){ 
+	            	return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.wtjgtym+"</a>";
+	            	} 
+	            }
+				/*
+				 * { targets:3, render:function(data,type,row,meta){ return "<a
+				 * href='javascript:void(0);' class='look'
+				 * corpid='"+row.encodeCorpid+"'>"+row.bZXR+"</a>"; } },{
+				 * targets:6, render:function(data,type,row,meta){ return
+				 * row.zXBD+"元"; } },{ targets:8,
+				 * render:function(data,type,row,meta){ var index =
+				 * row.iMPORT_FROM.substring(6).indexOf("_"); return
+				 * row.iMPORT_FROM.substring(6,index+6); } }
+				 */]
+		})
+		hxyp_table.on('xhr.dt',function(e,settings,json,xhr){
+			if(json.recordsTotal <= 5){$('#hxyp_table .dataTables_wrapper .bottom').hide();}else{$('#hxyp_table .dataTables_wrapper .bottom').show();}
+		})
+	}
+	
+	/**
+	 * 医疗器械制造
+	 */
+	function initTableYlqx(){
+		ylqx_table = dataTable.load({
+			el:'#ylqx_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/getYlqxMsg',
+				data:function(d){
+					d.params=$("#ylqx_form").serializeObject();
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'scxkbahWt',className:'center',width:"150px;"},
+				{data:'wtsccpmc',className:'center',width:"100px;"},
+				{data:'cpzch',className:'center',width:"100px;"},
+				{data:'wtqx',className:'center',width:"100px;"},
+				{data:'wtrq',className:'center',width:"50px;"},
+				{data:'babm',className:'center',width:"100px;"}
+			],
+			columnDefs:[
+				{ targets:1, render:function(data,type,row,meta){ 
+						return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybsWt+"'>"+row.scxkbahWt+"</a>";
+					} 
+				}
+			]
+		})
+		ylqx_table.on('xhr.dt',function(e,settings,json,xhr){
+			if(json.recordsTotal <= 5){$('#ylqx_table .dataTables_wrapper .bottom').hide();}else{$('#ylqx_table .dataTables_wrapper .bottom').show();}
+		})
+	}
+	
+	/**
+	 * 印刷委托书备案信息
+	 */
+	function initTableYsh(){
+		ysh_table = dataTable.load({
+			el:'#ysh_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/getYshMsg',
+				data:function(d){
+					d.params=$("#ysh_form").serializeObject();
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'wtyssbh',className:'center'},
+				{data:'wtyssm',className:'center'},
+				{data:'wtfcbdw',className:'center'},
+				{data:'yswtscjsj',className:'center'},
+				{data:'cbdwblsj',className:'center'},
+				{data:'ysqyblsj',className:'center'},
+				{data:'cxwtssj',className:'center'}
+			],
+			columnDefs:[
+				{ targets:2, render:function(data,type,row,meta){ 
+					return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybsWt+"'>"+row.wtyssm+"</a>";
+					} 
+				}
+			]
+		})
+		ysh_table.on('xhr.dt',function(e,settings,json,xhr){
+			if(json.recordsTotal <= 5){$('#ysh_table .dataTables_wrapper .bottom').hide();}else{$('#ysh_table .dataTables_wrapper .bottom').show();}
+		})
+	}
+	
+	/**
+	 * 测绘与地理项目信息
+	 */
+	function initTableChui(){
+		chui_table = dataTable.load({
+			el:'#chui_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/getChuiMsg',
+				data:function(d){
+					d.params=$("#chui_form").serializeObject();
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'xmmc',className:'center'},
+				{data:'wtdw',className:'center'},
+				{data:'xmlx',className:'center'},
+				{data:'xmkssj',className:'center'},
+				{data:'xmwgsj',className:'center'},
+				{data:'xmje',className:'center'},
+				{data:'xmbasj',className:'center'}
+			],
+			columnDefs:[
+				{ targets:1, render:function(data,type,row,meta){ 
+					return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.xmmc+"</a>";
+					} 
+				}
+			]
+		})
+		chui_table.on('xhr.dt',function(e,settings,json,xhr){
+			if(json.recordsTotal <= 5){$('#chui_table .dataTables_wrapper .bottom').hide();}else{$('#chui_table .dataTables_wrapper .bottom').show();}
+		})
+	}
+	
+	/**
+	 * 国家知识产权软科学研究计划项目信息
+	 */
+	function initTableZscq(){
+		zscq_table = dataTable.load({
+			el:'#zscq_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/getZscqMsg',
+				data:function(d){
+					d.params=$("#zscq_form").serializeObject();
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'dwmc',className:'center'},
+				{data:'xmbh',className:'center'},
+				{data:'xmmc',className:'center'}
+			],
+			columnDefs:[
+				{ targets:1, render:function(data,type,row,meta){ 
+					return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.dwmc+"</a>";
+					} 
+				}
+			]
+		})
+		zscq_table.on('xhr.dt',function(e,settings,json,xhr){
+			if(json.recordsTotal <= 5){$('#zscq_table .dataTables_wrapper .bottom').hide();}else{$('#zscq_table .dataTables_wrapper .bottom').show();}
+		})
+	}
+	
+	/**
+	 * 交通建设项目信息
+	 */
+	function initTableJtjs(){
+		jtjs_table = dataTable.load({
+			el:'#jtjs_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/getJtjsMsg',
+				data:function(d){
+					d.params=$("#jtjs_form").serializeObject();
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'xmmc',className:'center'},
+				{data:'gczt',className:'center'},
+				{data:'xmlx',className:'center'},
+				{data:'kgsj',className:'center'},
+				{data:'jgsj',className:'center'}
+			],
+			columnDefs:[
+				{ targets:1, render:function(data,type,row,meta){ 
+					return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.xmmc+"</a>";
+					} 
+				}
+			]
+		})
+		jtjs_table.on('xhr.dt',function(e,settings,json,xhr){
+			if(json.recordsTotal <= 5){$('#jtjs_table .dataTables_wrapper .bottom').hide();}else{$('#jtjs_table .dataTables_wrapper .bottom').show();}
+		})
+	}
+	
+	/**
+	 * 重大产业项目信息
+	 */
+	function initTableZdcy(){
+		zdcy_table = dataTable.load({
+			el:'#zdcy_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/getZdcyMsg',
+				data:function(d){
+					d.params=$("#zdcy_form").serializeObject();
+				}
+			},
+			columns:[{data:null,defaultContent:1,className:'center'},
+				{data:'xmmc',className:'center'},
+				{data:'hydw',className:'center'},
+				{data:'xmnf',className:'center'},
+				{data:'cyxmkgsj',className:'center'},
+				{data:'jgsj',className:'center'},
+				{data:'zyd',className:'center'}
+			],
+			columnDefs:[
+				{ targets:1, render:function(data,type,row,meta){ 
+					return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.xmmc+"</a>";
+					} 
+				}
+			]
+		})
+		zdcy_table.on('xhr.dt',function(e,settings,json,xhr){
+			if(json.recordsTotal <= 5){$('#zdcy_table .dataTables_wrapper .bottom').hide();}else{$('#zdcy_table .dataTables_wrapper .bottom').show();}
+		})
+	}
+	
+	/**
+	 * 企业投资项目信息
+	 */	
+	function initTableQytz(){
+		qytz_table = dataTable.load({
+			el:'#qytz_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/getQytzMsg',
+				data:function(d){
+					d.params=$("#qytz_form").serializeObject();
+				}
+			},
+			columns:[{data:null,defaultContent:1},
+				{data:'jsxmmc',className:'center',width:"100px;"},
+				{data:'zyjsnrjgm',className:'center',width:"100px;"},
+				{data:'jsqssj',className:'center',width:"100px;"},
+				{data:'jsjssj',className:'center',width:"100px;"},
+				{data:'xmztz',className:'center',width:"100px;"}
+			],
+			columnDefs:[
+				{ targets:1, render:function(data,type,row,meta){ 
+					return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.jsxmmc+"</a>";
+					} 
+				}
+			]
+		})
+		qytz_table.on('xhr.dt',function(e,settings,json,xhr){
+			if(json.recordsTotal <= 5){$('#qytz_table .dataTables_wrapper .bottom').hide();}else{$('#qytz_table .dataTables_wrapper .bottom').show();}
+		})
+	}
+	
+	/**
+	 * 社会发展项目信息
+	 */
+	function initTableShfz(){
+		shfz_table = dataTable.load({
+			el:'#shfz_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/getShfzMsg',
+				data:function(d){
+					d.params=$("#shfz_form").serializeObject();
+				}
+			},
+			columns:[{data:null,defaultContent:1},
+				{data:'xmmc'},
+				{data:'shfzxmjsnr'},
+				{data:'jsgq'},
+				{data:'xmztz'},
+				{data:'xmzt'}
+			],
+			columnDefs:[
+				{ targets:1, render:function(data,type,row,meta){ 
+					return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.xmmc+"</a>";
+					} 
+				}
+			]
+		})
+		shfz_table.on('xhr.dt',function(e,settings,json,xhr){
+			if(json.recordsTotal <= 5){$('#shfz_table .dataTables_wrapper .bottom').hide();}else{$('#shfz_table .dataTables_wrapper .bottom').show();}
+		})
+	}
+	
+	/**
+	 * 中央投资项目信息
+	 */
+	function initTableZytz(){
+		zytz_table = dataTable.load({
+			el:'#zytz_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/getZytzMsg',
+				data:function(d){
+					d.params=$("#zytz_form").serializeObject();
+				}
+			},
+			columns:[{data:null,defaultContent:1},
+				{data:'xmmc'},
+				{data:'zxmc'},
+				{data:'jhjsnrygm'},
+				{data:'xmztz'}
+			],
+			columnDefs:[
+				{ targets:1, render:function(data,type,row,meta){ 
+					return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.xmmc+"</a>";
+					} 
+				}
+			]
+		})
+		zytz_table.on('xhr.dt',function(e,settings,json,xhr){
+			if(json.recordsTotal <= 5){$('#zytz_table .dataTables_wrapper .bottom').hide();}else{$('#zytz_table .dataTables_wrapper .bottom').show();}
+		})
+	}
+	
+	/**
+	 * 科技成果
+	 */
+	function initTableKgcg(){
+		kgcg_table = dataTable.load({
+			el:'#kgcg_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/getKgcgMsg',
+				data:function(d){
+					d.params=$("#kgcg_form").serializeObject();
+				}
+			},
+			columns:[{data:null,defaultContent:1},
+				{data:'kjcgmc'},
+				{data:'kjcgdjh'},
+				{data:'zscq'},
+				{data:'cggbnr'}
+			],
+			columnDefs:[
+				{ targets:1, render:function(data,type,row,meta){ 
+					return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.kjcgmc+"</a>";
+					} 
+				}
+			]
+		})
+		kgcg_table.on('xhr.dt',function(e,settings,json,xhr){
+			if(json.recordsTotal <= 5){$('#kgcg_table .dataTables_wrapper .bottom').hide();}else{$('#kgcg_table .dataTables_wrapper .bottom').show();}
+		})
+	}
+	
+	/**
+	 * 慈善捐赠
+	 */
+	function initTableCsjz(){
+		csjz_table = dataTable.load({
+			el:'#csjz_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/getCsjzMsg',
+				data:function(d){
+					d.params=$("#csjz_form").serializeObject();
+				}
+			},
+			columns:[{data:null,defaultContent:1},
+				{data:'jzxmmc'},
+				{data:'jzje'},
+				{data:'sldw'},
+				{data:'jzrq'}
+			],
+			columnDefs:[
+				{ targets:1, render:function(data,type,row,meta){ 
+					return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.jzxmmc+"</a>";
+					} 
+				}
+			]
+		})
+		csjz_table.on('xhr.dt',function(e,settings,json,xhr){
+			if(json.recordsTotal <= 5){$('#csjz_table .dataTables_wrapper .bottom').hide();}else{$('#csjz_table .dataTables_wrapper .bottom').show();}
+		})
+	}
+	/**
+	 * 上市信息
+	 */
+	function initTableSsxx(){
+		ssxx_table = dataTable.load({
+			el:'#ssxx_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/getSsxxMsg',
+				data:function(d){
+					d.params=$("#ssxx_form").serializeObject();
+				}
+			},
+			columns:[{data:null,defaultContent:1},
+				{data:'dwmc'},
+				{data:'gpdm'},
+				{data:'sjrq'}
+			],
+			columnDefs:[
+				{ targets:1, render:function(data,type,row,meta){ 
+					return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.dwmc+"</a>";
+					} 
+				}
+			]
+		})
+		ssxx_table.on('xhr.dt',function(e,settings,json,xhr){
+			if(json.recordsTotal <= 5){$('#ssxx_table .dataTables_wrapper .bottom').hide();}else{$('#ssxx_table .dataTables_wrapper .bottom').show();}
+		})
+	}
+	
+	/**
+	 * 承建项目
+	 */
+	function initTableCjxm(){
+		cjxm_table = dataTable.load({
+			el:'#cjxm_table',
+			showIndex:true,
+			scrollX : true,
+			lengthMenu:[5,10,20,50],
+			ajax:{
+				url:'/data/search/getCjxmMsg',
+				data:function(d){
+					d.params=$("#cjxm_form").serializeObject();
+				}
+			},
+			columns:[{data:null,defaultContent:1},
+				{data:'xmmc'},
+				{data:'xmdw'},
+				{data:'xmlb'},
+				{data:'jsnr'},
+				{data:'xmztz'}
+			],
+			columnDefs:[
+				{ targets:1, render:function(data,type,row,meta){ 
+					return "<a href='javascript:void(0);' class='look' corpid='"+row.frwybs+"'>"+row.xmmc+"</a>";
+					} 
+				}
+			]
+		})
+		cjxm_table.on('xhr.dt',function(e,settings,json,xhr){
+			if(json.recordsTotal <= 5){$('#cjxm_table .dataTables_wrapper .bottom').hide();}else{$('#cjxm_table .dataTables_wrapper .bottom').show();}
+		})
+	}
+	
+	function bind(){
+		util.bindEvents([{
+			el:'#hxyp_search',
+			event:'click',
+			handler:function(){
+				if(hxyp_flag==0){
+					initTableHxyp();hxyp_flag = 1;
+				}else{
+					hxyp_table.ajax.reload();
+				}
+			}
+		},{
+			el:'#ylqx_search',
+			event:'click',
+			handler:function(){
+				if(ylqx_flag==0){
+					initTableYlqx();ylqx_flag = 1;
+				}else{
+					ylqx_table.ajax.reload();
+				}
+			}
+		},{
+			el:'#ysh_search',
+			event:'click',
+			handler:function(){
+				if(ysh_flag==0){
+					initTableYsh();ysh_flag = 1;
+				}else{
+					ysh_table.ajax.reload();
+				}
+			}
+		},{
+			el:'#chui_search',
+			event:'click',
+			handler:function(){
+				if(chui_flag==0){
+					initTableChui();chui_flag = 1;
+				}else{
+					chui_table.ajax.reload();
+				}
+			}
+		},{
+			el:'#zscq_search',
+			event:'click',
+			handler:function(){
+				if(zscq_flag==0){
+					initTableZscq();zscq_flag = 1;
+				}else{
+					zscq_table.ajax.reload();
+				}
+			}
+		},{
+			el:'#jtjs_search',
+			event:'click',
+			handler:function(){
+				var startTime = $("#jtjs_startTime").val();
+				var endTime = $("#jtjs_endTime").val();
+				if(startTime !=""&& startTime != null && endTime !="" && endTime != null && startTime > endTime){
+					alert("日期有误，确认后请重新输入");
+				}else{
+					if(jtjs_flag==0){
+						initTableJtjs();jtjs_flag = 1;
+					}else{
+						jtjs_table.ajax.reload();
+					}
+				}
+			}
+		},{
+			el:'#zdcy_search',
+			event:'click',
+			handler:function(){
+				var startTime = $("#zdcy_startTime").val();
+				var endTime = $("#zdcy_endTime").val();
+				if(startTime !=""&& startTime != null && endTime !="" && endTime != null && startTime > endTime){
+					alert("日期有误，确认后请重新输入");
+				}else{
+					if(zdcy_flag==0){
+						initTableZdcy();zdcy_flag = 1;
+					}else{
+						zdcy_table.ajax.reload();
+					}
+				}	
+			}
+		},{
+			el:'#qytz_search',
+			event:'click',
+			handler:function(){
+				var startNo = $("#qytz_startNo").val();
+				var endNo = $("#qytz_endNo").val();
+				if(isNaN(startNo)|| isNaN(endNo) ){
+					alert("存在非数字，确认后请重新输入");
+				}else{
+					if(startNo !=""&& startNo != null && endNo !="" && endNo != null && Number(startNo) > Number(endNo)){
+						alert("金额输入有误，确认后请重新输入");
+					}else{
+						if(qytz_flag==0){
+							initTableQytz();qytz_flag = 1;
+						}else{
+							qytz_table.ajax.reload();
+						}
+					}
+				}
+			}
+		},{
+			el:'#shfz_search',
+			event:'click',
+			handler:function(){
+				var startNo = $("#shfz_startNo").val();
+				var endNo = $("#shfz_endNo").val();
+				if(isNaN(startNo)|| isNaN(endNo) ){
+					alert("存在非数字，确认后请重新输入");
+				}else{
+					if(startNo !=""&& startNo != null && endNo !="" && endNo != null && Number(startNo) > Number(endNo)){
+						alert("金额输入有误，确认后请重新输入");
+					}else{
+						if(shfz_flag==0){
+							initTableShfz();shfz_flag = 1;
+						}else{
+							shfz_table.ajax.reload();
+						}
+					}
+				}
+			}
+		},{
+			el:'#zytz_search',
+			event:'click',
+			handler:function(){
+				var startNo = $("#zytz_startNo").val();
+				var endNo = $("#zytz_endNo").val();
+				if(isNaN(startNo)|| isNaN(endNo) ){
+					alert("存在非数字，确认后请重新输入");
+				}else{
+					if(startNo !=""&& startNo != null && endNo !="" && endNo != null && Number(startNo) > Number(endNo)){
+						alert("金额输入有误，确认后请重新输入");
+					}else{
+						if(zytz_flag==0){
+							initTableZytz();zytz_flag = 1;
+						}else{
+							zytz_table.ajax.reload();
+						}
+					}
+				}
+			}
+		},{
+			el:'#kgcg_search',
+			event:'click',
+			handler:function(){
+				if(kgcg_flag==0){
+					initTableKgcg();kgcg_flag = 1;
+				}else{
+					kgcg_table.ajax.reload();
+				}
+			}
+		},{
+			el:'#csjz_search',
+			event:'click',
+			handler:function(){
+				var startNo = $("#csjz_startNo").val();
+				var endNo = $("#csjz_endNo").val();
+				if(isNaN(startNo)|| isNaN(endNo) ){
+					alert("存在非数字，确认后请重新输入");
+				}else{
+					if(startNo !=""&& startNo != null && endNo !="" && endNo != null && Number(startNo) > Number(endNo)){
+						alert("金额输入有误，确认后请重新输入");
+					}else{
+						if(csjz_flag==0){
+							initTableCsjz();csjz_flag = 1;
+						}else{
+							csjz_table.ajax.reload();
+						}
+					}				
+				}
+			}
+		},{
+			el:'#ssxx_search',
+			event:'click',
+			handler:function(){
+				if(ssxx_flag==0){
+					initTableSsxx();ssxx_flag = 1;
+				}else{
+					ssxx_table.ajax.reload();
+				}
+			}
+		},{
+			el:'#cjxm_search',
+			event:'click',
+			handler:function(){
+				if(cjxm_flag==0){
+					initTableCjxm();cjxm_flag = 1;
+				}else{
+					cjxm_table.ajax.reload();
+				}
+			}
+		},{ el:'.look', 
+			event:'click', 
+			handler:function(){
+			 var corpid =$(this).attr('corpid');
+			 if(corpid != null && corpid != ""){
+				 window.open("/data/frdetail/produce/"+corpid,"_blank");
+			 }else{
+				 alert("没有查到相关数据");
+			 }
+			 
+			 } 
+		 }
+	 ])
+		
+		
+	}
+})

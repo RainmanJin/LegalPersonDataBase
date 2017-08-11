@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CgAqscSgxxValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CgAqscSgxxValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="tyxydm" column="tyxydm"/>
+        <result property="zzjgdm" column="zzjgdm"/>
+        <result property="dwmc" column="dwmc"/>
+        <result property="sgfssj" column="sgfssj"/>
+        <result property="sgdd" column="sgdd"/>
+        <result property="sglx" column="sglx"/>
+        <result property="sgyy" column="sgyy"/>
+        <result property="swrs" column="swrs"/>
+        <result property="zsrs" column="zsrs"/>
+        <result property="ccss" column="ccss"/>
+        <result property="sgjyqk" column="sgjyqk"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      sgfssj,sglx,sgyy,swrs,zsrs,ccss,sgjyqk
+      FROM frk.cg_aqsc_sgxx_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+
+  <select id="selectListByMap" parameterType="Map" resultMap="BaseResultMap">
+    SELECT fwsyqr,fwsyqdjsj,wh_fwcf,fwcfrq,sqfwcfdw,zt_fwcf,b.frwybs,b.frmc
+    From frk.cd_gd_bdcxx_valid a, frk.ca_dj_jbxx b
+    <where>
+      a.frwybs = b.frwybs
+      <if test="HouseOwnerName != null and HouseOwnerName != ''">
+        AND a.fwsyqr like '%'||#{HouseOwnerName}||'%'
+      </if>
+      <if test="HouseDepNum != null and HouseDepNum != ''">
+        AND a.wh_fwcf = #{HouseDepNum}
+      </if>
+    </where>
+  </select>
+   <select id="findSgxxMsg" parameterType="map" resultMap="BaseResultMap">
+    	select
+    		frwybs,dwmc,sgdd,sglx,sgyy,sgfssj,swrs,zsrs,ccss,sgjyqk
+    	from frk.cg_aqsc_sgxx_valid
+    	<where>
+    		<if test="frwybs!=null and frwybs!=''">
+    			frwybs=#{frwybs}
+    		</if>
+    		<if test="dwmc!=null and dwmc!=''" >
+    			and dwmc like CONCAT('%',#{dwmc},'%')
+    		</if>
+    	</where>
+    </select>
+</mapper>

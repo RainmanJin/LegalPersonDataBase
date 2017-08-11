@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CgQtKjcgValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CgQtKjcgValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="dwmc" column="dwmc"/>
+        <result property="kjcgmc" column="kjcgmc"/>
+        <result property="kjcgdjh" column="kjcgdjh"/>
+        <result property="zscq" column="zscq"/>
+        <result property="dywcr" column="dywcr"/>
+        <result property="cggbnr" column="cggbnr"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      kjcgmc,kjcgdjh,zscq,cggbnr
+      FROM frk.cg_qt_kjcg_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+    
+    <select id="selectKgcgDetail" parameterType="Map" resultMap="BaseResultMap">
+		Select frwybs,kjcgmc,kjcgdjh,zscq,cggbnr from frk.cg_qt_kjcg_valid
+		<where>
+			<if test="kjcgmc!=null and kjcgmc!=''">
+				AND kjcgmc LIKE '%'||#{kjcgmc}||'%'
+			</if>
+			<if test="kjcgdjh!=null and kjcgdjh!=''">
+				AND kjcgdjh = #{kjcgdjh}
+			</if>
+			AND kjcgmc IS NOT NULL
+		</where>	
+	</select>
+</mapper>

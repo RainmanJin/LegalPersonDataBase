@@ -1,0 +1,43 @@
+package com.icinfo.frk.business.service;
+import com.icinfo.framework.core.service.BaseService;
+import com.icinfo.framework.mybatis.pagehelper.datatables.PageRequest;
+import com.icinfo.framework.mybatis.pagehelper.datatables.PageResponse;
+import com.icinfo.frk.business.model.ChSfajAjxxValid;
+import com.icinfo.frk.search.dto.LawInfoDto;
+
+import java.util.List;
+import java.util.Map;
+
+
+/**
+ * 
+ * @author Guanzhou Song
+ */
+ public interface IChSfajAjxxValidService extends BaseService {
+
+     /**
+      * 获取
+      *
+      * @param frwybs 法人唯一标识
+      * @return
+      * @throws Exception
+      */
+     List<ChSfajAjxxValid> getList(String frwybs) throws Exception;
+     /**
+      * 根据法人唯一标识查询
+      *
+      * @param frwybs 法人唯一标识
+      * @return
+      * @throws Exception 异常
+      */
+     int getCountByFrwybs(String frwybs) throws Exception;
+
+     
+     /**
+      * 案件信息查询
+      * @param request
+      * @return
+      * @throws Exception
+      */
+     PageResponse<ChSfajAjxxValid> getChSfajAjxxValid(PageRequest request) throws Exception;
+ }

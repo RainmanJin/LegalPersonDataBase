@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CgGcShfzxmValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CgGcShfzxmValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="xmdw" column="xmdw"/>
+        <result property="zrdw" column="zrdw"/>
+        <result property="xmmc" column="xmmc"/>
+        <result property="xmjys" column="xmjys"/>
+        <result property="csbg" column="csbg"/>
+        <result property="hzwh" column="hzwh"/>
+        <result property="xmlb" column="xmlb"/>
+        <result property="shfzxmjsnr" column="shfzxmjsnr"/>
+        <result property="jsgq" column="jsgq"/>
+        <result property="xmszd" column="xmszd"/>
+        <result property="xmztz" column="xmztz"/>
+        <result property="zjly" column="zjly"/>
+        <result property="ndjhtz" column="ndjhtz"/>
+        <result property="zyysnzxzj" column="zyysnzxzj"/>
+        <result property="sgjzxzj" column="sgjzxzj"/>
+        <result property="xmyd" column="xmyd"/>
+        <result property="xmly" column="xmly"/>
+        <result property="xmjd" column="xmjd"/>
+        <result property="zxxxjd" column="zxxxjd"/>
+        <result property="xmbz" column="xmbz"/>
+        <result property="xmzt" column="xmzt"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      xmmc,shfzxmjsnr,jsgq,xmztz,xmzt
+      FROM frk.cg_gc_shfzxm_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+    
+     <select id="selectShfzDetail" parameterType="Map" resultMap="BaseResultMap">
+		Select frwybs,xmmc,shfzxmjsnr,jsgq,xmztz,xmzt from frk.cg_gc_shfzxm_valid
+		<where>
+			<if test="xmmc!=null and xmmc!=''">
+				AND xmmc LIKE '%'||#{xmmc}||'%'
+			</if>
+			<if test="startNo!=null and startNo !=''">
+				AND CAST(xmztz as decimal) &gt;=CAST(#{startNo} as decimal)
+			</if>
+			<if test="endNo!=null and endNo !=''">
+				AND  CAST(xmztz as decimal) &lt;=CAST(#{endNo} as decimal)
+			</if>
+			AND xmmc IS NOT NULL
+		</where>	
+	</select>
+</mapper>

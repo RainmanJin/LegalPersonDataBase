@@ -1,0 +1,226 @@
+package com.icinfo.frk.business.model;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import java.util.*;
+import javax.persistence.Table;
+/**
+ * @AUTHOR:Code Templates
+ * @DATE:- 2017-08-10 11:07:49
+ **/
+
+
+
+/**
+ * 
+ * @author Guanzhou Song
+ */
+@Table(name="frk.cf_ss_nsjl_gs_valid")
+public class CfSsNsjlGsValid  implements java.io.Serializable{
+
+	private static final long serialVersionUID = 5454155825314635342L;
+
+	//columns START
+	//
+	private java.lang.String id;
+	//
+	private java.lang.String hashUnique;
+	//法人唯一标识
+	private java.lang.String frwybs;
+	//企业名称
+	private java.lang.String nsrmc;
+	//统一社会信用代码
+	private java.lang.String shxydm;
+	//组织机构代码
+	private java.lang.String zzjgdm;
+	//纳税人识别号
+	private java.lang.String nsrsbh;
+	//国税应缴税额（元）
+	private Long gsyje;
+	//国税实缴税额（元）
+	private Long gssje;
+	//国内增值税（元）
+	private Long gnzzs;
+	//国内消费税（元）
+	private Long gnxfs;
+	//企业所得税（元）
+	private Long qysds;
+	//税所属期
+	private java.lang.String sssq;
+	//数据来源部门
+	private java.lang.String datasrdep;
+	//数据来源
+	private java.lang.String datasource;
+	//数据主键内容
+	private java.lang.String datakeycontent;
+	//创建时间
+	@JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+	private java.util.Date createtime;
+	//更新时间
+	@JsonFormat(pattern = "yyyy-MM-dd",timezone = "GMT+8")
+	private java.util.Date updatetime;
+	//columns END
+
+	private String frmc;
+
+	/**
+	 * @return frmc
+	 */
+	public String getFrmc() {
+		return frmc;
+	}
+
+	/**
+	 * @param frmc
+	 */
+	public void setFrmc(String frmc) {
+		this.frmc = frmc;
+	}
+
+
+
+	public void setId(java.lang.String value) {
+		this.id = value;
+	}
+
+	public java.lang.String getId() {
+		return this.id;
+	}
+
+	public void setHashUnique(java.lang.String value) {
+		this.hashUnique = value;
+	}
+
+	public java.lang.String getHashUnique() {
+		return this.hashUnique;
+	}
+
+	public void setFrwybs(java.lang.String value) {
+		this.frwybs = value;
+	}
+
+	public java.lang.String getFrwybs() {
+		return this.frwybs;
+	}
+
+	public void setNsrmc(java.lang.String value) {
+		this.nsrmc = value;
+	}
+
+	public java.lang.String getNsrmc() {
+		return this.nsrmc;
+	}
+
+	public void setShxydm(java.lang.String value) {
+		this.shxydm = value;
+	}
+
+	public java.lang.String getShxydm() {
+		return this.shxydm;
+	}
+
+	public void setZzjgdm(java.lang.String value) {
+		this.zzjgdm = value;
+	}
+
+	public java.lang.String getZzjgdm() {
+		return this.zzjgdm;
+	}
+
+	public void setNsrsbh(java.lang.String value) {
+		this.nsrsbh = value;
+	}
+
+	public java.lang.String getNsrsbh() {
+		return this.nsrsbh;
+	}
+
+	public void setGsyje(Long value) {
+		this.gsyje = value;
+	}
+
+	public Long getGsyje() {
+		return this.gsyje;
+	}
+
+	public void setGssje(Long value) {
+		this.gssje = value;
+	}
+
+	public Long getGssje() {
+		return this.gssje;
+	}
+
+	public void setGnzzs(Long value) {
+		this.gnzzs = value;
+	}
+
+	public Long getGnzzs() {
+		return this.gnzzs;
+	}
+
+	public void setGnxfs(Long value) {
+		this.gnxfs = value;
+	}
+
+	public Long getGnxfs() {
+		return this.gnxfs;
+	}
+
+	public void setQysds(Long value) {
+		this.qysds = value;
+	}
+
+	public Long getQysds() {
+		return this.qysds;
+	}
+
+	public void setSssq(java.lang.String value) {
+		this.sssq = value;
+	}
+
+	public java.lang.String getSssq() {
+		return this.sssq;
+	}
+
+	public void setDatasrdep(java.lang.String value) {
+		this.datasrdep = value;
+	}
+
+	public java.lang.String getDatasrdep() {
+		return this.datasrdep;
+	}
+
+	public void setDatasource(java.lang.String value) {
+		this.datasource = value;
+	}
+
+	public java.lang.String getDatasource() {
+		return this.datasource;
+	}
+
+	public void setDatakeycontent(java.lang.String value) {
+		this.datakeycontent = value;
+	}
+
+	public java.lang.String getDatakeycontent() {
+		return this.datakeycontent;
+	}
+
+	public void setCreatetime(java.util.Date value) {
+		this.createtime = value;
+	}
+
+	public java.util.Date getCreatetime() {
+		return this.createtime;
+	}
+
+	public void setUpdatetime(java.util.Date value) {
+		this.updatetime = value;
+	}
+
+	public java.util.Date getUpdatetime() {
+		return this.updatetime;
+	}
+
+}
+

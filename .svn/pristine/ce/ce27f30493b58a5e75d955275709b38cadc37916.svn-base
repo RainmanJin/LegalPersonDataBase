@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CgGcQytzxmValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CgGcQytzxmValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="tyxydm" column="tyxydm"/>
+        <result property="xmdw" column="xmdw"/>
+        <result property="jbr" column="jbr"/>
+        <result property="jbrlxdh" column="jbrlxdh"/>
+        <result property="jsxmmc" column="jsxmmc"/>
+        <result property="xmlx" column="xmlx"/>
+        <result property="njdz" column="njdz"/>
+        <result property="zyjsnrjgm" column="zyjsnrjgm"/>
+        <result property="cjdwssxy" column="cjdwssxy"/>
+        <result property="jsqssj" column="jsqssj"/>
+        <result property="jsjssj" column="jsjssj"/>
+        <result property="xmzd" column="xmzd"/>
+        <result property="xzjsmj" column="xzjsmj"/>
+        <result property="xmztz" column="xmztz"/>
+        <result property="tjtz" column="tjtz"/>
+        <result property="sbtz" column="sbtz"/>
+        <result property="pdldzj" column="pdldzj"/>
+        <result property="qsyzyzj" column="qsyzyzj"/>
+        <result property="yxdk" column="yxdk"/>
+        <result property="gpzq" column="gpzq"/>
+        <result property="qt" column="qt"/>
+        <result property="sfyq" column="sfyq"/>
+        <result property="spzt" column="spzt"/>
+        <result property="spsj" column="spsj"/>
+        <result property="sfxg" column="sfxg"/>
+        <result property="xgyy" column="xgyy"/>
+        <result property="tcyy" column="tcyy"/>
+        <result property="qxyy" column="qxyy"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      jsxmmc,zyjsnrjgm,jsqssj,jsjssj,xmztz
+      FROM frk.cg_gc_qytzxm_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+    
+     <select id="selectQytzDetail" parameterType="Map" resultMap="BaseResultMap">
+		Select frwybs,jsxmmc,zyjsnrjgm,jsqssj,jsjssj,xmztz from frk.cg_gc_qytzxm_valid
+		<where>
+			<if test="jsxmmc!=null and jsxmmc!=''">
+				AND jsxmmc LIKE '%'||#{jsxmmc}||'%'
+			</if>
+			<if test="startNo!=null and startNo !=''">
+				AND CAST(xmztz as decimal) &gt;=CAST(#{startNo} as decimal)
+			</if>
+			<if test="endNo!=null and endNo !=''">
+				AND  CAST(xmztz as decimal) &lt;=CAST(#{endNo} as decimal)
+			</if>
+			AND jsxmmc IS NOT NULL
+		</where>	
+	</select>
+</mapper>

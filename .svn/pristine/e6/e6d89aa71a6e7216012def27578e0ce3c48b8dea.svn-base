@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CgGcChdlxmValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CgGcChdlxmValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="tyxydm" column="tyxydm"/>
+        <result property="dwmc" column="dwmc"/>
+        <result property="xmmc" column="xmmc"/>
+        <result property="wtdw" column="wtdw"/>
+        <result property="xmlx" column="xmlx"/>
+        <result property="xmkssj" column="xmkssj"/>
+        <result property="xmwgsj" column="xmwgsj"/>
+        <result property="htqdsj" column="htqdsj"/>
+        <result property="xmszd" column="xmszd"/>
+        <result property="xmje" column="xmje"/>
+        <result property="zjly" column="zjly"/>
+        <result property="xmfj" column="xmfj"/>
+        <result property="zlyd" column="zlyd"/>
+        <result property="cyjsbz" column="cyjsbz"/>
+        <result property="cysfbz" column="cysfbz"/>
+        <result property="xmfzr" column="xmfzr"/>
+        <result property="xmryxx" column="xmryxx"/>
+        <result property="xmbasj" column="xmbasj"/>
+        <result property="xmbah" column="xmbah"/>
+        <result property="scxmzl" column="scxmzl"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      xmmc,wtdw,xmlx,xmkssj,xmwgsj,xmje,xmbasj
+      FROM frk.cg_gc_chdlxm_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+    
+    <select id="selectChuiDetail" parameterType="Map" resultMap="BaseResultMap">
+		Select frwybs,xmmc,wtdw,xmlx,xmkssj,xmwgsj,xmje,xmbasj from frk.cg_gc_chdlxm_valid
+		<where>
+			<if test="dwmc!=null and dwmc!=''">
+				AND dwmc LIKE '%'||#{dwmc}||'%'
+			</if>
+			<if test="xmmc!=null and xmmc!=''">
+				AND xmmc LIKE '%'||#{xmmc}||'%'
+			</if>
+			AND xmmc IS NOT NULL
+		</where>	
+	</select>
+</mapper>

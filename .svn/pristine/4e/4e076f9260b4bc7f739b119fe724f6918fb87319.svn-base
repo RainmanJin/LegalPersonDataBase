@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.ChNjnbWxdtnjValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.ChNjnbWxdtnjValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="dwmc" column="dwmc"/>
+        <result property="zzjgdm" column="zzjgdm"/>
+        <result property="wxdznjnd" column="wxdznjnd"/>
+        <result property="njjg" column="njjg"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      wxdznjnd,njjg
+      FROM frk.ch_njnb_wxdtnj_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+    
+    <select id="findWxdtMsg" parameterType="map" resultMap="BaseResultMap">
+    	select
+    		frwybs,dwmc,wxdznjnd,njjg,datasrdep
+    	from frk.ch_njnb_wxdtnj_valid
+    	<where>
+    		<if test="frwybs!=null and frwybs!=''">
+    			frwybs=#{frwybs}
+    		</if>
+    		<if test="dwmc!=null and dwmc!=''" >
+    			and dwmc like CONCAT('%',#{dwmc},'%')
+    		</if>
+    	</where>
+    </select>
+</mapper>

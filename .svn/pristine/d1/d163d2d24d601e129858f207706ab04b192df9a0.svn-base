@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.ChBlJdjcbhgjlValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.ChBlJdjcbhgjlValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="qywybs" column="qywybs"/>
+        <result property="cpscdwwybs" column="cpscdwwybs"/>
+        <result property="bccspmc" column="bccspmc"/>
+        <result property="bccspggxh" column="bccspggxh"/>
+        <result property="bccspscph" column="bccspscph"/>
+        <result property="ccspfl" column="ccspfl"/>
+        <result property="bhgypjply" column="bhgypjply"/>
+        <result property="bccypmc" column="bccypmc"/>
+        <result property="bccypph" column="bccypph"/>
+        <result property="bccypgg" column="bccypgg"/>
+        <result property="ypjyyj" column="ypjyyj"/>
+        <result property="ypjyjg" column="ypjyjg"/>
+        <result property="jdjcbhgxm" column="jdjcbhgxm"/>
+        <result property="ccbhgcpmc" column="ccbhgcpmc"/>
+        <result property="ccbhgcpfl" column="ccbhgcpfl"/>
+        <result property="jyjl" column="jyjl"/>
+        <result property="ccrq" column="ccrq"/>
+        <result property="yxzz" column="yxzz"/>
+        <result property="jcrwxddw" column="jcrwxddw"/>
+        <result property="bhgchxmmc" column="bhgchxmmc"/>
+        <result property="bhgjljybgrq" column="bhgjljybgrq"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      bccspmc,bccypmc,jyjl,ccrq,jcrwxddw,bhgchxmmc,bhgjljybgrq
+      FROM frk.ch_bl_jdjcbhgjl_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+    
+    <select id="findBadRecordMsg" parameterType="map" resultMap="BaseResultMap"> 
+    	select
+    		qywybs,cpscdwwybs,bccspmc,bccypmc,jyjl,ccrq,jcrwxddw,bhgchxmmc,bhgjljybgrq
+    	from frk.ch_bl_jdjcbhgjl_valid
+    	<where>
+    		<if test="cpscdwwybs!=null and cpscdwwybs!=''">
+    			cpscdwwybs like CONCAT('%',#{cpscdwwybs},'%')
+    		</if>
+    		<if test="bccspmc!=null and bccspmc!=''" >
+    			and bccspmc like CONCAT('%',#{ bccspmc},'%')
+    		</if>
+    		<if test="bccypmc!=null and bccypmc!=''" >
+    			and bccypmc like CONCAT('%',#{bccypmc},'%')
+    		</if>
+    	</where>
+    </select>
+</mapper>

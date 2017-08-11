@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.icinfo.frk.business.mapper.CgQtSsxxValidMapper" >
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CgQtSsxxValid">
+        <result property="id" column="id"/>
+        <result property="hashUnique" column="hash_unique"/>
+        <result property="frwybs" column="frwybs"/>
+        <result property="tyxydm" column="tyxydm"/>
+        <result property="zzjgdm" column="zzjgdm"/>
+        <result property="dwmc" column="dwmc"/>
+        <result property="gpdm" column="gpdm"/>
+        <result property="sjrq" column="sjrq"/>
+        <result property="datasrdep" column="datasrdep"/>
+        <result property="datasource" column="datasource"/>
+        <result property="datakeycontent" column="datakeycontent"/>
+        <result property="createtime" column="createtime"/>
+        <result property="updatetime" column="updatetime"/>
+	</resultMap>
+	<select id="getList" parameterType="String" resultMap="BaseResultMap">
+      SELECT
+      gpdm,sjrq
+      FROM frk.cg_qt_ssxx_valid
+      WHERE frwybs = #{frwybs}
+    </select>
+    
+    <select id="selectSsxxDetail" parameterType="Map" resultMap="BaseResultMap">
+		Select frwybs,dwmc,gpdm,sjrq from frk.cg_qt_ssxx_valid
+		<where>
+			<if test="dwmc!=null and dwmc!=''">
+				AND dwmc LIKE '%'||#{dwmc}||'%'
+			</if>
+			<if test="gpdm!=null and gpdm!=''">
+				AND gpdm = #{gpdm}
+			</if>
+			AND dwmc IS NOT NULL
+		</where>	
+	</select>
+</mapper>
