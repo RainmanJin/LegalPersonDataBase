@@ -126,7 +126,7 @@
 		<table id="tab_fr_high" class="table-row nowrap" width="100%">
 			<thead>
 			<tr>
-				<th>序号</th>
+				<th style="padding: 0 20px;">序号</th>
 				<th>登记状态</th>
 				<th>统一社会信用代码/注册号</th>
 				<th>法人名称</th>

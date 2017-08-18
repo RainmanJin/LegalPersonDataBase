@@ -40,8 +40,11 @@ public class CaCxBgxxValid implements Serializable {
   private String bgqnr;
   @Column(name = "bghnr")
   private String bghnr;
+  
+  @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
   @Column(name = "hzrq")
-  private String hzrq;
+  private Date hzrq;
+  
   @Column(name = "datasrdep")
   private String datasrdep;
   @Column(name = "datasource")
@@ -198,18 +201,18 @@ public class CaCxBgxxValid implements Serializable {
   /**
    * @return hzrq
    */
-  public String getHzrq() {
-    if (hzrq.length() > 10) {
+  public Date getHzrq() {
+   /* if (hzrq.length() > 10) {
       return hzrq.substring(0, 10);
     }
-
+*/
     return hzrq;
   }
 
   /**
    * @param hzrq
    */
-  public void setHzrq(String hzrq) {
+  public void setHzrq(Date hzrq) {
     this.hzrq = hzrq;
   }
 

@@ -58,7 +58,7 @@
 						<table id="search_table1" class="table-row nowrap" width="100%">
 							<thead style="white-space:nowarp;">
 							<tr>
-								<th width="5%">序号</th>
+								<th style="padding: 0 20px;">序号</th>
 								<th>法人名称</th>
 								<th>注册资本(万元)</th>
 								<th>车辆数量</th>

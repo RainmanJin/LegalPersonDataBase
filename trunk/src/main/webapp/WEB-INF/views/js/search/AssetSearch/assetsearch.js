@@ -162,7 +162,21 @@ require(['component/iframeLayer', 'component/dataTable', 'common/util',
                 return "<a href='javascript:void(0)' class='frmc2' priPID='"
                     + row.frwybs + "'>" + row.frmc + "</a>";
               }
-            }]
+            },
+            {
+                targets: 4,
+                render: function (data, type, row, meta) {
+                  return row.rjczbl+"%";
+                }
+              },
+            {
+            	targets:7,
+            	render:function (data, type, row, meta) {
+                return Math.round(row.sjczbl*10000)/ 100.00+"%";
+              
+              }
+            }
+            ]
         });
         entTable2.on('init.dt', function (e, settings, json) {
           if (json.recordsTotal <= 5) {

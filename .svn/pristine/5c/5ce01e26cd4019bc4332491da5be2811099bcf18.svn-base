@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icinfo.frk.business.mapper.CaCxBgxxValidMapper">
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.CaCxBgxxValid">
+		<!--
+			WARNING - @frameworkgenerated
+		-->
+		<result column="id" jdbcType="VARCHAR" property="id"/>
+		<result column="hash_unique" jdbcType="VARCHAR" property="hashUnique"/>
+		<result column="bgxxbs" jdbcType="VARCHAR" property="bgxxbs"/>
+		<result column="frwybs" jdbcType="VARCHAR" property="frwybs"/>
+		<result column="tyxydm" jdbcType="VARCHAR" property="tyxydm"/>
+		<result column="nbxh" jdbcType="VARCHAR" property="nbxh"/>
+		<result column="bgsx" jdbcType="VARCHAR" property="bgsx"/>
+		<result column="bgyy" jdbcType="VARCHAR" property="bgyy"/>
+		<result column="bgqnr" jdbcType="VARCHAR" property="bgqnr"/>
+		<result column="bghnr" jdbcType="VARCHAR" property="bghnr"/>
+		<result column="hzrq" jdbcType="TIMESTAMP" property="hzrq"/>
+		<result column="datasrdep" jdbcType="VARCHAR" property="datasrdep"/>
+		<result column="datasource" jdbcType="VARCHAR" property="datasource"/>
+		<result column="datakeycontent" jdbcType="VARCHAR" property="datakeycontent"/>
+		<result column="createtime" jdbcType="TIMESTAMP" property="createtime"/>
+		<result column="updatetime" jdbcType="TIMESTAMP" property="updatetime"/>
+	</resultMap>
+
+	<select id="GetList" parameterType="String" resultMap="BaseResultMap">
+		SELECT
+		bgsx,bgyy,bgqnr,bghnr,hzrq
+		FROM frk.ca_cx_bgxx_valid
+		WHERE frwybs = #{frwybs}
+	</select>
+
+
+	<select id="getFrbgxxList" parameterType="Map" resultMap="BaseResultMap">
+		SELECT
+		bgsx,bgyy,bgqnr,bghnr,hzrq
+		FROM frk.ca_cx_bgxx_valid
+		WHERE frwybs = #{frwybs}
+	</select>
+
+
+	<select id="getCaCxBgxx" parameterType="Map" resultMap="BaseResultMap">
+		SELECT
+		bgsx,bgyy,bgqnr,bghnr,hzrq,frwybs
+		FROM frk.ca_cx_bgxx_valid
+		<where>
+			<!-- <if test="startHzrq != null and startHzrq != ''">
+				and hzrq &gt;= CONCAT(#{startHzrq},'00:00:00')
+				and hzrq &gt;= #{startHzrq}
+			</if>
+			<if test="endHzrq != null and endHzrq != ''">
+				and hzrq &lt;= CONCAT(#{endHzrq},'23:59:59')
+			</if> -->
+			
+			
+			<if test="startHzrq != null and startHzrq != ''">
+				<!-- and hzrq &gt;= CONCAT(#{startHzrq},'00:00:00') -->
+				and hzrq &gt;= cast(CONCAT(#{startHzrq},' 00:00:00') as TIMESTAMP)
+			</if>
+			<if test="endHzrq != null and endHzrq != ''">
+				and hzrq &lt;= cast(CONCAT(#{endHzrq},' 23:59:59') as TIMESTAMP)
+			</if>
+			
+			
+			<if test="bgyy != null and bgyy != ''">
+				and bgyy like '%'||#{bgyy}||'%'
+			</if>
+		</where>
+	</select>
+
+
+</mapper>

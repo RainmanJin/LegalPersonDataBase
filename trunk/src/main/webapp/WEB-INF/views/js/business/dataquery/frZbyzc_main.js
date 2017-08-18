@@ -134,7 +134,18 @@ width:20,
       {data:'sjczbl',className:'center'},
       ],
       columnDefs : [
-
+    	  {
+              targets: 3,
+              render: function (data, type, row, meta) {
+                return row.rjczbl+"%";
+              }
+            },
+    	  {
+          	targets:6,
+          	render:function (data, type, row, meta) {
+              return Math.round(row.sjczbl*10000)/ 100.00+"%";
+            }
+          }
       ]
     });
     table_gdcz.on('init.dt',function(e,settings,json){

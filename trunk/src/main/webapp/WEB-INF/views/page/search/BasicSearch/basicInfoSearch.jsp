@@ -53,7 +53,7 @@
 						       class="table-row display nowrap" width="100%">
 							<thead style="white-space:nowarp;">
 							<tr>
-								<th width="5%">序号</th>
+								<th style="padding: 0 20px;">序号</th>
 								<th>法人名称</th>
 								<th>法定代表人</th>
 								<th>注册地址</th>
@@ -236,7 +236,7 @@
 						       class="table-row display nowrap" width="100%">
 							<thead style="white-space:nowarp;">
 							<tr>
-								<th width="5%">序号</th>
+								<th>序号</th>
 								<th>变更事项</th>
 								<th>变更原因</th>
 								<th>变更前内容</th>

@@ -1,0 +1,615 @@
+
+
+
+ 
+
+
+
+ 
+ 
+ <!DOCTYPE html>
+<html>
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
+ <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" >
+ 
+ <meta name="ROBOTS" content="NOARCHIVE">
+ 
+ <link rel="icon" type="image/vnd.microsoft.icon" href="http://www.gstatic.com/codesite/ph/images/phosting.ico">
+ 
+ 
+ <link rel="canonical" href="http://code.google.com/p/rapid-framework/wiki/rapid_generator" />
+ 
+ <script type="text/javascript">
+ 
+ 
+ 
+ 
+ var codesite_token = null;
+ 
+ 
+ var CS_env = {"token": null, "profileUrl": null, "domainName": null, "assetHostPath": "http://www.gstatic.com/codesite/ph", "projectHomeUrl": "/p/rapid-framework", "assetVersionPath": "http://www.gstatic.com/codesite/ph/3076573747170053082", "loggedInUserEmail": null, "projectName": "rapid-framework", "relativeBaseUrl": ""};
+ var _gaq = _gaq || [];
+ _gaq.push(
+ ['siteTracker._setAccount', 'UA-18071-1'],
+ ['siteTracker._trackPageview']);
+ 
+ _gaq.push(
+ ['projectTracker._setAccount', 'UA-4237563-1'],
+ ['projectTracker._trackPageview']);
+ 
+ (function() {
+ var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+ 
+ </script>
+ 
+ 
+ <title>rapid_generator - 
+ rapid-framework -
+ 
+ 
+ java web快速开发脚手架 - Google Project Hosting
+ </title>
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/3076573747170053082/css/core.css">
+ 
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/3076573747170053082/css/ph_detail.css" >
+ 
+ 
+ 
+ <link type="application/atom+xml" rel="alternate" href="/feeds/p/rapid-framework/svnchanges/basic?path=/wiki/rapid_generator.wiki">
+ 
+ 
+<!--[if IE]>
+ <link type="text/css" rel="stylesheet" href="http://www.gstatic.com/codesite/ph/3076573747170053082/css/d_ie.css" >
+<![endif]-->
+ <style type="text/css">
+ .menuIcon.off { background: no-repeat url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -42px }
+ .menuIcon.on { background: no-repeat url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 -28px }
+ .menuIcon.down { background: no-repeat url(http://www.gstatic.com/codesite/ph/images/dropdown_sprite.gif) 0 0; }
+ 
+ 
+ #maincol {
+ padding-top: 0;
+ padding-bottom: 0;
+ }
+
+ 
+ </style>
+</head>
+<body class="t6">
+<script type="text/javascript">
+ window.___gcfg = {lang: 'en'};
+ (function() 
+ {var po = document.createElement("script");
+ po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(po, s);
+ })();
+</script>
+<div class="headbg">
+
+ <div id="gaia">
+ 
+
+ <span>
+ 
+ 
+ <a href="#" id="projects-dropdown" onclick="return false;"><u>My favorites</u> <small>&#9660;</small></a>
+ | <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=http%3A%2F%2Fcode.google.com%2Fp%2Frapid-framework%2Fwiki%2Frapid_generator&amp;followup=http%3A%2F%2Fcode.google.com%2Fp%2Frapid-framework%2Fwiki%2Frapid_generator" onclick="_CS_click('/gb/ph/signin');"><u>Sign in</u></a>
+ 
+ </span>
+
+ </div>
+
+ <div class="gbh" style="left: 0pt;"></div>
+ <div class="gbh" style="right: 0pt;"></div>
+ 
+ 
+ <div style="height: 1px"></div>
+<!--[if lte IE 7]>
+<div style="text-align:center;">
+Your version of Internet Explorer is not supported. Try a browser that
+contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>,
+<a href="http://www.google.com/chrome">Google Chrome</a>, or
+<a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a>.
+</div>
+<![endif]-->
+
+
+
+ <table style="padding:0px; margin: 0px 0px 10px 0px; width:100%" cellpadding="0" cellspacing="0"
+ itemscope itemtype="http://schema.org/CreativeWork">
+ <tr style="height: 58px;">
+ 
+ 
+ 
+ <td id="plogo">
+ <link itemprop="url" href="/p/rapid-framework">
+ <a href="/p/rapid-framework/">
+ 
+ 
+ <img src="/p/rapid-framework/logo?cct=1334977800"
+ alt="Logo" itemprop="image">
+ 
+ </a>
+ </td>
+ 
+ <td style="padding-left: 0.5em">
+ 
+ <div id="pname">
+ <a href="/p/rapid-framework/"><span itemprop="name">rapid-framework</span></a>
+ </div>
+ 
+ <div id="psum">
+ <a id="project_summary_link"
+ href="/p/rapid-framework/"><span itemprop="description">java web快速开发脚手架</span></a>
+ 
+ </div>
+ 
+ 
+ </td>
+ <td style="white-space:nowrap;text-align:right; vertical-align:bottom;">
+ 
+ <form action="/hosting/search">
+ <input size="30" name="q" value="" type="text">
+ 
+ <input type="submit" name="projectsearch" value="Search projects" >
+ </form>
+ 
+ </tr>
+ </table>
+
+</div>
+
+ 
+<div id="mt" class="gtb"> 
+ <a href="/p/rapid-framework/" class="tab ">Project&nbsp;Home</a>
+ 
+ 
+ 
+ 
+ <a href="/p/rapid-framework/wiki/downloads?tm=2" class="tab ">Downloads</a>
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/rapid-framework/wiki/menu?tm=6" class="tab active">Wiki</a>
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/rapid-framework/issues/list"
+ class="tab ">Issues</a>
+ 
+ 
+ 
+ 
+ 
+ <a href="/p/rapid-framework/wiki/source?tm=4"
+ class="tab ">Source</a>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class=gtbc></div>
+</div>
+<table cellspacing="0" cellpadding="0" width="100%" align="center" border="0" class="st">
+ <tr>
+ 
+ 
+ 
+ <td class="subt">
+ <div class="issueDetail">
+<div class="isf">
+ 
+ <span class="inIssueList"> 
+ <span>Search</span>
+ <form action="/p/rapid-framework/w/list" method="GET" style="display:inline">
+ <select id="can" name="can" >
+ <option disabled="disabled">Search within:</option>
+ 
+ <option value="1" >&nbsp;All wiki pages</option>
+ <option value="3" >&nbsp;Featured pages</option>
+ <option value="2" selected="selected">&nbsp;Current pages</option>
+ 
+ 
+ <option value="4" >&nbsp;Deprecated pages</option>
+ 
+ </select>
+ <span>for</span>
+ <span id="qq"><input type="text" size="38" id="searchq" name="q" value=""
+ autocomplete="off" ></span>
+ 
+ 
+ 
+ <input type="submit" value="Search" >
+ </form>
+ </span>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+</div>
+</div>
+
+ </td>
+ 
+ 
+ 
+ 
+ 
+ 
+ <td align="right" valign="top" class="bevel-right"></td>
+ </tr>
+</table>
+
+
+<script type="text/javascript">
+ var cancelBubble = false;
+ function _go(url) { document.location = url; }
+</script>
+<div id="maincol"
+ 
+ 
+ style="padding:0 3px 3px 0; margin:0"
+ 
+ 
+>
+
+ 
+
+
+
+
+
+
+ 
+<style type="text/css">
+ #wikimaincol { padding-top: 6px; padding-left:1em}
+ #sidebarcontainer {
+ padding: 1.5em 2px 2px 2px;
+ min-width: 15em;
+ max-width: 20em;
+ overflow:hidden;
+}
+ .sidebartop ul { margin:0 0 0 .5em; padding-left:0 !important; list-style:none}
+ .sidebartop ul ul { margin-left:1em; padding-left:0; list-style:none; display:none}
+ .sidebartop li { margin:0 0 2px 0; padding:1px; padding-left:14px; cursor:pointer}
+ .sidebartop li a { padding:2px}
+ .sidebartop li { background: url(http://www.gstatic.com/codesite/ph/images/plus.gif) no-repeat 1px 3px}
+ .sidebartop li.treeopen { background: url(http://www.gstatic.com/codesite/ph/images/minus.gif) no-repeat 1px 3px}
+ .sidebartop li.treeleaf { background:none}
+ .currentpagelink { 
+ font-weight: bold;
+ text-decoration: none;
+ color: black !important; 
+ background: #c3d9ff;
+ }
+ .sidebartop ul.treeleafcontainer { display:block;}
+ .sidebarcontent { 
+ vertical-align:top;
+ padding-right: 3px;
+ border-right: 2px solid #ccc;
+ }
+</style>
+
+
+
+ <style type="text/css">
+ .delcom { background: #e8e8e8 }
+ .commentcontent {
+ margin: 2em;
+ padding: 0px 10px;
+ width: 66em;
+ }
+ .artifactcomment {
+ border-top: 3px solid #c3d9ff;
+ }
+ #commentform {
+ border-top: 3px solid #c3d9ff;
+ }
+ </style>
+
+<div id="wikipage">
+<table>
+ <tr>
+ 
+ 
+ <td class="sidebarcontent">
+ <div class="vt expand" id="wikisidebar">
+ <div>
+ 
+ <div style="float:right;">
+ <a class="ifExpand" style="font-size:130%; color:blue; text-decoration:none"
+ href="#" onclick="_DW_toggleSidebar(this); return false;"
+ title="Hide sidebar"><b>&lsaquo;&lsaquo;</b></a>
+ </div>
+ <div class="ifCollapse" style="padding:0 2px">
+ <a style="font-size:130%; color:blue; text-decoration:none"
+ href="#" onclick="_DW_toggleSidebar(this); return false;"
+ title="Show sidebar"><b>&rsaquo;&rsaquo;</b></a>
+ </div>
+ 
+ 
+ <div id="sidebarcontainer" class="sidebartop ifExpand">
+ <p><strong>v4.0 文档更新,v3.9等老文档请查看下载的zip包</strong> <ul><li><a href="/p/rapid-framework/wiki/quick_start_guild">快速开始(ssh项目搭建)</a> </li><li><a href="/p/rapid-framework/wiki/flex4_quick_start_guild">flex4快速开始(v3.9)</a> </li><li>rapid maven版本开发中 </li><ul><li><a href="/p/rapid-framework/wiki/rapid_mvn_start">核心依赖介绍</a> </li><li>rapid achetypes介绍 </li><ul><li><a href="/p/rapid-framework/wiki/rapid_achetype_springmvc_hibernate">rapide-springmvc-hibernate项目搭建</a>  </li><li><a href="/p/rapid-framework/wiki/more_archetypes">获取更多archetypes</a> </li></ul></ul><li>demo展示 </li><ul><li><a href="/p/rapid-framework/wiki/snapshot">html界面预览图</a> </li><li><a href="/p/rapid-framework/wiki/flex_snapshot">flex在线demo</a> </li><li><a href="/p/rapid-framework/wiki/generator_template_and_output">生成器模板及输出demo</a> </li><li><a href="/p/rapid-framework/wiki/demo_video">demo视频</a> </li><li><a href="/p/rapid-framework/wiki/online_demo">在线sprngmvc_rest+ibatis3示例</a> </li></ul><li>用户文档(new) </li><ul><li><a href="/p/rapid-framework/wiki/rapid_summarize">概述</a> </li><li><a href="/p/rapid-framework/wiki/rapid_dir_desc">目录结构</a> </li><li><a href="/p/rapid-framework/wiki/rapid_plugin_install_desc">插件安装器介绍</a> </li><li><a href="/p/rapid-framework/wiki/rapid_plugin_switch_desc">dao及web插件切换及使用</a> </li><li><a href="/p/rapid-framework/wiki/rapid_ant">ant脚本</a> </li><li>代码生成器(new) </li><ul><li><a href="/p/rapid-framework/wiki/rapid_generator">代码生成器rapid-generator(new)</a> </li><li><a href="/p/rapid-framework/wiki/generator_generate_by_sql">ibatis dal层生成工具(new)</a> </li></ul><li>view层(new) </li><ul><li><a href="/p/rapid-framework/wiki/rapid_validation">表单验证rapid-validation</a> </li><li><a href="/p/rapid-framework/wiki/rapid_jsp_extends">jsp实现模板继承</a> </li><li><a href="/p/rapid-framework/wiki/rapid_freemarker_extends">freemarker实现模板继承(new)</a> </li><li><a href="/p/rapid-framework/wiki/rapid_velocity_extends">velocity实现模板继承(new)</a> </li><li><a href="/p/rapid-framework/wiki/rapid_pipeline">freemarker,velocity模板管道操作</a> </li><li><a href="/p/rapid-framework/wiki/rapid_http_include">为velocity,freemarker提供jsp:include功能</a> </li></ul><li>dao层介绍 </li><ul><li><a href="/p/rapid-framework/wiki/rapid_transaction">spring事务</a> </li><li><a href="/p/rapid-framework/wiki/rapid_dialect">jdbc分页方言</a> </li><li><a href="/p/rapid-framework/wiki/rapid_ibatis">ibatis分页及方言</a> </li><li><a href="/p/rapid-framework/wiki/rapid_xsqlbuilder">动态sql构造工具rapid-xsqlbuilder</a> </li><li><a href="/p/rapid-framework/wiki/rapid_sqlgenerator">spring_jdbc SQL生成工具</a> </li></ul><li>测试/项目构建 </li><ul><li><a href="/p/rapid-framework/wiki/rapid_junit">单元测试</a> </li><li><a href="/p/rapid-framework/wiki/cruisecontrol">持续集成</a> </li></ul><li>日志(new) </li><ul><li><a href="/p/rapid-framework/wiki/log4jdbc">log4jdbc日志框架(new)</a> </li></ul><li>rapid工具类介绍 </li><ul><li><a href="/p/rapid-framework/wiki/rapid_async_io">异步的IO</a> </li><li><a href="/p/rapid-framework/wiki/rapid_async_token">AsyncToken替换Listener设计模式</a> </li><li><a href="/p/rapid-framework/wiki/rapid_utils">其它工具类介绍</a> </li><li><a href="/p/rapid-framework/wiki/rapid_utils_holders">holder模式</a> </li></ul><li>flex </li><ul><li><a href="/p/rapid-framework/wiki/flex_cairngorm_overview">Flex概述</a> </li></ul></ul><li>插件说明 </li><ul><li>web mvc 框架 </li><ul><li><a href="/p/rapid-framework/wiki/plugin_struts2">web_struts2</a> </li><li><a href="/p/rapid-framework/wiki/plugin_struts">web_struts</a> </li><li><a href="/p/rapid-framework/wiki/plugin_springmvc">web_springmvc</a> </li><li><a href="/p/rapid-framework/wiki/plugin_springmvc_rest">web_springmvc_rest v3.0</a> </li></ul><li>dao层 </li><ul><li><a href="/p/rapid-framework/wiki/plugin_hibernate">dao_hibernate</a> </li><li><a href="/p/rapid-framework/wiki/plugin_spring_jdbc">dao_spring_jdbc</a> </li><li><a href="/p/rapid-framework/wiki/plugin_ibatis">dao_ibatis</a> </li><li><a href="/p/rapid-framework/wiki/plugin_ibatis3">dao_ibatis3 v3.0</a> </li></ul><li>分页列表组件 </li><ul><li><a href="/p/rapid-framework/wiki/plugin_simpletable">rapid-simpletable:分页列表组件</a> </li></ul><li><a href="/p/rapid-framework/wiki/plugin_rapid_mailer">rapid_mailer v3.0</a> </li><li>RIA </li><ul><li><a href="/p/rapid-framework/wiki/plugin_extjs">extjs</a> </li></ul></ul><li>开发者文档(new) </li><ul><li><a href="/p/rapid-framework/wiki/dev_env">开发环境快速开始(new)</a> </li><li><a href="/p/rapid-framework/wiki/dev_maven_archetypes">maven archetype开发</a> </li><li><a href="/p/rapid-framework/wiki/project_build">项目构建(new)</a> </li><li><a href="/p/rapid-framework/wiki/project_modules_overview">项目模块概览</a> </li><li><a href="/p/rapid-framework/wiki/plugin_dev">插件开发</a> </li><li><a href="http://code.google.com/p/rapid-framework/issues/list" rel="nofollow">bug报告</a> </li><li><a href="/p/rapid-framework/wiki/contributors">贡献者名单</a> </li></ul><li><a href="http://code.google.com/p/rapid-framework/" rel="nofollow">maven用户</a> </li><li><a href="/p/rapid-framework/wiki/best_practice">最佳实践</a> </li><li><a href="/p/rapid-framework/wiki/changelog">修改日志</a> </li><li><a href="/p/rapid-framework/wiki/donate_user_list">捐赠列表</a> </li><li><a href="/p/rapid-framework/wiki/roadmap">路线图</a> </li><li><a href="/p/rapid-framework/wiki/faq">常见问题解答(FAQs)</a> </li><li><a href="http://groups.google.com/group/rapid-framework" rel="nofollow">加入google group参与讨论</a> </li><li><a href="/p/rapid-framework/wiki/powered_by_rapid">powered by rapid</a> </li></ul><hr/><ul><li><a href="http://www.rapid-framework.org.cn/rapid-reference/rapid-framework-v3.5.x/" rel="nofollow">v3.5.x参考文档</a> </li><li><a href="http://www.rapid-framework.org.cn/rapid-reference/rapid-framework-v3.0/" rel="nofollow">v3.0参考文档</a> </li></ul></p>
+ </div>
+ </div>
+</div>
+
+ </td>
+ 
+ <td style="vertical-align:top; padding-left:5px">
+ 
+ <div id="wikiheader">
+ 
+ <span style="font-size:120%;font-weight:bold">rapid_generator</span>
+ &nbsp;
+ <div> 
+ 
+ 
+ 
+ <div id="wikiauthor" style="float:right">
+ Updated <span title="Thu Apr  7 22:31:41 2011">
+ Apr 7, 2011</span>
+ 
+ by 
+
+ <a class="userlink"
+ href="/u/112380455388073357672/">bad...@gmail.com</a
+>
+ 
+ </div>
+ </div>
+ </div>
+ 
+ <div id="wikicontent">
+ <div class="vt" id="wikimaincol">
+ <p><ul><li><a href="#核心理念">核心理念</a></li><li><a href="#通常代码生成器存在的问题.">通常代码生成器存在的问题.</a></li><li><a href="#特性">特性</a></li><li><a href="#生成器的运行">生成器的运行</a></li><ul><li><a href="#在eclipse中运行">在eclipse中运行</a></li><li><a href="#独立版运行">独立版运行</a></li></ul><li><a href="#生成器讲解">生成器讲解</a></li><ul><li><a href="#生成器模板路径可以引用相关变量">生成器模板路径可以引用相关变量</a></li><li><a href="#自动搜索某个目录所有模板文件,无需配置">自动搜索某个目录所有模板文件,无需配置</a></li><li><a href="#代码生成器模板可以引用的相关变量">代码生成器模板可以引用的相关变量</a></li><li><a href="#每个模板有gg变量可以控制自身的自定义配置_(每">每个模板有gg变量可以控制自身的自定义配置 (每一个模板都会创建新的gg实例)</a></li><li><a href="#支持生成(gen)及删除操作(del),即生成的代码也可�">支持生成(gen)及删除操作(del),即生成的代码也可以很方便的删除</a></li><li><a href="#自动拷贝二进制文件至输出目录">自动拷贝二进制文件至输出目录</a></li><li><a href="#自动删除模板扩展名:.ftl,.vm">自动删除模板扩展名:.ftl,.vm</a></li><li><a href="#模板自动include同级目录:macro.include文件">模板自动include同级目录:macro.include文件</a></li><li><a href="#generator.xml_(或者generator.properties)配置文件">generator.xml (或者generator.properties)配置文件</a></li><li><a href="#十._数据库表配置,用于自定义生成器模板引用的t">十. 数据库表配置,用于自定义生成器模板引用的table变量</a></li><li><a href="#生成的代码插入文档的某个部位">生成的代码插入文档的某个部位</a></li></ul><li><a href="#创建一个模板">创建一个模板</a></li><ul><li><a href="#代码template目录结构">代码template目录结构</a></li><li><a href="#创建一个生成器模板文件">创建一个生成器模板文件</a></li></ul><li><a href="#生成器参数配置">生成器参数配置</a></li><li><a href="#生成器核心类图">生成器核心类图</a></li><li><a href="#重复生成代码">重复生成代码</a></li><li><a href="#参考">参考</a></li><ul><li><a href="#generateByTable()">generateByTable()</a></li><li><a href="#generateBySql()">generateBySql()</a></li><li><a href="#generateByClass()">generateByClass()</a></li><li><a href="#GG控制变量参考">GG控制变量参考</a></li><li><a href="#table变量参考">table变量参考</a></li><li><a href="#column变量参考]">column变量参考]</a></li><li><a href="#sql变量参考">sql变量参考</a></li><li><a href="#模板引擎freemarker">模板引擎freemarker</a></li></ul></ul> </p><h1><a name="核心理念"></a>核心理念<a href="#核心理念" class="section_anchor"></a></h1><blockquote>为你生成一切,再根据所需手工copy回工作区  
+</blockquote><p>  </p><h1><a name="通常代码生成器存在的问题."></a>通常代码生成器存在的问题.<a href="#通常代码生成器存在的问题." class="section_anchor"></a></h1><ul><li>二次开发困难,没有源码可以修改模板文件的model对象等  </li><li>过于智能,自动插入我们的项目中,程序员还需考虑旧的代码会不会被覆盖的问题  </li><li>生成文件的时候让你选要生成那些文件,而rapid只负责生成代码，这样生成器核心一分精简  </li><li>没有将存放模板的目录名称及文件名称利用起来,导致还需配置每个模板文件生成的文件名,目录结构 </li><li>具体请查看我写的文章:<a href="http://badqiu.javaeye.com/blog/212881" rel="nofollow">为何代码生成器都要这么智能呢?</a>  </li></ul><h1><a name="特性"></a>特性<a href="#特性" class="section_anchor"></a></h1><ul><li>基于FreeMarker模板语言,并且模板易于修改 </li><li>基于数据库,内建好数据库的model,并支持多种数据库(mysql,sql server,oracle测试通过)  </li><li>半手工方式,生成的代码放在某个目录,再手工拷贝回来工作区  </li><li>易于做二次开发,整个生成器本身就是java源代码,源代码核心十分精简,并且鼓励你修改代码,也可以作为任何语言的代码生成器  </li><li>配置简单,只有一个配置文件generator.properties  </li></ul><h1><a name="生成器的运行"></a>生成器的运行<a href="#生成器的运行" class="section_anchor"></a></h1><h2><a name="在eclipse中运行"></a>在eclipse中运行<a href="#在eclipse中运行" class="section_anchor"></a></h2><ol><li>配置classpath,将generator/lib中的rapid-generator.jar及其它数据库驱动加入classpath </li><li>修改generator.xml的数据库连接属性及其它属性  </li><li>以application的方式运行GeneratorMain类,要生成不同的table,直接修改代码即可  </li><pre class="prettyprint">public class GeneratoMain {
+    public static void main(String[] args) throws Exception {
+	GeneratorFacade g = new GeneratorFacade();
+	
+	g.deleteOutRootDir();	//删除生成器的输出目录
+//		g.generateByTable(&quot;table_name&quot;,&quot;template&quot;);	//通过数据库表生成文件,template为模板的根目录
+	g.generateByAllTable(&quot;template&quot;);	//自动搜索数据库中的所有表并生成文件,template为模板的根目录
+//		g.generateByClass(Blog.class,&quot;template_clazz&quot;);
+	
+//		g.deleteByTable(&quot;table_name&quot;, &quot;template&quot;); //删除生成的文件
+    }
+}</pre><li>以application方式运行cn.org.rapid_framework.generator.ext.CommandLine </li></ol><h2><a name="独立版运行"></a>独立版运行<a href="#独立版运行" class="section_anchor"></a></h2><blockquote>下载standandalone-rapid-generator.zip,解压并运行rapid-gen.bat 
+</blockquote><p><img src="http://rapid-framework.googlecode.com/svn/trunk/images/doc/rapid_generator/v3.9/standalon_commandline.jpg" /> </p><p><a href="http://code.google.com/p/rapid-generator/downloads/list" rel="nofollow">独立版下载地址</a> </p><hr/><h1><a name="生成器讲解"></a>生成器讲解<a href="#生成器讲解" class="section_anchor"></a></h1><h2><a name="生成器模板路径可以引用相关变量"></a>生成器模板路径可以引用相关变量<a href="#生成器模板路径可以引用相关变量" class="section_anchor"></a></h2><blockquote>示例:dao/${basepackage_dir}/${className}.java,根据该变量生成输出文件 
+</blockquote><blockquote>如果basepackage_dir = com/company/rapid, className=UserInfo 
+</blockquote><blockquote>那么完整路径则为:dao/com/company/rapid/UserInfo.java 
+</blockquote><h2><a name="自动搜索某个目录所有模板文件,无需配置"></a>自动搜索某个目录所有模板文件,无需配置<a href="#自动搜索某个目录所有模板文件,无需配置" class="section_anchor"></a></h2><h2><a name="代码生成器模板可以引用的相关变量"></a>代码生成器模板可以引用的相关变量<a href="#代码生成器模板可以引用的相关变量" class="section_anchor"></a></h2><pre class="prettyprint">	1. g.generateByTable(&quot;table_name&quot;) 方法可以引用的变量
+		table : cn.org.rapid_framework.generator.provider.db.table.model.Table
+	
+	2. g.generateByClass(&quot;class&quot;) 方法可以引用的变量
+		clazz : cn.org.rapid_framework.generator.provider.java.model.JavaClass
+
+	3. g.generateBySql(Sql) 方法可以引用的变量
+		sql : cn.org.rapid_framework.generator.provider.db.sql.model.Sql
+	
+	4.公共变量
+		env : 系统环境变量
+		System.getProperties() :  直接引用,没有前缀
+		generator.properties 文件中的所有属性,直接引用,没有前缀
+		gg : 模板控制变量, cn.org.rapid_framework.generator.GeneratorControl</pre><h2><a name="每个模板有gg变量可以控制自身的自定义配置_(每"></a>每个模板有gg变量可以控制自身的自定义配置 (每一个模板都会创建新的gg实例)<a href="#每个模板有gg变量可以控制自身的自定义配置_(每" class="section_anchor"></a></h2><blockquote>如是否生成,是否覆盖目标文件,甚至是生成其它文件 
+示例: ${gg.setIgnoreOutput(true)}, 参考: <a href="/p/rapid-framework/wiki/rapid_generator_gg">rapid_generator_gg</a> 
+</blockquote><h2><a name="支持生成(gen)及删除操作(del),即生成的代码也可�"></a>支持生成(gen)及删除操作(del),即生成的代码也可以很方便的删除<a href="#支持生成(gen)及删除操作(del),即生成的代码也可�" class="section_anchor"></a></h2><h2><a name="自动拷贝二进制文件至输出目录"></a>自动拷贝二进制文件至输出目录<a href="#自动拷贝二进制文件至输出目录" class="section_anchor"></a></h2><blockquote>如模板目录下的 zip,rar,doc文件将会自动拷贝至输出目录,不会破坏文件格式   (通过扩展名自动识别) 
+</blockquote><h2><a name="自动删除模板扩展名:.ftl,.vm"></a>自动删除模板扩展名:.ftl,.vm<a href="#自动删除模板扩展名:.ftl,.vm" class="section_anchor"></a></h2><blockquote>举例:  如你有一个模板 SqlMap.xml.ftl  将变为 SqlMap.xml  
+所以你要生成ftl扩展名的文件,应该将文件名从 list.ftl =&gt; list.ftl.ftl  
+</blockquote><p>                               </p><h2><a name="模板自动include同级目录:macro.include文件"></a>模板自动include同级目录:macro.include文件<a href="#模板自动include同级目录:macro.include文件" class="section_anchor"></a></h2><blockquote>示例: 如你的模板为 java_src/com/project/UserDao.java, 将自动include: java_src/com/project/macro.include 及 根目录的macro.include 
+</blockquote><h2><a name="generator.xml_(或者generator.properties)配置文件"></a>generator.xml (或者generator.properties)配置文件<a href="#generator.xml_(或者generator.properties)配置文件" class="section_anchor"></a></h2><ol><li>类似ant可以变量引用,引用环境变量使用${env.JAVA_HOME}, 引用System.getProperties()直接引用 </li></ol><blockquote>2.自动替换generator.properties中的句号(.)为反斜杠,设置key为key+&quot;<i>dir&quot;后缀 
+</blockquote><blockquote>示例: pkg=com.company =&gt; pkg_dir=com/company 
+</blockquote><p>	 </i></p><h2><a name="十._数据库表配置,用于自定义生成器模板引用的t"></a>十. 数据库表配置,用于自定义生成器模板引用的table变量<a href="#十._数据库表配置,用于自定义生成器模板引用的t" class="section_anchor"></a></h2><p>配置文件必须存放在classpath: generator_config/table/table_name.xml (该文件生成器可以生成，自己再自定义修改) </p><pre class="prettyprint">	&lt;!--
+	&lt;table sqlName=&quot;数据库表名&quot; className=&quot;类名称&quot; tableAlias=&quot;表的别名&quot;&gt;
+		&lt;column sqlName=&quot;数据库列名&quot; columnAlias=&quot;列的别名&quot;
+		javaType=&quot;自定义javaType&quot;
+		unique=&quot;是否唯一性约束&quot; nullable=&quot;是否可以为空&quot; pk=&quot;是否主键,在表没有主键的情况下,可以指定一个代理主键&quot;
+		updatable=&quot;是否可以更新&quot; insertable=&quot;是否插入&quot;	
+		enumString=&quot;枚举值,以分号分隔,示例值:M(1,男);F(0,女) 或者是:M(男);F(女)&quot;
+		enumClassName=&quot;如果枚举有值,生成的类名称将是这个,没有枚举值，该配置无用.示例值:Sex&quot;
+		/&gt;
+	&lt;/table&gt;
+	 --&gt;
+	&lt;table sqlName=&quot;user_info&quot; className=&quot;UserInfo&quot; tableAlias=&quot;UserInfo&quot; &gt;
+		&lt;column sqlName=&quot;username&quot; columnAlias=&quot;用户名&quot;
+			javaType=&quot;String&quot;
+			unique=&quot;false&quot; nullable=&quot;true&quot; pk=&quot;false&quot;
+			updatable=&quot;true&quot; insertable=&quot;true&quot;
+			enumString=&quot;F(1,Female);M(0,Male)&quot; enumClassName=&quot;用户枚举&quot;
+		/&gt;
+		&lt;column sqlName=&quot;password&quot; columnAlias=&quot;password&quot;
+			javaType=&quot;String&quot;
+			unique=&quot;false&quot; nullable=&quot;true&quot; pk=&quot;false&quot;
+			updatable=&quot;true&quot; insertable=&quot;true&quot;
+			enumString=&quot;&quot; enumClassName=&quot;PasswordEnum&quot;
+		/&gt;
+	&lt;/table&gt;</pre><h2><a name="生成的代码插入文档的某个部位"></a>生成的代码插入文档的某个部位<a href="#生成的代码插入文档的某个部位" class="section_anchor"></a></h2><p>如模板输出生成的地方已经有该 同名的文件 存在,并且该文件中有包含&quot;generator-insert-location&quot;标记,则模板生成的内容会插入在该标记之后.该特性对如生成的spring配置内容插入spring配置文件十分有用 </p><h1><a name="创建一个模板"></a>创建一个模板<a href="#创建一个模板" class="section_anchor"></a></h1><h2><a name="代码template目录结构"></a>代码template目录结构<a href="#代码template目录结构" class="section_anchor"></a></h2><p><img src="http://rapid-framework.googlecode.com/svn/trunk/images/doc/generator_template_dir.jpg" /> </p><p>如上所示，目录及文件名称可以引用相关变量。 </p><h2><a name="创建一个生成器模板文件"></a>创建一个生成器模板文件<a href="#创建一个生成器模板文件" class="section_anchor"></a></h2><p>在temppate目录创建一个文件,如${className}SpringControler.java 则代码生成器会自动将该模板文件加载并生成该文件 </p><p><strong>充分利用各种文件的注释</strong> 如在.xml中我们可以使用 &lt;!-- generator-insert-location --&gt; 在.properties文件中我们可以使用 #generator-insert-location 具体请查看template/insert_demo目录的内容 </p><h1><a name="生成器参数配置"></a>生成器参数配置<a href="#生成器参数配置" class="section_anchor"></a></h1><p>通过设置GeneratorProperties.setProperty(key,value)设置相关参数值. 完整的配置参数请查看: <a href="http://code.google.com/p/rapid-framework/source/browse/trunk/rapid-mvn/rapid-generator/rapid-generator/src/main/java/cn/org/rapid_framework/generator/GeneratorConstants.java" rel="nofollow">http://code.google.com/p/rapid-framework/source/browse/trunk/rapid-mvn/rapid-generator/rapid-generator/src/main/java/cn/org/rapid_framework/generator/GeneratorConstants.java</a> </p><h1><a name="生成器核心类图"></a>生成器核心类图<a href="#生成器核心类图" class="section_anchor"></a></h1><p><img src="http://rapid-framework.googlecode.com/svn/trunk/images/doc/rapid_generator/core_generator_classes_uml.jpg" /> <ul><li>Generator为生成器引擎 </li><li>GeneratorFacade为生成器入口调用类 </li><li>GeneratorProperties 生成器的相关配置，用于读取generator.properties(或者是generator.xml) </li><li>TableFactory用于创建Table.java对象，用于GeneratorFacade.generateByTable()使用 </li><li>SqlFactory用于创建Sql.java对象,用于GeneratorFacade.generateBySql()使用 </li><li>JavaClass模板变量，用于GeneratorFacade.generateByClass()使用 </li></ul></p><h1><a name="重复生成代码"></a>重复生成代码<a href="#重复生成代码" class="section_anchor"></a></h1><p>现rapid自带的模板都不支持重复生成代码的，如果你需要重复生成代码，可以采用继承机制技巧重复生成。 </p><p>Java代码的重复生成,善用 <strong>&quot;继承机制&quot;</strong> ,示例如下: </p><pre class="prettyprint">UserInfoBaseDao : 自动生成的代码, 不能手工修改,用于重复生成
+UserInfoDao extends UserInfoBaseDao : 存放手工的代码，不能重复生成</pre><p>页面的重复生成还没有啥好办法。 </p><h1><a name="参考"></a>参考<a href="#参考" class="section_anchor"></a></h1><h2><a name="generateByTable()"></a>generateByTable()<a href="#generateByTable()" class="section_anchor"></a></h2><p>通过表(或视图)查询生成代码 </p><h2><a name="generateBySql()"></a>generateBySql()<a href="#generateBySql()" class="section_anchor"></a></h2><p><a href="/p/rapid-framework/wiki/generator_generate_by_sql">通过sql语句生成代码</a> </p><h2><a name="generateByClass()"></a>generateByClass()<a href="#generateByClass()" class="section_anchor"></a></h2><p>通过java class生成代码 </p><h2><a name="GG控制变量参考"></a>GG控制变量参考<a href="#GG控制变量参考" class="section_anchor"></a></h2><p><a href="/p/rapid-framework/wiki/rapid_generator_gg">gg控制变量</a> </p><h2><a name="table变量参考"></a>table变量参考<a href="#table变量参考" class="section_anchor"></a></h2><p><a href="http://rapid-demo.googlecode.com/svn/trunk/rapid-generator/javadoc/v3.9.1/cn/org/rapid_framework/generator/provider/db/table/model/Table.html" rel="nofollow">Table.java 请使用IE查看</a> <a href="/p/rapid-framework/wiki/rapid_generator_table_model_ref">table模板变量参考</a> </p><h2><a name="column变量参考]"></a>column变量参考]<a href="#column变量参考]" class="section_anchor"></a></h2><p><a href="http://rapid-demo.googlecode.com/svn/trunk/rapid-generator/javadoc/v3.9.1/cn/org/rapid_framework/generator/provider/db/table/model/Column.html" rel="nofollow">Column.java 请使用IE查看</a> </p><h2><a name="sql变量参考"></a>sql变量参考<a href="#sql变量参考" class="section_anchor"></a></h2><p><a href="http://rapid-demo.googlecode.com/svn/trunk/rapid-generator/javadoc/v3.9.1/cn/org/rapid_framework/generator/provider/db/sql/model/Sql.html" rel="nofollow">Sql.java 请使用IE查看</a> </p><h2><a name="模板引擎freemarker"></a>模板引擎freemarker<a href="#模板引擎freemarker" class="section_anchor"></a></h2><p>语法参考: <a href="http://freemarker.sourceforge.net/docs/index.html" rel="nofollow">http://freemarker.sourceforge.net/docs/index.html</a> </p><p>  </p>
+ </div>
+ </div>
+ </td><tr>
+</table>
+ </div>
+
+
+ 
+ <div id="wikicommentcol">
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+
+<div class="collapse">
+
+
+ 
+
+
+<div id="commentlist">
+
+ 
+ <div class="artifactcomment"
+ 
+ >
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">Comment
+ 
+ by 
+ 
+ 
+
+ <a class="userlink"
+ href="/u/115843352123028373088/">janr...@gmail.com</a
+>,
+ 
+ </span>
+ <span class="date" title="Thu Mar 15 20:42:12 2012">Mar 15, 2012</span>
+ <div>
+<div class="commentcontent">
+<p>能不能支持从DTO对象来生成源码，而不是从数据库，现在NOSQL已经慢慢流行起来了，无数据库的很常见，但是无法使用你们这个啦。 </p>
+</div>
+ 
+ 
+ </div>
+ </div>
+ 
+
+ 
+ <div class="artifactcomment"
+ 
+ >
+ 
+ 
+ 
+ 
+ 
+ 
+ <span class="author">Comment
+ 
+ by 
+ 
+ 
+
+ 
+ <span class="userlink">kingvike...@gmail.com</span>,
+ 
+ </span>
+ <span class="date" title="Wed Jun  6 03:11:38 2012">Jun 6, 2012</span>
+ <div>
+<div class="commentcontent">
+<p>我生成jsp文件的时候需要包含el表达式，但是el表达式的语法也是${},有没有什么解决方案。 I want to generate some jsp files, I need to use el language in thses files, the grammar of el is also &quot;${}&quot;,could you give me a solution? </p>
+</div>
+ 
+ 
+ </div>
+ </div>
+ 
+
+</div>
+</div>
+
+ 
+
+
+ <script type="text/javascript">
+ function delComment(sequence_num, create_time, delete_mode) {
+ var f = document.forms["delcom"];
+ f.sequence_num.value = sequence_num;
+ f.create_time.value = create_time;
+ f.mode.value = delete_mode;
+ f.submit();
+ return false;
+ }
+ </script>
+
+
+ </div>
+ 
+ 
+ 
+ 
+ <br>
+ <div class="artifactcomment">
+ <span class="indicator">&#9658;</span> <a href="https://www.google.com/accounts/ServiceLogin?service=code&amp;ltmpl=phosting&amp;continue=http%3A%2F%2Fcode.google.com%2Fp%2Frapid-framework%2Fwiki%2Frapid_generator&amp;followup=http%3A%2F%2Fcode.google.com%2Fp%2Frapid-framework%2Fwiki%2Frapid_generator"
+ >Sign in</a> to add a comment
+ </div>
+ 
+ 
+ 
+ 
+ <form name="delcom" action="../w/delComment.do" method="POST">
+ <input type="hidden" name="sequence_num" value="" >
+ <input type="hidden" name="create_time" value="" >
+ <input type="hidden" name="mode" value="" >
+ <input type="hidden" name="pagename" value="rapid_generator" >
+ <input type="hidden" name="token" value="" >
+ </form>
+
+
+ <script src="http://www.gstatic.com/codesite/ph/3076573747170053082/js/prettify/prettify.js"></script>
+ <script type="text/javascript">
+ prettyPrint();
+ </script>
+
+<script type="text/javascript" src="http://www.gstatic.com/codesite/ph/3076573747170053082/js/dit_scripts.js"></script>
+
+
+
+  
+ 
+ 
+ <script type="text/javascript" src="http://www.gstatic.com/codesite/ph/3076573747170053082/js/ph_core.js"></script>
+ 
+ <script type="text/javascript" src="http://www.gstatic.com/codesite/ph/3076573747170053082/js/ph_dwiki.js"></script>
+ 
+ 
+ 
+ 
+</div> 
+
+<div id="footer" dir="ltr">
+ <div class="text">
+ <a href="/projecthosting/terms.html">Terms</a> -
+ <a href="http://www.google.com/privacy.html">Privacy</a> -
+ <a href="/p/support/">Project Hosting Help</a>
+ </div>
+</div>
+ <div class="hostedBy" style="margin-top: -20px;">
+ <span style="vertical-align: top;">Powered by <a href="http://code.google.com/projecthosting/">Google Project Hosting</a></span>
+ </div>
+
+ 
+ 
+
+
+ 
+ </body>
+</html>
+
+

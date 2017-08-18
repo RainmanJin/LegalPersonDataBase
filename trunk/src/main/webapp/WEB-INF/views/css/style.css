@@ -3087,3 +3087,80 @@ hr {
 .min-w150{
     min-width: 150px;
 }
+/*frk 数据统计页面样式start  yy*/
+.frk-wrap{
+    background-color: #fff;
+    height: 100%;
+    font-family: "Microsoft Yahei", Arial, "宋体";
+}
+.frk-data{
+    padding: 20px;
+    background-color: #fff;
+}
+.frk-wrap .total-data{
+    background-color: #4dabed;
+    height: 200px;
+    border-right: 1px solid #fff;
+    box-sizing: border-box;
+    border-radius: 5px 0 0 5px;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+.frk-wrap .newly-added{
+    box-sizing: border-box;
+    background-color: #39c2a4;
+    height: 200px;
+    border-radius: 0px 5px 5px 0px;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 35px;
+}
+.frk-wrap .total-data .time{
+    font-size: 16px;
+    color: #fff;
+}
+.fr-total-data{
+    padding-left: 55px;
+    box-sizing: border-box;
+    border-right: 1px solid #71bcf1;
+}
+
+.open-data{
+    padding-left: 55px;
+    box-sizing: border-box;
+}
+.mt55{
+    margin-top: 55px;
+}
+.frk-wrap .total-data div p{
+    font-size: 18px;
+    color: #fff;
+}
+.frk-wrap .total-data div span{
+    font-size: 36px;
+    color: #ffff00;
+}
+
+.newly-added .title{
+    font-size: 18px;
+    color: #fff;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #61ceb6;
+}
+.newly-added p{
+    font-size: 16px;
+    color: #fff;
+}
+.mb15{
+    margin-bottom: 15px;
+}
+.color-yellow{
+    color: yellow!important;
+}
+.frk-wrap .data-from-title{
+    font-size: 18px;
+    color: #4dabed;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+/*frk end  yy*/

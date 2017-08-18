@@ -1,0 +1,636 @@
+require(['component/iframeLayer', 'component/dataTable', 'common/util', 'common/http', 'handlebars', 'jquery','jquery.serialize','laydate','jquery.validate','pagination'], function (layer, dataTable, util, http,handlebars) {
+  var params = $("#frwybs").val();
+  var table_zcqkhz,table_gdcz,table_gqbg,table_gqcz,table_gqdj,table_bdccf;
+  var table_dcdy,table_zscq,table_tdsyq,table_ckq,table_lysyq,table_swzc;
+
+  init();
+  /**
+   * 初始化函数集合
+   */
+  function init() {
+    var errormsg =  $("#errormsg").val();
+    if(errormsg != null && errormsg != ""){
+      initSSFlex();
+      layer.msg(errormsg);
+    }else{
+    	_bind();
+        init_asset();
+    }
+  }
+
+  function init_asset(){
+    if((table_zcqkhz+'')=='undefined'){
+      initDataTable_zcqkhz();
+    };
+    if((table_gdcz+'')=='undefined'){
+      initDataTable_gdcz();
+    };
+    if((table_gqbg+'')=='undefined'){
+      initDataTable_gqbg();
+    };
+    if((table_gqcz+'')=='undefined'){
+      initDataTable_gqcz();
+    };
+    if((table_gqdj+'')=='undefined'){
+      initDataTable_gqdj();
+    };
+    if((table_bdccf+'')=='undefined'){
+      initDataTable_bdccf();
+    };
+    if((table_dcdy+'')=='undefined'){
+      initDataTable_dcdy();
+    };
+    if((table_zscq+'')=='undefined'){
+      initDataTable_zscq();
+    };
+    if((table_tdsyq+'')=='undefined'){
+      initDataTable_tdsyq();
+    };
+    if((table_ckq+'')=='undefined'){
+      initDataTable_ckq();
+    };
+    if((table_lysyq+'')=='undefined'){
+      initDataTable_lysyq();
+    };
+    if((table_swzc+'')=='undefined'){
+      initDataTable_swzc();
+    };
+  }
+  //展开与收缩
+  function initAddflex(yrinfo_li){
+    $("#"+yrinfo_li).parent().next().hide();
+    $("#"+yrinfo_li).attr("class","flex-icon on")
+  }
+  //初始化异常全部收缩
+  function initSSFlex(){
+    	$("table").hide();
+    }
+
+  function initDataTable_zcqkhz() {
+    table_zcqkhz = dataTable.load({
+      el : '#table_zcqkhz',
+      showIndex: true,
+      scrollX: true,
+      lengthMenu: [ 5, 10, 20, 50],
+      ajax : {
+        url : '/data/asset/zcqkhz' ,
+        data :function(d){
+          d.params = {"frwybs": params}
+        }
+      },
+      columns: [{
+        data: null,
+        defaultContent: 1,
+width:20,
+        className:'center'
+      }, {
+        data: "zczb"
+      }, {
+        data: "carnum"
+      }, {
+        data: "housenum"
+      }, {
+        data: "tractornum"
+      }, {
+        data: "boatnum"
+      }],
+      columnDefs : [
+      ]
+    });
+    table_zcqkhz.on('init.dt',function(e,settings,json){
+      if(json.recordsTotal <= 5){
+        $('#table_zcqkhz_wrapper .bottom').hide();
+      }else{
+        $('#table_zcqkhz_wrapper .bottom').show();
+      }
+
+      if(json.recordsTotal == 0){
+        initAddflex("table_zcqkhz_icon");
+      }
+    })
+  }
+
+
+
+  function initDataTable_gdcz() {
+    table_gdcz = dataTable.load({
+      el : '#table_gdcz',
+      showIndex: true,
+      scrollX: true,
+      lengthMenu: [ 5, 10, 20, 50],
+      ajax : {
+        url : '/data/asset/gdcz' ,
+        data :function(d){
+          d.params = {"frwybs": params}
+        }
+      },
+      columns : [
+        {data:null,defaultContent:1,className:'center',width:20},
+        {data:'gd',className:'center'},
+      {data:'rjcze',className:'center'},
+      {data:'rjczbl',className:'center'},
+      {data:'rjczrq',className:'center'},
+      {data:'sjcze',className:'center'},
+      {data:'sjczbl',className:'center'},
+      ],
+      columnDefs : [
+    	  {
+              targets: 3,
+              render: function (data, type, row, meta) {
+                return row.rjczbl+"%";
+              }
+            },
+    	  {
+          	targets:6,
+          	render:function (data, type, row, meta) {
+              return Math.round(row.sjczbl*10000)/ 100.00+"%";
+            }
+          }
+      ]
+    });
+    table_gdcz.on('init.dt',function(e,settings,json){
+      if(json.recordsTotal <= 5){
+        $('#table_gdcz_wrapper .bottom').hide();
+      }else{
+        $('#table_gdcz_wrapper .bottom').show();
+      }
+      if(json.recordsTotal == 0){
+        initAddflex("table_gdcz_icon");
+      }
+    })
+  }
+
+
+
+  function initDataTable_gqbg() {
+    table_gqbg = dataTable.load({
+      el : '#table_gqbg',
+      showIndex: true,
+      scrollX: true,
+      lengthMenu: [ 5, 10, 20, 50],
+      ajax : {
+        url : '/data/asset/gqbg' ,
+        data :function(d){
+          d.params = {"frwybs": params}
+        }
+      },
+      columns: [{
+        data: null,
+        defaultContent: 1,
+width:20,
+      }, {
+        data: "gd"
+      }, {
+        data: "gqZre"
+      }, {
+        data: "gqQrqbl"
+      }, {
+        data: "gqQrhbl"
+      }, {
+        data: "gqZrrq"
+      }],
+      columnDefs : [
+
+      ]
+    });
+    table_gqbg.on('init.dt',function(e,settings,json){
+      if(json.recordsTotal <= 5){
+        $('#table_gqbg_wrapper .bottom').hide();
+      }else{
+        $('#table_gqbg_wrapper .bottom').show();
+      }
+      if(json.recordsTotal == 0){
+        initAddflex("table_gqbg_icon");
+      }
+    })
+  }
+
+  function initDataTable_gqcz() {
+    table_gqcz = dataTable.load({
+      el : '#table_gqcz',
+      showIndex: true,
+      scrollX: true,
+      lengthMenu: [ 5, 10, 20, 50],
+      ajax : {
+        url : '/data/asset/gqcz' ,
+        data :function(d){
+          d.params = {"frwybs": params}
+        }
+      },
+      columns: [{
+        data: null,
+        defaultContent: 1,
+width:20,
+      }, {
+        data: "czCzr"
+      }, {
+        data: "czZqr"
+      }, {
+        data: "czSe"
+      }, {
+        data: "czDjrq"
+      }],
+      columnDefs : [
+
+      ]
+    });
+    table_gqcz.on('init.dt',function(e,settings,json){
+      if(json.recordsTotal <= 5){
+        $('#table_gqcz_wrapper .bottom').hide();
+      }else{
+        $('#table_gqcz_wrapper .bottom').show();
+      }
+      if(json.recordsTotal == 0){
+        initAddflex("table_gqcz_icon");
+      }
+    })
+  }
+
+
+
+  function initDataTable_gqdj() {
+    table_gqdj = dataTable.load({
+      el : '#table_gqdj',
+      showIndex: true,
+      scrollX: true,
+      lengthMenu: [ 5, 10, 20, 50],
+      ajax : {
+        url : '/data/asset/gqdj' ,
+        data :function(d){
+          d.params = {"frwybs": params}
+        }
+      },
+      columns: [{
+        data: null,
+        defaultContent: 1,
+width:20,
+      }, {
+        data: "djZxfy"
+      }, {
+        data: "djCdwh"
+      }, {
+        data: "djZxsx"
+      }, {
+        data: "djBzxr"
+      }, {
+        data: "djQxqs"
+      }, {
+        data: "djQxjz"
+      }],
+      columnDefs : [
+
+      ]
+    });
+    table_gqdj.on('init.dt',function(e,settings,json){
+      if(json.recordsTotal <= 5){
+        $('#table_gqdj_wrapper .bottom').hide();
+      }else{
+        $('#table_gqdj_wrapper .bottom').show();
+      }
+      if(json.recordsTotal == 0){
+        initAddflex("table_gqdj_icon");
+      }
+    })
+  }
+
+
+  function initDataTable_bdccf() {
+    table_bdccf = dataTable.load({
+      el : '#table_bdccf',
+      showIndex: true,
+      scrollX: true,
+      lengthMenu: [ 5, 10, 20, 50],
+      ajax : {
+        url : '/data/asset/bdccf' ,
+        data :function(d){
+          d.params = {"frwybs": params}
+        }
+      },
+      columns: [{
+        data: null,
+        defaultContent: 1,
+width:20,
+      }, {
+        data: "fwsyqr"
+      }, {
+        data: "fwsyqdjsj"
+      }, {
+        data: "whFwcf"
+      }, {
+        data: "fwcfrq"
+      }, {
+        data: "sqfwcfdw"
+      }, {
+        data: "ztFwcf"
+      }],
+      columnDefs : [
+
+      ]
+    });
+    table_bdccf.on('init.dt',function(e,settings,json){
+      if(json.recordsTotal <= 5){
+        $('#table_bdccf_wrapper .bottom').hide();
+      }else{
+        $('#table_bdccf_wrapper .bottom').show();
+      }
+      if(json.recordsTotal == 0){
+        initAddflex("table_bdccf_icon");
+      }
+    })
+  }
+
+
+  function initDataTable_dcdy() {
+    table_dcdy = dataTable.load({
+      el : '#table_dcdy',
+      showIndex: true,
+      scrollX: true,
+      lengthMenu: [ 5, 10, 20, 50],
+      ajax : {
+        url : '/data/asset/dcdy' ,
+        data :function(d){
+          d.params = {"frwybs": params}
+        }
+      },
+      columns: [{
+        data: null,
+        defaultContent: 1,
+width:20,
+      },{
+        data: "dwmc"
+      }, {
+        data: "dysfzx"
+      }, {
+        data: "dyw"
+      }, {
+        data: "dyrq"
+      }, {
+        data: "dyje"
+      }],
+      columnDefs : [
+
+      ]
+    });
+    table_dcdy.on('init.dt',function(e,settings,json){
+      if(json.recordsTotal <= 5){
+        $('#table_dcdy_wrapper .bottom').hide();
+      }else{
+        $('#table_dcdy_wrapper .bottom').show();
+      }
+      if(json.recordsTotal == 0){
+        initAddflex("table_dcdy_icon");
+      }
+    })
+  }
+
+
+  function initDataTable_zscq() {
+    table_zscq = dataTable.load({
+      el : '#table_zscq',
+      showIndex: true,
+      scrollX: true,
+      lengthMenu: [ 5, 10, 20, 50],
+      ajax : {
+        url : '/data/asset/zscq' ,
+        data :function(d){
+          d.params = {"frwybs": params}
+        }
+      },
+      columns: [{
+        data: null,
+        defaultContent: 1,
+width:20,
+      }, {
+        data: "syzmc"
+      }, {
+        data: "bqdjh"
+      }, {
+        data: "zpmc"
+      }, {
+        data: "zplb"
+      }, {
+        data: "bqdjrq"
+      }],
+      columnDefs : [
+
+      ]
+    });
+    table_zscq.on('init.dt',function(e,settings,json){
+      if(json.recordsTotal <= 5){
+        $('#table_zscq_wrapper .bottom').hide();
+      }else{
+        $('#table_zscq_wrapper .bottom').show();
+      }
+      if(json.recordsTotal == 0){
+        initAddflex("table_zscq_icon");
+      }
+    })
+  }
+
+
+  function initDataTable_tdsyq() {
+    table_tdsyq = dataTable.load({
+      el : '#table_tdsyq',
+      showIndex: true,
+      scrollX: true,
+      lengthMenu: [ 5, 10, 20, 50],
+      ajax : {
+        url : '/data/asset/tdsyq' ,
+        data :function(d){
+          d.params = {"frwybs": params}
+        }
+      },
+      columns: [{
+        data: null,
+        defaultContent: 1,
+width:20,
+      }, {
+        data: "syzmc"
+      }, {
+        data: "syqdjrq"
+      }, {
+        data: "syqNx"
+      }],
+      columnDefs : [
+
+      ]
+    });
+    table_tdsyq.on('init.dt',function(e,settings,json){
+      if(json.recordsTotal <= 5){
+        $('#table_tdsyq_wrapper .bottom').hide();
+      }else{
+        $('#table_tdsyq_wrapper .bottom').show();
+      }
+      if(json.recordsTotal == 0){
+        initAddflex("table_tdsyq_icon");
+      }
+    })
+  }
+
+
+  function initDataTable_ckq() {
+    table_ckq = dataTable.load({
+      el : '#table_ckq',
+      showIndex: true,
+      scrollX: true,
+      lengthMenu: [ 5, 10, 20, 50],
+      ajax : {
+        url : '/data/asset/ckq' ,
+        data :function(d){
+          d.params = {"frwybs": params}
+        }
+      },
+      columns: [{
+        data: null,
+        defaultContent: 1,
+width:20,
+      }, {
+        data: "syzmc"
+      }, {
+        data: "ckqzh"
+      }, {
+        data: "ckqksmc"
+      }, {
+        data: "nkcgm"
+      }, {
+        data: "yxqsrq"
+      }, {
+        data: "yxdqrq"
+      }],
+      columnDefs : [
+
+      ]
+    });
+    table_ckq.on('init.dt',function(e,settings,json){
+      if(json.recordsTotal <= 5){
+        $('#table_ckq_wrapper .bottom').hide();
+      }else{
+        $('#table_ckq_wrapper .bottom').show();
+      }
+      if(json.recordsTotal == 0){
+        initAddflex("table_ckq_icon");
+      }
+    })
+  }
+
+
+  function initDataTable_lysyq() {
+    table_lysyq = dataTable.load({
+      el : '#table_lysyq',
+      showIndex: true,
+      scrollX: true,
+      lengthMenu: [ 5, 10, 20, 50],
+      ajax : {
+        url : '/data/asset/lysyq' ,
+        data :function(d){
+          d.params = {"frwybs": params}
+        }
+      },
+      columns: [{
+        data: null,
+        defaultContent: 1,
+width:20,
+      }, {
+        data: "syzmc"
+      }, {
+        data: "xdm"
+      }, {
+        data: "slsyq"
+      }, {
+        data: "slzzq"
+      }, {
+        data: "slxz"
+      }, {
+        data: "lz"
+      }],
+      columnDefs : [
+
+      ]
+    });
+    table_lysyq.on('init.dt',function(e,settings,json){
+      if(json.recordsTotal <= 5){
+        $('#table_lysyq_wrapper .bottom').hide();
+      }else{
+        $('#table_lysyq_wrapper .bottom').show();
+      }
+      if(json.recordsTotal == 0){
+        initAddflex("table_lysyq_icon");
+      }
+    })
+  }
+
+
+  function initDataTable_swzc() {
+    table_swzc = dataTable.load({
+      el : '#table_swzc',
+      showIndex: true,
+      scrollX: true,
+      lengthMenu: [ 5, 10, 20, 50],
+      ajax : {
+        url : '/data/asset/swzc' ,
+        data :function(d){
+          d.params = {"frwybs": params}
+        }
+      },
+      columns: [{
+        data: null,
+        defaultContent: 1,
+width:20,
+      }, {
+        data: "dwmc"
+      }, {
+        data: "czhong"
+      }, {
+        data: "cll"
+      }, {
+        data: "spcsl"
+      }, {
+        data: "zcsl"
+      }, {
+        data: "mcsl"
+      }, {
+        data: "gcsl"
+      }],
+      columnDefs : [
+
+      ]
+    });
+    table_swzc.on('init.dt',function(e,settings,json){
+      if(json.recordsTotal <= 5){
+        $('#table_swzc_wrapper .bottom').hide();
+      }else{
+        $('#table_swzc_wrapper .bottom').show();
+      }
+      if(json.recordsTotal == 0){
+        initAddflex("table_swzc_icon");
+      }
+    })
+  }
+
+  /**
+   * 事件绑定
+   * @private
+   */
+  function _bind() {
+    util.bindEvents([
+      {
+        el: '.flex-icon',
+        event: 'click',
+        handler: function () {
+          // 隐藏table
+          $(this).parent().next().hide();
+          $(this).attr("class","flex-icon on")
+        }
+      },
+      {
+        el: '.on',
+        event: 'click',
+        handler: function () {
+          // 显示table
+          $(this).parent().next().show();
+          $(this).attr("class","flex-icon");
+        }
+      }
+    ])
+  }
+});
