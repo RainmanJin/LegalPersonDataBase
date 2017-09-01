@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icinfo.frk.business.mapper.GlvStatMapper">
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.GlvStat">
+		<result column="tablename" jdbcType="VARCHAR" property="tablename"/>
+		<result column="datasrdep" jdbcType="VARCHAR" property="datasrdep"/>
+		<result column="datasource" jdbcType="VARCHAR" property="datasource"/>
+		<result column="num_bef" jdbcType="DECIMAL" property="numBef"/>
+		<result column="createtime" jdbcType="TIMESTAMP" property="createtime"/>
+		<result column="num_aft" jdbcType="DECIMAL" property="numAft"/>
+		<result column="glv" jdbcType="DECIMAL" property="glv"/>
+		<result column="stroage_type" jdbcType="VARCHAR" property="stroageType"/>
+	</resultMap>
+
+	
+</mapper>
