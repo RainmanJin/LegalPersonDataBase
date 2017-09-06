@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icinfo.frk.business.mapper.FrCityMapper">
+	<resultMap id="BaseResultMap" type="com.icinfo.frk.business.model.FrCity">
+		<result column="id" jdbcType="INTEGER" property="id" />
+		<result column="city" jdbcType="VARCHAR" property="city" />
+		<result column="num" jdbcType="NUMERIC" property="num" />
+	</resultMap>
+
+	<select id="getCityDetail"  resultMap="BaseResultMap">
+		SELECT * FROM frk.fr_city_num;
+	</select>
+</mapper>
