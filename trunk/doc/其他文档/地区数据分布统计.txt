@@ -1,0 +1,31 @@
+select case area
+when '3301' then '杭州'
+when '3302' then '宁波'
+when '3303' then '温州'
+when '3304' then '嘉兴'
+when '3305' then '湖州'
+when '3306' then '绍兴'
+when '3307' then '金华'
+when '3308' then '衢州'
+when '3309' then '舟山'
+when '3310' then '台州'
+when '3325' then '丽水'
+end, cc from (
+select substr(frwybs,3,4) area,count(*) as cc from frk.ca_dj_jbxx
+group by substr(frwybs,3,4)
+having count(*) > 100
+order by count(*) desc
+limit 100) T ;
+
+
+update frk.fr_city_num set num = 1925592 where city = '杭州市';
+update frk.fr_city_num set num = 1895603 where city = '宁波市';
+update frk.fr_city_num set num = 1692637 where city = '温州市';
+update frk.fr_city_num set num = 857970 where city = '嘉兴市';
+update frk.fr_city_num set num = 117882 where city = '湖州市';
+update frk.fr_city_num set num = 1114878 where city = '绍兴市';
+update frk.fr_city_num set num = 1126543 where city = '金华市';
+update frk.fr_city_num set num = 284931 where city = '衢州市';
+update frk.fr_city_num set num = 284980 where city = '舟山市';
+update frk.fr_city_num set num = 680808 where city = '台州市';
+update frk.fr_city_num set num = 3039 where city = '丽水市';

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.icinfo.frk.business.mapper.FullPreviewMapper">
+	<resultMap id="BaseResultMapDto" type="com.icinfo.frk.business.dto.GlvStatDto">
+		<result column="startTime" jdbcType="VARCHAR" property="startTime" />
+		<result column="endTime" jdbcType="VARCHAR" property="endTime" />
+		<result column="dataType" jdbcType="VARCHAR" property="dataType" />
+		<result column="colletNum" jdbcType="INTEGER" property="colletNum" />
+		<result column="importNum" jdbcType="INTEGER" property="importNum" />
+	</resultMap>
+	<select id="selectDataNum" resultMap="BaseResultMapDto">
+		select sum(num_bef) as colletNum,sum(num_aft) as importNum from frk.glv_stat
+	</select>
+</mapper>
