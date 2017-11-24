@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.icinfo.frk.sso.mapper.SsoUserMapper" >
+  <resultMap id="BaseResultMap" type="com.icinfo.frk.sso.model.SsoUser" >
+    <result column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="UI_USERID" property="userid" jdbcType="VARCHAR" />
+    <result column="UI_ORG_CODING" property="orgCoding" jdbcType="VARCHAR" />
+    <result column="UI_OLDORG_CODING" property="oldorgCoding" jdbcType="VARCHAR" />
+    <result column="UI_EXTEND_ORG_CODING" property="extendOrgCoding" jdbcType="VARCHAR" />
+    <result column="UI_EXTEND_ORDERBY" property="extendOrderby" jdbcType="VARCHAR" />
+    <result column="UI_USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="UI_LOGINNAME" property="loginname" jdbcType="VARCHAR" />
+    <result column="UI_ENCRYPTION_TYPE" property="encryptionType" jdbcType="CHAR" />
+    <result column="UI_LOGINPWD" property="loginpwd" jdbcType="VARCHAR" />
+    <result column="UI_EMAIL" property="email" jdbcType="VARCHAR" />
+    <result column="UI_MOBILE" property="mobile" jdbcType="VARCHAR" />
+    <result column="UI_MOBILE2" property="mobile2" jdbcType="VARCHAR" />
+    <result column="UI_TELEPHONE" property="telephone" jdbcType="VARCHAR" />
+    <result column="UI_TELEPHONE2" property="telephone2" jdbcType="VARCHAR" />
+    <result column="UI_VIRTUAL_NUM" property="virtualNum" jdbcType="VARCHAR" />
+    <result column="UI_USER_POSITION" property="userPosition" jdbcType="VARCHAR" />
+    <result column="UI_USERTITLE" property="usertitle" jdbcType="VARCHAR" />
+    <result column="UI_POSTCODE" property="postcode" jdbcType="VARCHAR" />
+    <result column="UI_CAKEY" property="cakey" jdbcType="VARCHAR" />
+    <result column="UI_SEX" property="sex" jdbcType="VARCHAR" />
+    <result column="UI_BIRTHDAY" property="birthday" jdbcType="VARCHAR" />
+    <result column="UI_COUNTRY" property="country" jdbcType="VARCHAR" />
+    <result column="UI_PROVINCE" property="province" jdbcType="VARCHAR" />
+    <result column="UI_CITY" property="city" jdbcType="VARCHAR" />
+    <result column="UI_OFFICE_ADDRESS" property="officeAddress" jdbcType="VARCHAR" />
+    <result column="UI_OFFICE_NUM" property="officeNum" jdbcType="VARCHAR" />
+    <result column="UI_OFFICE_PHONE" property="officePhone" jdbcType="VARCHAR" />
+    <result column="UI_OFFICE_FAX" property="officeFax" jdbcType="VARCHAR" />
+    <result column="UI_HOME_PHONE" property="homePhone" jdbcType="VARCHAR" />
+    <result column="UI_HOME_ADDRESS" property="homeAddress" jdbcType="VARCHAR" />
+    <result column="UI_OFFICIAL" property="official" jdbcType="CHAR" />
+    <result column="UI_OFFICIAL_TYPE" property="officialType" jdbcType="VARCHAR" />
+    <result column="UI_IDTYPE" property="idtype" jdbcType="CHAR" />
+    <result column="UI_IDNUM" property="idnum" jdbcType="VARCHAR" />
+    <result column="UI_USEABLE" property="useable" jdbcType="CHAR" />
+    <result column="UI_ORDERBY" property="orderby" jdbcType="INTEGER" />
+    <result column="UI_HEADPICTURE" property="headpicture" jdbcType="VARCHAR" />
+    <result column="UI_ADDTIME" property="addTime" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>

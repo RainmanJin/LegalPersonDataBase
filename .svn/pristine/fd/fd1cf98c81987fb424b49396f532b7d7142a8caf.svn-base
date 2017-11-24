@@ -1,0 +1,6 @@
+create table frk.sys_user_20171016 as select * from frk.sys_user;
+create table frk.sys_user_role_20171016 as select * from frk.sys_user_role;
+create table frk.sys_role_20171016 as select * from frk.sys_role;
+create table frk.sys_role_permision_20171016 as select * from frk.sys_role_permision;
+create table frk.sys_permision_20171016 as select * from frk.sys_permision;
+
